@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand Tokens from Style Reference */
+    --color-dark-green: #202923;
+    --color-vibrant-green: #34A853;
+    --color-pure-black: #0D0D0D;
+    --color-dark-gray: #282D29;
+    --color-mid-gray: #808080;
+    --color-soft-green: #D6EEDD;
+    --color-canvas-white: #F5FFF8;
+    --color-absolute-white: #FFFFFF;
+
+    /* Legacy mapping aliases */
+    --color-forest-ink: #202923;
+    --color-lime-voltage: #34A853;
+    --color-spruce: #202923;
+    --color-linen-mist: #D6EEDD;
+    --color-charcoal: #282D29;
+    --color-obsidian: #0D0D0D;
+    --color-pebble: #808080;
+
+    /* Theme Tokens - Light Mode */
+    --bg-canvas: #F5FFF8;
+    --bg-surface: #EAF4EC;
+    --bg-card: #FFFFFF;
+    --bg-card-alt: #EFF7F1;
+    --border-color: #D6EEDD;
+    --border-subtle: #D6EEDD;
+    --color-text-main: #282D29;
+    --color-text-heading: #0D0D0D;
+    --color-text-muted: #808080;
+    --color-nav-bg: rgba(245, 255, 248, 0.85);
+
+    /* Typography, Radii & Spacing */
+    --font-instrument-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --radius-cards: 16px;
+    --radius-inputs: 12px;
+    --radius-buttons: 9999px;
+    --radius-tags: 9999px;
+    --spacing-section-gap: 64px;
+
+    /* Shadows */
+    --shadow-elevated: 0px 8px 24px rgba(214, 238, 221, 0.4);
+  }
+
+  .dark {
+    /* Theme Tokens - Dark Mode */
+    --bg-canvas: #161D18;
+    --bg-surface: #202923;
+    --bg-card: #28322B;
+    --bg-card-alt: #202923;
+    --border-color: rgba(52, 168, 83, 0.25);
+    --border-subtle: rgba(214, 238, 221, 0.15);
+    --color-text-main: #E8F5EB;
+    --color-text-heading: #FFFFFF;
+    --color-text-muted: #9AA89E;
+    --color-nav-bg: rgba(22, 29, 24, 0.85);
+
+    --color-forest-ink: #E8F5EB;
+    --color-lime-voltage: #34A853;
+
+    /* Shadows */
+    --shadow-elevated: 0px 8px 24px rgba(32, 41, 35, 0.4);
+  }
+}
+
+body {
+  font-family: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--color-text-main);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #D6EEDD;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(52, 168, 83, 0.3);
+}
+
+/* Custom Utilities */
+.bg-forest {
+  background-color: var(--color-dark-green);
+}
+
+.text-lime {
+  color: var(--color-vibrant-green);
+}
+
+.bg-lime {
+  background-color: var(--color-vibrant-green);
+}
+
+.border-lime-subtle {
+  border-color: var(--border-color);
+}
+
