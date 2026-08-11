@@ -1,4 +1,10 @@
 import { PlaygroundItem } from '../types';
+import craqueDaQuadraImg from '../assets/images/craque_da_quadra_1786405872006.jpg';
+import survivalCardGameImg from '../assets/images/survival_card_game_1786405882300.jpg';
+import tokenExporterPluginImg from '../assets/images/token_exporter_plugin_1786405891725.jpg';
+import hiltonMobileAppImg from '../assets/images/hilton_mobile_app_1786405901231.jpg';
+import abinbevDashboardImg from '../assets/images/abinbev_dashboard_1786405911744.jpg';
+import juliusBarPortalImg from '../assets/images/julius_bar_portal_1786405921889.jpg';
 
 export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
   {
@@ -9,7 +15,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'Craque da Quadra — App de Votación Deportiva'
     },
     category: 'Mobile App & Sports UI',
-    image: '/src/assets/images/craque_da_quadra_1786405872006.jpg',
+    image: craqueDaQuadraImg,
     aspectRatio: 'aspect-video',
     tags: ['React Native', 'UI Design', 'Voting System'],
     details: {
@@ -26,7 +32,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'Juego de Cartas Táctico y Apocalíptico'
     },
     category: 'Game UI & Illustration',
-    image: '/src/assets/images/survival_card_game_1786405882300.jpg',
+    image: survivalCardGameImg,
     aspectRatio: 'aspect-video',
     tags: ['Card Game', 'Textured UI', 'Illustration'],
     details: {
@@ -43,7 +49,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'Token Exporter — Plugin de Figma para Hilton'
     },
     category: 'DesignOps & Figma Plugins',
-    image: '/src/assets/images/token_exporter_plugin_1786405891725.jpg',
+    image: tokenExporterPluginImg,
     aspectRatio: 'aspect-video',
     tags: ['Figma API', 'Design Tokens', 'Automation'],
     details: {
@@ -60,7 +66,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'Hilton Mobile App — Experiencia de Reserva Global'
     },
     category: 'Hospitality & Travel UX',
-    image: '/src/assets/images/hilton_mobile_app_1786405901231.jpg',
+    image: hiltonMobileAppImg,
     aspectRatio: 'aspect-video',
     tags: ['iOS / Android', 'Mobile Design', 'Hilton Prism'],
     details: {
@@ -77,7 +83,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'AB InBev — Dashboard de Presupuesto y Dispersión'
     },
     category: 'Enterprise Fintech & Analytics',
-    image: '/src/assets/images/abinbev_dashboard_1786405911744.jpg',
+    image: abinbevDashboardImg,
     aspectRatio: 'aspect-video',
     tags: ['Power BI', 'Data Visualization', 'Dashboards'],
     details: {
@@ -94,7 +100,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
       es: 'Julius Bär — Portal de Movimentación Financiera'
     },
     category: 'Wealth Management & B2B',
-    image: '/src/assets/images/julius_bar_portal_1786405921889.jpg',
+    image: juliusBarPortalImg,
     aspectRatio: 'aspect-video',
     tags: ['Fintech B2B', 'Trade Flow', 'Design System'],
     details: {

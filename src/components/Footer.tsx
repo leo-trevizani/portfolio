@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         <div className="pt-8 border-t border-white/20 flex items-center justify-between gap-4 text-xs text-white/90 font-medium">
           <div className="flex items-center gap-3">
             <img
-              src="/icon-branco.svg"
+              src={`${import.meta.env.BASE_URL}icon-branco.svg`}
               alt="Leo Trevizani Logo"
               className="w-7 h-7 object-contain shrink-0"
             />

@@ -1,4 +1,8 @@
 import { CaseStudy } from '../types';
+import hiltonCover from '../assets/images/hilton_case_cover_1786018890676.jpg';
+import abinbevCover from '../assets/images/abinbev_case_cover_1786018909060.jpg';
+import nissanCover from '../assets/images/nissan_case_cover_1786018927463.jpg';
+import juliusBaerCover from '../assets/images/julius_baer_cover_1786018941597.jpg';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
@@ -10,7 +14,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     role: 'Product Designer (Property & Prism Design System via Globant)',
     metricsHighlight: '5d ➔ 4h',
     metricLabel: 'Redução no tempo de entrega de paletas de cores',
-    coverImage: '/src/assets/images/hilton_case_cover_1786018890676.jpg',
+    coverImage: hiltonCover,
     pullQuote: {
       pt: 'Em 8.000 hotéis, um processo manual de cinco dias não é um atraso. É uma fila que nunca esvazia.',
       en: 'At 8,000 hotels, a five-day manual process isn\'t a delay. It\'s a queue that never empties.',
@@ -245,7 +249,7 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     role: 'UX/UI Designer & Product Specialist (PowerApps & Power BI)',
     metricsHighlight: '30% de Redução',
     metricLabel: 'Redução de custos por eficiência operacional',
-    coverImage: '/src/assets/images/abinbev_case_cover_1786018909060.jpg',
+    coverImage: abinbevCover,
     pullQuote: {
       pt: 'Uma fórmula de planilha editada por engano não quebra apenas uma célula. Quebra uma decisão na cadeia de suprimentos três níveis acima.',
       en: 'A spreadsheet formula edited by mistake doesn’t just break a cell. It breaks a supply chain decision three levels up.',
@@ -468,7 +472,7 @@ Ese único fallo se cascateaba: la dirección debía auditar hojas de cálculo u
     role: 'UX/UI Designer (via BRQ)',
     metricsHighlight: '+23% de Receita',
     metricLabel: 'Aumento de receita no canal digital (Mar - Jun 2025)',
-    coverImage: '/src/assets/images/nissan_case_cover_1786018927463.jpg',
+    coverImage: nissanCover,
     pullQuote: {
       pt: 'Ninguém hesita em comprar uma camiseta online. Um carro é um tipo diferente de confiança.',
       en: 'Nobody hesitates buying a t-shirt online. A car is a different kind of trust.',
@@ -721,7 +725,7 @@ Sin red de seguridad para 4 desarrolladores: con un solo diseñador y sin PM ded
     role: 'UX & UI Designer (via BRQ)',
     metricsHighlight: '66% de Redução',
     metricLabel: 'Redução no tempo de entrega de novas telas (Nov 2024 ➔ Fev 2025)',
-    coverImage: '/src/assets/images/julius_baer_cover_1786018941597.jpg',
+    coverImage: juliusBaerCover,
     pullQuote: {
       pt: 'O sistema não precisava de mais um componente. Precisava de pessoas que soubessem quando não construir um.',
       en: 'The system didn’t need another component. It needed people who knew when not to build one.',

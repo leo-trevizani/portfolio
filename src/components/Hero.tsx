@@ -3,6 +3,7 @@ import { ArrowDownRight, Mail } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { motion } from 'motion/react';
+import profilePhoto from '../assets/images/profile_photo_1786018872374.png';
 
 interface HeroProps {
   currentLang: Language;
@@ -84,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col justify-center">
             <div className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-color)] mt-4 lg:mt-0">
               <img
-                src="/src/assets/images/profile_photo_1786018872374.png"
+                src={profilePhoto}
                 alt="Leo Trevizani"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"

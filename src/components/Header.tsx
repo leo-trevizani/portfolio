@@ -61,12 +61,12 @@ export const Header: React.FC<HeaderProps> = ({
           className="flex items-center gap-3 group focus:outline-none"
         >
           <img
-            src="/favicon.svg"
+            src={`${import.meta.env.BASE_URL}favicon.svg`}
             alt="Leo Trevizani Logo"
             className="w-10 h-10 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm shrink-0"
           />
           <div className="flex flex-col">
-            <span className="font-extrabold text-base tracking-tight text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
+            <span className="font-bold text-base tracking-tight text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors font-sans">
               Leo Trevizani
             </span>
             <span className="text-xs text-[var(--color-text-muted)] font-medium -mt-1 hidden sm:inline-block">
