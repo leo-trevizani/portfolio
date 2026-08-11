@@ -104,9 +104,9 @@ export const SKILLS_LIST: SkillItem[] = [
     level: 'Professor',
     iconName: 'GraduationCap',
     description: {
-      pt: 'Professor universitário em disciplinas de UX/UI, Arquitetura de Informação e Design de Interação.',
-      en: 'University professor teaching courses in UX/UI, Information Architecture, and Interaction Design.',
-      es: 'Profesor universitario en asignaturas de UX/UI, Arquitectura de Información y Diseño de Interacción.'
+      pt: 'Professor universitário em disciplinas de UX, Branding e Comunicação Social.',
+      en: 'University professor teaching courses in UX, Branding, and Communication.',
+      es: 'Profesor universitario en asignaturas de UX, Branding y Comunicación Social.'
     }
   }
 ];

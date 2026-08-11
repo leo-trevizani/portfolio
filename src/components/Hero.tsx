@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
           <div className="lg:col-span-8 flex flex-col items-start space-y-10">
             
             <motion.div variants={itemVariants}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.03em] text-[var(--color-text-heading)] leading-[1.05]">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-[var(--color-text-heading)] leading-[1.05]">
                 {t.title}
               </h1>
             </motion.div>

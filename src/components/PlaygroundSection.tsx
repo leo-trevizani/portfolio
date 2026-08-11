@@ -1,7 +1,6 @@
 import React from 'react';
 import { PLAYGROUND_ITEMS } from '../data/playground';
 import { Language } from '../types';
-import { TRANSLATIONS } from '../data/translations';
 import { motion } from 'motion/react';
 
 interface PlaygroundSectionProps {
@@ -9,32 +8,11 @@ interface PlaygroundSectionProps {
 }
 
 export const PlaygroundSection: React.FC<PlaygroundSectionProps> = ({ currentLang }) => {
-  const t = TRANSLATIONS[currentLang].playgroundSection;
-
   // Duplicate items array to create seamless loop
   const duplicatedItems = [...PLAYGROUND_ITEMS, ...PLAYGROUND_ITEMS, ...PLAYGROUND_ITEMS, ...PLAYGROUND_ITEMS];
 
   return (
-    <section id="playground" className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300 relative border-t border-[var(--border-subtle)] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[var(--border-subtle)]">
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] mb-3">
-              {t.badge}
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
-              {t.title}
-            </h2>
-          </div>
-          <p className="text-sm sm:text-base text-[var(--color-text-muted)] max-w-md font-normal">
-            {t.subtitle}
-          </p>
-        </div>
-
-      </div>
-
+    <section id="playground" className="py-12 bg-[var(--bg-canvas)] transition-colors duration-300 relative overflow-hidden">
       {/* Infinite Horizontal Auto-Scroll Image Stream */}
       <div className="relative w-full overflow-hidden py-2">
         {/* Subtle Edge Fades */}
@@ -53,15 +31,26 @@ export const PlaygroundSection: React.FC<PlaygroundSectionProps> = ({ currentLan
           {duplicatedItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="flex-shrink-0 relative overflow-hidden rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]"
+              className="flex-shrink-0 relative overflow-hidden rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] group"
             >
-              <div className="h-64 sm:h-80 aspect-[16/10] overflow-hidden">
+              <div className="h-64 sm:h-80 aspect-[16/10] overflow-hidden relative">
                 <img
                   src={item.image}
                   alt={item.title[currentLang]}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                {/* Floating Tags */}
+                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 z-10">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-black/60 backdrop-blur-md text-white/90 border border-white/10 shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

@@ -101,7 +101,7 @@ export const TRANSLATIONS: Record<Language, {
     casesSection: {
       badge: 'Projetos de Alto Impacto',
       title: 'Cases de Sucesso Selecionados',
-      subtitle: 'Métricas reais e transformações de negócios lideradas através do design centrado no usuário e arquitetura de sistemas.',
+      subtitle: 'Transformações de negócios lideradas através do design centrado no usuário e arquitetura de sistemas.',
       viewFullCase: 'Ver Case Completo',
       keyMetric: 'Métrica de Impacto:',
       impact: 'Impacto Principal:'

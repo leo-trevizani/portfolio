@@ -17,7 +17,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
     category: 'Mobile App & Sports UI',
     image: craqueDaQuadraImg,
     aspectRatio: 'aspect-video',
-    tags: ['React Native', 'UI Design', 'Voting System'],
+    tags: ['React Native', 'UI Design', 'Vibe Coding'],
     details: {
       pt: 'Interface mobile com tema escuro e verde vibrante para votação de destaques da partida com confirmação de voto e categorias por posição.',
       en: 'Dark-mode sports voting mobile app interface featuring vibrant green CTA accents, vote summaries, and position-based player awards.',
@@ -51,7 +51,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
     category: 'DesignOps & Figma Plugins',
     image: tokenExporterPluginImg,
     aspectRatio: 'aspect-video',
-    tags: ['Figma API', 'Design Tokens', 'Automation'],
+    tags: ['Figma Plugin', 'Design Tokens', 'Automation'],
     details: {
       pt: 'Plugin do Figma desenvolvido para extrair e exportar automaticamente tokens de cores, coleções de propriedades e especificações para o CMS.',
       en: 'Custom Figma plugin built to automatically read hotel property variables and export color tokens and CMS specifications in 1 click.',

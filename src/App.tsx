@@ -12,14 +12,13 @@ export default function App() {
   // Language state (default PT as per prompt)
   const [currentLang, setCurrentLang] = useState<Language>('pt');
 
-  // Dark Mode state
+  // Dark Mode state (default Light Mode)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         return savedTheme === 'dark';
       }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return false;
   });
