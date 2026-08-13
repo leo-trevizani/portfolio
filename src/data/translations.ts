@@ -181,7 +181,7 @@ export const TRANSLATIONS: Record<Language, {
       inspectDetail: 'Inspect Details'
     },
     footerSection: {
-      title: 'Shall we create critical design together?',
+      title: 'Let\'s do critical design together!',
       subtitle: 'Always open for discussions on design leadership, Design Systems, and strategic design challenges.',
       copyEmail: 'Copy email',
       copied: 'Copied!',
