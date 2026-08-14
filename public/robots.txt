@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leo-trevizani.github.io/portfolio/sitemap.xml
