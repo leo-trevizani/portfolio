@@ -7,8 +7,8 @@ export interface CaseStudy {
   category: string;
   year: string;
   role: string;
-  metricsHighlight: string;
-  metricLabel: string;
+  metricsHighlight: Record<Language, string>;
+  metricLabel: Record<Language, string>;
   coverImage: string;
   pullQuote?: Record<Language, string>;
   title: Record<Language, string>;

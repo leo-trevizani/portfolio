@@ -12,15 +12,23 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Design System & DesignOps',
     year: '2025 - Presente',
     role: 'Product Designer (Property & Prism Design System via Globant)',
-    metricsHighlight: '5d ➔ 4h',
-    metricLabel: 'Redução no tempo de entrega de paletas de cores',
+    metricsHighlight: {
+      pt: '5d ➔ 4h',
+      en: '5d ➔ 4h',
+      es: '5d ➔ 4h'
+    },
+    metricLabel: {
+      pt: 'Redução no tempo de entrega de paletas de cores',
+      en: 'Reduction in color palette delivery time',
+      es: 'Reducción en el tiempo de entrega de paletas de colores'
+    },
     coverImage: hiltonCover,
     pullQuote: {
       pt: 'Em 8.000 hotéis, um processo manual de cinco dias não é um atraso. É uma fila que nunca esvazia.',
       en: 'At 8,000 hotels, a five-day manual process isn\'t a delay. It\'s a queue that never empties.',
       es: 'En 8.000 hoteles, un proceso manual de cinco días no es un retraso. Es una cola que nunca se vacía.'
     },
-    tags: ['Prism Design System', 'Collection Level Theming', 'Figma Tokens', 'Figma Plugin', 'Property UX', 'Escala Global'],
+    tags: ['Prism Design System', 'Collection Level Theming', 'Figma Tokens', 'Figma Plugin', 'Property UX', 'Global Scale'],
     title: {
       pt: 'Hilton Design System: Otimizando o themer de marcas e componentes no Prism para 8.000 hotéis',
       en: 'Hilton Design System: Optimizing brand theming and Prism components for 8,000 hotels',
@@ -247,15 +255,23 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     category: 'Enterprise Fintech & B2B',
     year: '2025',
     role: 'UX/UI Designer & Product Specialist (PowerApps & Power BI)',
-    metricsHighlight: '30% de Redução',
-    metricLabel: 'Redução de custos por eficiência operacional',
+    metricsHighlight: {
+      pt: '30% de Redução',
+      en: '30% Reduction',
+      es: '30% de Reducción'
+    },
+    metricLabel: {
+      pt: 'Redução de custos por eficiência operacional',
+      en: 'Cost reduction through operational efficiency',
+      es: 'Reducción de costos por eficiencia operativa'
+    },
     coverImage: abinbevCover,
     pullQuote: {
       pt: 'Uma fórmula de planilha editada por engano não quebra apenas uma célula. Quebra uma decisão na cadeia de suprimentos três níveis acima.',
       en: 'A spreadsheet formula edited by mistake doesn’t just break a cell. It breaks a supply chain decision three levels up.',
       es: 'Una fórmula de hoja de cálculo editada por error no solo rompe una celda. Rompe una decisión en la cadena de suministro tres niveles más arriba.'
     },
-    tags: ['PowerApps', 'Power BI', 'Power Fx', 'Operações LATAM', 'Fintech B2B', 'Cost Optimization'],
+    tags: ['PowerApps', 'Power BI', 'Power Fx', 'LATAM Operations', 'B2B Fintech', 'Cost Optimization'],
     title: {
       pt: 'AB InBev Budget App: Substituição de planilhas manuais e redução de 30% em custos operacionais',
       en: 'AB InBev Budget App: Replacing manual spreadsheets and cutting operational costs by 30%',
@@ -470,15 +486,23 @@ Ese único fallo se cascateaba: la dirección debía auditar hojas de cálculo u
     category: 'E-commerce & Automotive UX',
     year: '2025',
     role: 'UX/UI Designer (via BRQ)',
-    metricsHighlight: '+23% de Receita',
-    metricLabel: 'Aumento de receita no canal digital (Mar - Jun 2025)',
+    metricsHighlight: {
+      pt: '+23% de Receita',
+      en: '+23% Revenue',
+      es: '+23% de Ingresos'
+    },
+    metricLabel: {
+      pt: 'Aumento de receita no canal digital (Mar - Jun 2025)',
+      en: 'Digital channel revenue increase (Mar - Jun 2025)',
+      es: 'Aumento de ingresos en el canal digital (Mar - Jun 2025)'
+    },
     coverImage: nissanCover,
     pullQuote: {
       pt: 'Ninguém hesita em comprar uma camiseta online. Um carro é um tipo diferente de confiança.',
       en: 'Nobody hesitates buying a t-shirt online. A car is a different kind of trust.',
       es: 'Nadie duda en comprar una camiseta en línea. Un carro es un tipo diferente de confianza.'
     },
-    tags: ['E-commerce Automotivo', 'Financing UX', 'System Mapping', 'Nissan Replay & CDC', 'Technical Spec', 'Design System'],
+    tags: ['Automotive E-commerce', 'Financing UX', 'System Mapping', 'Nissan Replay & CDC', 'Technical Spec', 'Design System'],
     title: {
       pt: 'Nissan E-commerce: Redesenho da interface de financiamento e aumento de 23% na receita',
       en: 'Nissan E-commerce: Redesigning the financing interface and boosting revenue by 23%',
@@ -723,8 +747,16 @@ Sin red de seguridad para 4 desarrolladores: con un solo diseñador y sin PM ded
     category: 'Wealth Management & Zafire Design System',
     year: '2024 - 2025',
     role: 'UX & UI Designer (via BRQ)',
-    metricsHighlight: '66% de Redução',
-    metricLabel: 'Redução no tempo de entrega de novas telas (Nov 2024 ➔ Fev 2025)',
+    metricsHighlight: {
+      pt: '66% de Redução',
+      en: '66% Reduction',
+      es: '66% de Reducción'
+    },
+    metricLabel: {
+      pt: 'Redução no tempo de entrega de novas telas (Nov 2024 ➔ Fev 2025)',
+      en: 'Reduction in delivery time for new screens (Nov 2024 ➔ Feb 2025)',
+      es: 'Reducción en el tiempo de entrega de nuevas pantallas (Nov 2024 ➔ Feb 2025)'
+    },
     coverImage: juliusBaerCover,
     pullQuote: {
       pt: 'O sistema não precisava de mais um componente. Precisava de pessoas que soubessem quando não construir um.',

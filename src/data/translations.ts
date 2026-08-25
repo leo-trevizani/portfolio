@@ -55,6 +55,7 @@ export const TRANSLATIONS: Record<Language, {
     rights: string;
   };
   caseDetail: {
+    impactHighlight: string;
     clientLabel: string;
     yearLabel: string;
     roleLabel: string;
@@ -123,6 +124,7 @@ export const TRANSLATIONS: Record<Language, {
       rights: '© 2026 Leo Trevizani. Todos os direitos reservados. Projetado com precisão e acessibilidade.'
     },
     caseDetail: {
+      impactHighlight: 'Destaque de Impacto',
       clientLabel: 'Cliente / Empresa',
       yearLabel: 'Período',
       roleLabel: 'Minha Atuação',
@@ -191,6 +193,7 @@ export const TRANSLATIONS: Record<Language, {
       rights: '© 2026 Leo Trevizani. All rights reserved. Crafted with precision and accessibility.'
     },
     caseDetail: {
+      impactHighlight: 'Impact Highlight',
       clientLabel: 'Client / Company',
       yearLabel: 'Timeline',
       roleLabel: 'My Role',
@@ -259,6 +262,7 @@ export const TRANSLATIONS: Record<Language, {
       rights: '© 2026 Leo Trevizani. Todos los derechos reservados. Diseñado con precisión y accesibilidad.'
     },
     caseDetail: {
+      impactHighlight: 'Destaque de Impacto',
       clientLabel: 'Cliente / Empresa',
       yearLabel: 'Periodo',
       roleLabel: 'Mi Rol',

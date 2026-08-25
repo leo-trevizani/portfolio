@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Copy, Check, Linkedin, ArrowUp } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -66,14 +66,6 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             >
               <Linkedin className="w-4 h-4 text-white" />
               <span>LinkedIn</span>
-            </a>
-
-            <a
-              href={`mailto:${email}`}
-              className="px-8 py-4 rounded-full border border-white/30 hover:bg-white/10 text-white text-sm font-medium transition-colors flex items-center gap-2"
-            >
-              <Mail className="w-4 h-4 text-white" />
-              <span>Enviar E-mail Direto</span>
             </a>
           </div>
 

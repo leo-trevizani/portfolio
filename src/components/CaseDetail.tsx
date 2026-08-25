@@ -90,14 +90,14 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         <div className="mt-6 rounded-2xl p-6 sm:p-8 bg-[var(--color-vibrant-green)] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
           <div>
             <span className="text-[11px] uppercase font-bold tracking-widest text-white/80 block mb-1">
-              Destaque de Impacto
+              {t.impactHighlight}
             </span>
             <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              {caseItem.metricsHighlight}
+              {caseItem.metricsHighlight[currentLang]}
             </span>
           </div>
           <p className="text-sm sm:text-base font-medium text-white/90 max-w-lg leading-relaxed">
-            {caseItem.metricLabel}
+            {caseItem.metricLabel[currentLang]}
           </p>
         </div>
       </div>
@@ -116,7 +116,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
-                01 / O Desafio
+                01 / {t.challengeTitle}
               </span>
               <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
                 {challenge.title}
@@ -174,7 +174,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
-                02 / A Solução
+                02 / {t.solutionTitle}
               </span>
               <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
                 {solution.title}
@@ -214,7 +214,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
-                03 / Resultados & Impacto
+                03 / {t.resultsTitle}
               </span>
               <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
                 {results.title}
@@ -257,7 +257,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
-                04 / Evolução & Roadmap
+                04 / {t.futureVisionTitle}
               </span>
               <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
                 {futureVision.title}
@@ -304,7 +304,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             <ArrowLeft className="w-5 h-5 text-[var(--color-text-muted)] group-hover:-translate-x-1 group-hover:text-[var(--color-text-heading)] transition-all" />
             <div>
               <span className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest block mb-1">
-                Anterior
+                {t.prevCase}
               </span>
               <span className="text-xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                 {prevCase.client}
@@ -318,7 +318,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           >
             <div>
               <span className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest block mb-1">
-                Próximo
+                {t.nextCase}
               </span>
               <span className="text-xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                 {nextCase.client}

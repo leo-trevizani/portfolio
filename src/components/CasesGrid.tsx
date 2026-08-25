@@ -64,7 +64,7 @@ export const CasesGrid: React.FC<CasesGridProps> = ({ currentLang, onSelectCase 
                     </span>
                     <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
                     <span className="text-xs text-[var(--color-text-muted)] truncate max-w-[200px]">
-                      {caseItem.metricsHighlight}
+                      {caseItem.metricsHighlight[currentLang]}
                     </span>
                   </div>
 
