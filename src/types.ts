@@ -2,11 +2,12 @@ export type Language = 'pt' | 'en' | 'es';
 
 export interface CaseStudy {
   id: string;
-  slug: 'hilton' | 'abinbev' | 'nissan' | 'julius-baer';
+  slug: string;
   client: string;
   category: string;
   year: string;
   role: string;
+  isNDA?: boolean;
   metricsHighlight: Record<Language, string>;
   metricLabel: Record<Language, string>;
   coverImage: string;
@@ -44,11 +45,12 @@ export interface CaseStudy {
 
 export interface SkillItem {
   id: string;
-  name: string;
+  name: Record<Language, string>;
   category: 'design' | 'dev' | 'management' | 'education';
   description: Record<Language, string>;
-  level: string;
+  level: Record<Language, string>;
   iconName: string;
+  practicalApplications: Record<Language, string[]>;
 }
 
 export interface PlaygroundItem {

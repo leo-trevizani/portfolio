@@ -4,9 +4,11 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { StackSection } from './components/StackSection';
 import { CasesGrid } from './components/CasesGrid';
+import { NDASection } from './components/NDASection';
 import { PlaygroundSection } from './components/PlaygroundSection';
 import { Footer } from './components/Footer';
 import { CaseDetail } from './components/CaseDetail';
+import { NDAPage } from './components/NDAPage';
 
 export default function App() {
   // Language state (default PT as per prompt)
@@ -89,11 +91,18 @@ export default function App() {
 
       {/* Main Content Area */}
       <main id="main-content">
-        {isCaseRoute && caseSlug ? (
+        {currentRoute === 'nda' ? (
+          <NDAPage
+            currentLang={currentLang}
+            onNavigateHome={() => handleNavigate('home')}
+            onSelectCase={(slug) => handleNavigate(`case/${slug}`)}
+          />
+        ) : isCaseRoute && caseSlug ? (
           <CaseDetail
             slug={caseSlug}
             currentLang={currentLang}
             onNavigateHome={() => handleNavigate('home')}
+            onNavigateToNDA={() => handleNavigate('nda')}
             onSelectCase={(slug) => handleNavigate(`case/${slug}`)}
           />
         ) : (
@@ -115,6 +124,11 @@ export default function App() {
             <CasesGrid
               currentLang={currentLang}
               onSelectCase={(slug) => handleNavigate(`case/${slug}`)}
+            />
+
+            <NDASection
+              currentLang={currentLang}
+              onNavigateToNDA={() => handleNavigate('nda')}
             />
 
             <PlaygroundSection currentLang={currentLang} />

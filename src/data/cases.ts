@@ -1,11 +1,15 @@
 import { CaseStudy } from '../types';
 import hiltonCover from '../assets/images/hilton_case_cover_1786018890676.jpg';
+import genesisUsCover from '../assets/images/genesis_us_case_cover_1787748401374.jpg';
+import genesisLatamCover from '../assets/images/genesis_latam_case_cover_1787748414476.jpg';
 import abinbevCover from '../assets/images/abinbev_case_cover_1786018909060.jpg';
 import nissanCover from '../assets/images/nissan_case_cover_1786018927463.jpg';
 import juliusBaerCover from '../assets/images/julius_baer_cover_1786018941597.jpg';
+import logcpCover from '../assets/images/logcp_case_cover_1787684338807.jpg';
+import renaultCover from '../assets/images/renault_case_cover_1787684352389.jpg';
 
 export const CASE_STUDIES: CaseStudy[] = [
-  {
+{
     id: 'hilton',
     slug: 'hilton',
     client: 'Hilton Hotels & Resorts',
@@ -249,6 +253,940 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     }
   },
   {
+    id: 'genesis-us',
+    slug: 'genesis-us',
+    client: 'Genesis US',
+    category: 'Enterprise Web Rebuild & Dynamic Systems',
+    year: '2025 - 2026',
+    role: 'Full Stack Design Engineer (Solo Freelance)',
+    metricsHighlight: {
+      pt: '+775% Sessões',
+      en: '+775% Sessions',
+      es: '+775% Sesiones'
+    },
+    metricLabel: {
+      pt: 'Aumento na média de sessões diárias pós-lançamento',
+      en: 'Increase in average daily sessions post-launch',
+      es: 'Aumento en el promedio de sesiones diarias post-lanzamiento'
+    },
+    coverImage: genesisUsCover,
+    pullQuote: {
+      pt: 'O mercado que serviu de modelo para a Genesis LATAM acabou precisando do mesmo ajuste.',
+      en: 'The market Genesis LATAM had been modeled after turned out to need the same fix.',
+      es: 'El mercado que sirvió de modelo para Genesis LATAM terminó necesitando el mismo ajuste.'
+    },
+    tags: ['Web Rebuild', 'WIX Velo / Code', 'Dynamic Page Templates', 'Responsive Data Viz', 'Marketing Automation', 'Bilingual EN-BR'],
+    title: {
+      pt: 'Genesis US: Reconstrução web completa, templates dinâmicos e +775% em sessões diárias',
+      en: 'Genesis US: Full web rebuild, dynamic templates, and +775% daily sessions increase',
+      es: 'Genesis US: Reconstrucción web integral, plantillas dinámicas y +775% en sesiones diarias'
+    },
+    subtitle: {
+      pt: 'Redesenho e reconstrução do zero no WIX (de 98 para 20 páginas dinâmicas), gráficos de dados responsivos via código e automações de email marketing.',
+      en: 'From-scratch rebuild on WIX (streamlining 98 pages down to 20 dynamic templates), custom responsive data charts, and email marketing automations.',
+      es: 'Rediseño y reconstrucción desde cero en WIX (de 98 a 20 páginas dinámicas), gráficos responsivos vía código y automatizaciones de marketing.'
+    },
+    impactSummary: {
+      pt: 'Após o sucesso do redesenho da Genesis LATAM, fui convidado a reconstruir o site global da Genesis US do zero (Set 2025 - Fev 2026, lançado em Abr 2026). Superei as limitações de responsividade do WIX injetando gráficos customizados em HTML/CSS/JS via IA, consolidei 98 páginas em 20 templates dinâmicos, conectei automações de email marketing e entreguei uma experiência bilíngue dedicada (EN/BR), gerando um crescimento de 775% nas sessões diárias.',
+      en: 'Following the success of the LATAM redesign, I was brought back solo to rebuild the Genesis US website from scratch (Sep 2025 - Feb 2026, launched Apr 2026). Overcame WIX responsive limitations by engineering custom HTML/CSS/JS charts via AI, consolidated 98 pages into 20 dynamic templates, wired email marketing automations, and delivered a dedicated bilingual EN/BR experience, driving a 775% increase in daily sessions.',
+      es: 'Tras el éxito de Genesis LATAM, reconstruí el sitio global de Genesis US desde cero (Sep 2025 - Feb 2026, lanzado en Abr 2026). Superé las limitaciones de WIX inyectando gráficos responsivos en HTML/CSS/JS con IA, consolidé 98 páginas en 20 plantillas dinámicas, integré automatizaciones y una versión bilingüe EN/BR, logrando un aumento del 775% en sesiones diarias.'
+    },
+    challenge: {
+      pt: {
+        title: 'O Desafio',
+        description: `O sucesso da operação LATAM evidenciou uma realidade desconfortável: o site que havia servido de modelo inicial — o da própria Genesis US — não estava atraindo nem de perto o tráfego diário esperado para uma operação global desse porte.
+
+• Cerca de 98 páginas acumuladas ao longo do tempo, repletas de redundâncias e com layouts fragmentados com grande oportunidade de estruturação.
+• O WIX gerencia comportamentos responsivos de forma muito menos previsível que o WordPress, especialmente fora de templates básicos.
+• A liderança exigiu uma versão traduzida EN→BR exclusiva para o site americano, mantendo o site LATAM restrito ao seu mercado regional — uma experiência localizada e separada, e não um mero redirecionamento de tráfego.
+• O problema dos gráficos: três visualizações complexas de dados precisavam de comportamento 100% responsivo dentro de uma ferramenta nativamente limitada para esse tipo de layout.`,
+        keyPoints: [
+          '98 páginas dispersas e sobrepostas acumuladas ao longo dos anos.',
+          'Limitações estruturais do CMS WIX para comportamentos responsivos refinados.',
+          'Necessidade de experiência bilíngue EN→BR dedicada sem canibalizar o site LATAM.',
+          'Três gráficos de dados complexos que quebravam em dispositivos móveis.'
+        ]
+      },
+      en: {
+        title: 'The Challenge',
+        description: `LATAM's success made something uncomfortable visible: the site it had been modeled after — Genesis US's own — wasn't pulling anywhere near the daily traffic a global site of that size should.
+
+• Around 98 pages had accumulated over time with many opportunities for streamlining layouts with a clear structure.
+• WIX handles responsive behavior far less predictably than WordPress, especially past a bare template.
+• Leadership wanted its own EN→BR translation for the US site, keeping the LATAM site exclusive to the LATAM market — a genuinely separate localized experience to build, not a shared one to reroute traffic into.
+• The chart problem: Three data visualizations needed to behave responsively, inside a tool that struggles precisely with that kind of layout.`,
+        keyPoints: [
+          '98 fragmented and bloated legacy pages accumulated over time.',
+          'WIX CMS constraints regarding predictable responsive layout engine.',
+          'Dedicated EN→BR localized architecture without cross-polluting LATAM domain.',
+          'Three complex data charts that failed default mobile responsiveness.'
+        ]
+      },
+      es: {
+        title: 'El Desafío',
+        description: `El éxito de LATAM hizo visible algo incómodo: el sitio que había servido como modelo — el de Genesis US — no alcanzaba el tráfico diario que debería tener un sitio global de esa escala.
+
+• Alrededor de 98 páginas acumuladas con muchas oportunidades de optimización y estructura clara.
+• WIX gestiona el comportamiento responsivo de forma mucho menos predecible que WordPress.
+• La dirección requería una traducción EN→BR propia para EE. UU., manteniendo el sitio LATAM exclusivo para su mercado.
+• El dilema de los gráficos: tres visualizaciones complejas debían ser responsivas dentro de una herramienta con fuertes limitaciones nativas.`,
+        keyPoints: [
+          '98 páginas legadas dispersas con alto índice de redundancia.',
+          'Limitaciones del CMS WIX para maquetación responsiva avanzada.',
+          'Arquitectura bilingüe EN→BR independiente de la operación LATAM.',
+          'Gráficos de datos complejos no adaptados a pantallas móviles.'
+        ]
+      }
+    },
+    solution: {
+      pt: {
+        title: 'A Solução',
+        description: 'Conduzi a reconstrução integral do site do zero no WIX (de Setembro de 2025 a Fevereiro de 2026, com lançamento em Abril de 2026), adotando a direção visual consagrada da LATAM como referência e solucionando gargalos técnicos complexos.',
+        highlights: [
+          {
+            title: 'Reconstrução total, não migração',
+            desc: 'Construção do zero em vez de importar conteúdos legados, utilizando a identidade moderna da LATAM como referência direta para a evolução do site US.'
+          },
+          {
+            title: 'De 98 para 20 páginas com templates dinâmicos',
+            desc: 'Auditoria minuciosa de cada página, consolidando a maior parte do conteúdo sobrevivente no recurso de páginas dinâmicas do WIX em vez de páginas estáticas isoladas.'
+          },
+          {
+            title: 'Arquitetura bilíngue verdadeiramente independente',
+            desc: 'Desenvolvimento de uma versão traduzida EN→BR dedicada para o site US, preservando a identidade regional sem redirecionar tráfego para a LATAM.'
+          },
+          {
+            title: 'Formulários conectados a automações de marketing',
+            desc: 'Integração de 3 formulários com fluxos automatizados de email marketing configurados de ponta a ponta.'
+          },
+          {
+            title: 'Gráficos responsivos com injeção de código via IA',
+            desc: 'Desenho do comportamento de cada gráfico e tradução assistida por IA para HTML, CSS e JS limpos, inseridos no ambiente de desenvolvimento do WIX para superar as restrições da plataforma.'
+          }
+        ]
+      },
+      en: {
+        title: 'The Solution',
+        description: 'Led the complete from-scratch build on WIX (running September 2025 to February 2026, launching April 2026), using the proven LATAM aesthetic as reference and engineering custom solutions for CMS constraints.',
+        highlights: [
+          {
+            title: 'Full rebuild, not a migration',
+            desc: 'Rebuilt the site from scratch instead of porting legacy content over, using LATAM\'s visual direction as the direct benchmark for where US needed to go.'
+          },
+          {
+            title: '98 pages down to 20 dynamic templates',
+            desc: 'Audited every existing page, consolidated surviving content onto WIX\'s dynamic page feature instead of maintaining individual static pages.'
+          },
+          {
+            title: 'A genuinely separate bilingual site',
+            desc: 'Built a dedicated EN→BR translated version for the US site, keeping it distinct from LATAM rather than routing Brazilian traffic across domains.'
+          },
+          {
+            title: 'Forms wired to marketing automation',
+            desc: 'Connected 3 forms directly to custom email marketing automation flows, designed and implemented end to end.'
+          },
+          {
+            title: 'Solving responsive charts WIX wasn\'t built for',
+            desc: 'Engineered custom chart interactions translated into clean HTML/CSS/JS via AI and injected into WIX Developer Mode, overcoming platform limitations without design compromises.'
+          }
+        ]
+      },
+      es: {
+        title: 'La Solución',
+        description: 'Lideré la reconstrucción integral desde cero en WIX (de septiembre de 2025 a febrero de 2026, lanzado en abril de 2026), tomando como referencia la dirección visual de LATAM y superando restricciones técnicas.',
+        highlights: [
+          {
+            title: 'Reconstrucción total, no migración',
+            desc: 'Construcción desde cero en lugar de portar contenido legado, usando el lenguaje visual de LATAM como guía directa.'
+          },
+          {
+            title: 'De 98 a 20 páginas con plantillas dinámicas',
+            desc: 'Auditoría completa de páginas, migrando el contenido esencial a páginas dinámicas de WIX para facilitar el mantenimiento.'
+          },
+          {
+            title: 'Sitio bilingüe genuinamente independiente',
+            desc: 'Versión traducida EN→BR dedicada para EE. UU., respetando la segmentación de tráfico regional.'
+          },
+          {
+            title: 'Formularios conectados a automatización',
+            desc: '3 formularios integrados directamente con flujos de email marketing automatizados de extremo a extremo.'
+          },
+          {
+            title: 'Gráficos responsivos con inyección de código e IA',
+            desc: 'Diseño e inyección de gráficos en HTML/CSS/JS en el entorno de desarrollo de WIX, transformando limitaciones de la herramienta en soluciones robustas.'
+          }
+        ]
+      }
+    },
+    results: {
+      pt: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            value: '+775%',
+            label: 'Média de Sessões Diárias',
+            desc: 'Aumento expressivo no engajamento e tráfego diário após o lançamento da nova arquitetura.'
+          },
+          {
+            value: '98 ➔ 20',
+            label: 'Páginas Consolidadas',
+            desc: 'Redução drástica de complexidade, operando com templates dinâmicos eficientes.'
+          },
+          {
+            value: '3 Gráficos',
+            label: 'Data Viz Responsiva',
+            desc: 'Visualizações de dados complexas funcionando perfeitamente em mobile e desktop.'
+          }
+        ],
+        summary: 'A entrega proporcionou um salto qualitativo e quantitativo para a operação global da Genesis US: aumento de 775% nas sessões diárias, consolidação de 98 páginas em 20 templates dinâmicos de fácil manutenção, 3 fluxos de automação de marketing ativos, 3 gráficos complexos 100% responsivos e uma experiência bilíngue EN/BR totalmente localizada.'
+      },
+      en: {
+        title: 'Results & Impact',
+        stats: [
+          {
+            value: '+775%',
+            label: 'Average Daily Sessions',
+            desc: 'Massive surge in daily user engagement and traffic following the architectural launch.'
+          },
+          {
+            value: '98 ➔ 20',
+            label: 'Pages Consolidated',
+            desc: 'Streamlined from 98 bloated static pages into 20 maintainable dynamic templates.'
+          },
+          {
+            value: '3 Charts',
+            label: 'Responsive Data Viz',
+            desc: 'Complex data visualizations rendered flawlessly across mobile and desktop viewports.'
+          }
+        ],
+        summary: 'The project delivered an immediate transformation for Genesis US: a 775% increase in average daily sessions, 98 legacy pages streamlined into 20 dynamic templates, 3 live email marketing automations, 3 fully responsive custom data charts, and an independent localized EN/BR experience.'
+      },
+      es: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            value: '+775%',
+            label: 'Promedio de Sesiones Diarias',
+            desc: 'Aumento exponencial en tráfico y retención tras el lanzamiento de la nueva versión.'
+          },
+          {
+            value: '98 ➔ 20',
+            label: 'Páginas Consolidadas',
+            desc: 'Reducción drástica de 98 páginas estáticas a 20 plantillas dinámicas estructuradas.'
+          },
+          {
+            value: '3 Gráficos',
+            label: 'Data Viz Responsiva',
+            desc: 'Visualizaciones de datos complejas adaptadas con total precisión a cualquier pantalla.'
+          }
+        ],
+        summary: 'La entrega generó un impacto inmediato en la presencia de Genesis US: crecimiento del 775% en sesiones diarias, consolidación de 98 a 20 páginas dinámicas, 3 automatizaciones de marketing activas, 3 gráficos responsivos y una experiencia bilingüe EN/BR localizada.'
+      }
+    },
+    futureVision: {
+      pt: {
+        title: 'Visão de Futuro e Consistência',
+        subtitle: 'Bases estabelecidas para autonomia e sustentabilidade da marca no longo prazo',
+        topics: [
+          {
+            id: 1,
+            title: 'Alinhamento Tipográfico e Cromático',
+            description: 'Harmonização de tipografia e paleta de cores entre os sites US e LATAM, preservando as particularidades de comunicação de cada mercado.',
+            tag: 'Design System Tokens'
+          },
+          {
+            id: 2,
+            title: 'Ativos Globais Compartilhados',
+            description: 'Definição de um conjunto inicial de assets de comunicação global que ambos os sites podem utilizar como base de expansão.',
+            tag: 'Global Brand Assets'
+          },
+          {
+            id: 3,
+            title: 'Princípios de Web Design para Stakeholders',
+            description: 'Documentação dos princípios centrais de web design compartilhada com os times internos para evitar a desconstrução da consistência estabelecida.',
+            tag: 'Design Governance'
+          },
+          {
+            id: 4,
+            title: 'Componentes Web Reutilizáveis',
+            description: 'Estruturação de blocos e componentes reutilizáveis para garantir solidez e velocidade na criação de novas páginas e comunicações.',
+            tag: 'Modular Architecture'
+          }
+        ]
+      },
+      en: {
+        title: 'Future Vision & Consistency',
+        subtitle: 'Establishing autonomous foundations for long-term brand coherence',
+        topics: [
+          {
+            id: 1,
+            title: 'Typography & Color Alignment',
+            description: 'Aligned typography and color tokens between US and LATAM sites while preserving market-specific messaging nuances.',
+            tag: 'Design System Tokens'
+          },
+          {
+            id: 2,
+            title: 'Shared Global Brand Assets',
+            description: 'Defined an initial set of foundational global communication assets that both sites can build upon for future campaigns.',
+            tag: 'Global Brand Assets'
+          },
+          {
+            id: 3,
+            title: 'Core Web Principles for Stakeholders',
+            description: 'Flagged essential web design principles for stakeholders so ongoing updates maintain established aesthetic and UX consistency.',
+            tag: 'Design Governance'
+          },
+          {
+            id: 4,
+            title: 'Reusable Web Components',
+            description: 'Built modular web components to safeguard brand solidity and velocity across upcoming marketing touchpoints.',
+            tag: 'Modular Architecture'
+          }
+        ]
+      },
+      es: {
+        title: 'Visión de Futuro y Consistencia',
+        subtitle: 'Bases estructuradas para garantizar autonomía y solidez de marca a largo plazo',
+        topics: [
+          {
+            id: 1,
+            title: 'Alineación Tipográfica y Cromática',
+            description: 'Armonización de tokens de color y tipografía entre los sitios US y LATAM, respetando las particularidades de cada región.',
+            tag: 'Design System Tokens'
+          },
+          {
+            id: 2,
+            title: 'Activos Globales Compartidos',
+            description: 'Definición de activos de comunicación global listos para escalar en futuros lanzamientos y campañas.',
+            tag: 'Global Brand Assets'
+          },
+          {
+            id: 3,
+            title: 'Principios de Diseño Web para Stakeholders',
+            description: 'Pautas de diseño web compartidas con los equipos internos para asegurar la continuidad y coherencia de las interfaces.',
+            tag: 'Design Governance'
+          },
+          {
+            id: 4,
+            title: 'Componentes Web Reutilizables',
+            description: 'Creación de módulos y componentes reutilizables para mantener la solidez visual en futuras comunicaciones.',
+            tag: 'Modular Architecture'
+          }
+        ]
+      }
+    }
+  },
+  {
+    id: 'genesis-latam',
+    slug: 'genesis-latam',
+    client: 'Genesis Consulting LATAM',
+    category: 'Brand Strategy & Full-Stack Digital Presence',
+    year: '2025 - Presente',
+    role: 'Full Stack Design Engineer & Brand Strategist (Solo Freelance)',
+    metricsHighlight: {
+      pt: '+82% Tráfego',
+      en: '+82% Traffic',
+      es: '+82% Tráfico'
+    },
+    metricLabel: {
+      pt: 'Mais tráfego em relação ao site US e 2x tempo de sessão',
+      en: 'More traffic compared to the US site and 2x session duration',
+      es: 'Más tráfico en comparación con el sitio US y 2x duración de sesión'
+    },
+    coverImage: genesisLatamCover,
+    pullQuote: {
+      pt: 'Antes que o site LATAM pudesse parecer diferente do americano, alguém precisava decidir, concretamente, o que "diferente" significava.',
+      en: 'Before the LATAM site could look different from the US one, someone had to decide, specifically, what "different" meant.',
+      es: 'Antes de que el sitio de LATAM pudiera verse diferente al de EE. UU., alguien tenía que decidir, concretamente, qué significaba "diferente".'
+    },
+    tags: ['Brand Strategy', 'Brand Sprint', 'Soft Rebrand', 'Full-Stack Web', 'SEO / SEM / AEO', 'Content & Editorial', 'Marketing Automation'],
+    title: {
+      pt: 'Genesis LATAM: Estratégia de marca, presença digital e 82% mais tráfego que a matriz US',
+      en: 'Genesis LATAM: Brand strategy, full-stack digital presence, and +82% traffic over the US site',
+      es: 'Genesis LATAM: Estrategia de marca, presencia digital y 82% más tráfico que la matriz US'
+    },
+    subtitle: {
+      pt: 'Brand sprint, soft rebrand tecnológico, desenvolvimento web com SEO/SEM/GEO/AEO, infraestrutura de blog, automações de marketing e consultoria contínua.',
+      en: 'Brand sprint, technological soft rebrand, full-stack website with SEO/SEM/GEO/AEO, blog infrastructure, marketing automation, and ongoing retainer.',
+      es: 'Brand sprint, soft rebrand tecnológico, desarrollo web con SEO/SEM/GEO/AEO, blog, automatizaciones y asesoría continua.'
+    },
+    impactSummary: {
+      pt: 'Atuando como designer e estrategista solo desde abril de 2025, liderei a criação da presença digital e da marca da Genesis LATAM. Conduzi um brand sprint definindo a diferenciação regional, estruturei o site com SEO/SEM/GEO/AEO e automações de formulários, lancei o blog editorial (13 artigos originais) e construí 5 cases estruturados. O projeto gerou 82% mais tráfego e o dobro do tempo de sessão em relação ao site US, transformando a entrega pontual em um contrato contínuo de liderança de marca.',
+      en: 'Operating as a solo designer and strategist since April 2025, led the brand strategy and digital presence for Genesis LATAM. Conducted a brand sprint establishing regional differentiation, built the website with native SEO/SEM/GEO/AEO and form automations, launched an editorial blog (13 original articles), and structured 5 persuasive case studies. The site achieved 82% more traffic and double the session duration compared to the US site, converting the engagement into an ongoing communication retainer.',
+      es: 'Liderando como diseñador y estratega independiente desde abril de 2025, creé la presencia digital de Genesis LATAM. Ejecuté un brand sprint, desarrollé el sitio web con SEO/SEM/GEO/AEO y automatizaciones, lancé el blog (13 artículos) y 5 casos de estudio. El sitio superó en un 82% el tráfico de la matriz en EE. UU. con el doble de duración de sesión, convirtiéndose en una asesoría continua.'
+    },
+    challenge: {
+      pt: {
+        title: 'O Desafio',
+        description: `A operação da Genesis LATAM necessitava de credibilidade própria para fechar grandes contratos corporativos independentemente da marca nos EUA — e o mercado latino-americano exigia comunicação e posicionamento próprios, não uma cópia traduzida da experiência americana.
+
+• Uma clonagem visual direta do site US sinalizaria a LATAM como uma operação satélite secundária, sem autoridade regional.
+• O mercado demandava um tom de voz e posicionamento distintos, impedindo que o site fosse apenas "o site americano com outra roupagem".
+• Ninguém havia definido, concretamente, o que significava "diferente da Genesis US, mas ainda sendo Genesis" para a região.
+• O maior desafio não foi desenhar o site: foi responder à questão estratégica de diferenciação antes que qualquer decisão de interface pudesse ser tomada com segurança.`,
+        keyPoints: [
+          'Necessidade de autoridade regional independente para fechar grandes contratos.',
+          'Risco de parecer uma operação satélite se usasse uma cópia direta do site US.',
+          'Ausência de definição concreta de posicionamento regional para a LATAM.',
+          'Necessidade de estruturar estratégia de marca antes de desenhar a interface.'
+        ]
+      },
+      en: {
+        title: 'The Challenge',
+        description: `Genesis LATAM's operation needed its own credibility to close larger contracts independently of the US brand — and the LATAM market called for its own communication and positioning, not a translated copy of the US experience.
+
+• A straight visual clone of the US site would have signaled LATAM as a satellite operation, not a credible regional presence in its own right.
+• The market demanded a distinct tone and positioning, which meant the site couldn't just be "the US site, reskinned".
+• Nobody had yet defined, concretely, what "different from Genesis US, but still Genesis" actually meant for the region.
+• The hardest part wasn't designing the site: it was answering the differentiation question before any interface decision could be trusted.`,
+        keyPoints: [
+          'Need for independent regional credibility to close large-scale enterprise deals.',
+          'Risk of appearing as a subordinate satellite if duplicating US visual identity.',
+          'Lack of concrete regional brand positioning definition for Latin America.',
+          'Requirement to solve brand differentiation before locking UI decisions.'
+        ]
+      },
+      es: {
+        title: 'El Desafío',
+        description: `La operación de Genesis LATAM necesitaba credibilidad propia para cerrar contratos importantes de manera independiente — y el mercado requería comunicación y posicionamiento propios, no una réplica traducida de la experiencia estadounidense.
+
+• Un clon visual del sitio de EE. UU. habría posicionado a LATAM como una sucursal satélite sin peso propio.
+• El mercado demandaba un tono y posicionamiento específicos, impidiendo que el sitio fuera solo un rediseño superficial.
+• Nadie había definido concretamente qué significaba ser "diferente a Genesis US, pero manteniendo la esencia de Genesis".
+• El desafío principal no fue diseñar las pantallas, sino definir la diferenciación antes de tomar decisiones de interfaz.`,
+        keyPoints: [
+          'Necesidad de autoridad regional para cerrar contratos corporativos.',
+          'Riesgo de proyectar una imagen subordinada mediante copias literales del sitio US.',
+          'Falta de definición estratégica sobre el posicionamiento regional en LATAM.',
+          'Urgencia de alinear la estrategia de marca antes de estructurar la UI.'
+        ]
+      }
+    },
+    solution: {
+      pt: {
+        title: 'A Solução',
+        description: 'Atuação full stack abrangendo três camadas integradas: o website (soft rebrand, backend de formulários e automação, SEO/SEM/GEO/AEO), estratégia de marca (brand sprint inicial revisitado após um ano) e infraestrutura de comunicação (blog editorial, identidade visual para redes, newsletter interna e Google Ads) — tudo executado de forma autônoma sem equipe dedicada de dev, redação ou tráfego.',
+        highlights: [
+          {
+            title: 'Pocket Brand Sprint para responder à pergunta real',
+            desc: 'Condução de um brand sprint condensado mapeando valores da marca, público-alvo e concorrentes antes de desenhar a interface — material posteriormente incorporado à documentação oficial da Genesis.'
+          },
+          {
+            title: 'Soft rebrand voltado para credibilidade institucional',
+            desc: 'Modernização da direção visual tendo o site US como referência, projetando a sensação tecnológica e robusta necessária para fechar grandes contratos corporativos.'
+          },
+          {
+            title: 'Arquitetura técnica além da interface',
+            desc: 'Configuração da lógica de backend para formulários e automações, estruturando diretamente os pilares de SEO, SEM, GEO e AEO do site.'
+          },
+          {
+            title: 'De projeto pontual a liderança da comunicação da marca',
+            desc: 'Evolução para contrato contínuo: lançamento e redação do blog com estratégia transmídia e link building (13 artigos originais), identidade visual para redes sociais, newsletter interna Genesis News e gestão de Google Ads.'
+          },
+          {
+            title: 'Revisão estratégica da marca após um ano',
+            desc: 'Reavaliação da análise original de marca aproximadamente um ano após o sprint inicial, validando as hipóteses com os resultados práticos obtidos.'
+          }
+        ]
+      },
+      en: {
+        title: 'The Solution',
+        description: 'Comprehensive full-stack leadership across three integrated layers: the website itself (soft rebrand, backend configuration for forms and automation, full SEO/SEM/GEO/AEO structuring), brand strategy (initial brand sprint revisited one year later), and brand communication infrastructure (blog, social visual identity, internal newsletter, and Google Ads) — handled solo without dedicated developers, copywriters, or media buyers.',
+        highlights: [
+          {
+            title: 'Pocket brand sprint to solve the core question first',
+            desc: 'Executed a condensed brand sprint mapping values, target audience, and competitors before touching the UI — material later folded directly into Genesis\'s official brand documentation.'
+          },
+          {
+            title: 'A soft rebrand built for enterprise credibility',
+            desc: 'Modernized the visual direction against the US site benchmark, projecting the technological, robust atmosphere needed to win major regional contracts.'
+          },
+          {
+            title: 'Technical depth beyond interface design',
+            desc: 'Configured backend form handling, marketing automation workflows, and native SEO, SEM, GEO, and AEO architecture.'
+          },
+          {
+            title: 'From single project to owning brand communications',
+            desc: 'Grew into an ongoing retainer: launched and authored 13 original blog articles with transmedia link-building, designed social media identity, created the Genesis News newsletter, and managed Google Ads.'
+          },
+          {
+            title: 'Revisiting brand strategy after one year',
+            desc: 'Re-evaluated the initial brand analysis one year in, auditing actual market performance against original sprint hypotheses.'
+          }
+        ]
+      },
+      es: {
+        title: 'La Solución',
+        description: 'Liderazgo integral en tres niveles: sitio web (soft rebrand, backend de formularios y automatización, SEO/SEM/GEO/AEO), estrategia de marca (brand sprint inicial revisado al año) e infraestructura de comunicación (blog, identidad en redes, newsletter interna y Google Ads) — ejecutado de manera autónoma.',
+        highlights: [
+          {
+            title: 'Pocket Brand Sprint para definir la diferenciación',
+            desc: 'Brand sprint condensado para definir valores, audiencia y competencia antes del diseño visual — documento incorporado a la guía oficial de la marca.'
+          },
+          {
+            title: 'Soft rebrand enfocado en credibilidad institucional',
+            desc: 'Modernización visual tomando como base el sitio de EE. UU., logrando un estilo tecnológico y sólido para captar grandes clientes.'
+          },
+          {
+            title: 'Infraestructura técnica integral',
+            desc: 'Configuración de backend para formularios, flujos de automatización y estructura avanzada de SEO, SEM, GEO y AEO.'
+          },
+          {
+            title: 'De proyecto único a asesoría continua de comunicación',
+            desc: 'Transición a consultoría continua: creación y redacción de 13 artículos de blog, identidad para redes, newsletter Genesis News y campañas en Google Ads.'
+          },
+          {
+            title: 'Revisión estratégica al cumplirse un año',
+            desc: 'Auditoría de la estrategia de marca un año después del lanzamiento para ajustar la comunicación a la dinámica real del mercado.'
+          }
+        ]
+      }
+    },
+    results: {
+      pt: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            value: '+82%',
+            label: 'Tráfego vs Site US',
+            desc: 'Superação consistente do volume de tráfego do site da matriz nos últimos 30 dias.'
+          },
+          {
+            value: '2x Mais',
+            label: 'Tempo Médio de Sessão',
+            desc: 'O dobro do tempo de permanência de usuários em comparação com o site americano.'
+          },
+          {
+            value: '13 Artigos',
+            label: 'Conteúdo Original no Blog',
+            desc: 'Artigos estratégicos autorais com link building e autoridade de domínio.'
+          }
+        ],
+        summary: 'O lançamento em junho de 2025 entregou todas as configurações planejadas. A operação LATAM superou o site US em 82% no tráfego com 2x o tempo de sessão, 13 artigos originais publicados, 5 cases estruturados e 2 fluxos de automação de formulários ativos (contato e treinamentos privados), convertendo um projeto pontual em um contrato contínuo de gestão da marca.'
+      },
+      en: {
+        title: 'Results & Impact',
+        stats: [
+          {
+            value: '+82%',
+            label: 'Traffic vs US Site',
+            desc: 'Consistently outperforming the US headquarters website traffic volume.'
+          },
+          {
+            value: '2x Higher',
+            label: 'Avg Session Duration',
+            desc: 'Double the user engagement and dwell time compared to the US benchmark.'
+          },
+          {
+            value: '13 Articles',
+            label: 'Original Blog Content',
+            desc: 'Authorial strategic articles driving organic transmedia traffic and domain authority.'
+          }
+        ],
+        summary: 'Launched in June 2025 with every promised feature live. Genesis LATAM now generates 82% more traffic than the US site with double the session duration, 13 original blog articles, 5 metric-driven case studies, and 2 live automation workflows, transforming an initial project into an ongoing strategic communication retainer.'
+      },
+      es: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            value: '+82%',
+            label: 'Tráfico vs Sitio US',
+            desc: 'Tráfico superior sostenido en comparación con el portal de la matriz en EE. UU.'
+          },
+          {
+            value: '2x Mayor',
+            label: 'Duración de Sesión',
+            desc: 'El doble de tiempo de permanencia promedio respecto al sitio estadounidense.'
+          },
+          {
+            value: '13 Artículos',
+            label: 'Contenido Original de Blog',
+            desc: 'Publicaciones estratégicas exclusivas que fortalecen la autoridad de dominio.'
+          }
+        ],
+        summary: 'Sitio lanzado en junio de 2025 con éxito operativo total. La plataforma LATAM atrae 82% más tráfico que la matriz con el doble de duración de sesión, 13 artículos de blog, 5 casos estructurados y 2 automatizaciones activas, consolidando una alianza estratégica a largo plazo.'
+      }
+    },
+    futureVision: {
+      pt: {
+        title: 'Visão de Futuro e Expansão',
+        subtitle: 'Metas contínuas de consolidação e escala da presença regional',
+        topics: [
+          {
+            id: 1,
+            title: 'Consolidação como Benchmark Global',
+            description: 'Posicionar a Genesis LATAM como o padrão de excelência e inovação para o qual a matriz americana se volta.',
+            tag: 'Global Benchmark'
+          },
+          {
+            id: 2,
+            title: 'Ativação Multicanal de Produtos',
+            description: 'Com as bases sólidas da marca definidas, expandir para novos materiais de comunicação que ativem a marca e seus produtos em múltiplos canais.',
+            tag: 'Product Marketing'
+          },
+          {
+            id: 3,
+            title: 'Campanhas Nativas para a América Latina',
+            description: 'Construção de campanhas com voz e mensagens alinhadas especificamente ao público e mix de produtos da LATAM, sem adaptações superficiais do conteúdo US.',
+            tag: 'Regional Marketing'
+          },
+          {
+            id: 4,
+            title: 'Fortalecimento da Comunicação Interna',
+            description: 'Evoluir o Genesis News e outros materiais internos para consolidar uma presença de marca viva e engajadora para os colaboradores.',
+            tag: 'Internal Branding'
+          }
+        ]
+      },
+      en: {
+        title: 'Future Vision & Expansion',
+        subtitle: 'Strategic roadmap for sustained regional dominance and brand scale',
+        topics: [
+          {
+            id: 1,
+            title: 'Consolidation as Global Benchmark',
+            description: 'Position Genesis LATAM as the benchmark of excellence that the US headquarters looks to for modern digital execution.',
+            tag: 'Global Benchmark'
+          },
+          {
+            id: 2,
+            title: 'Multi-Channel Product Activation',
+            description: 'Leverage established brand foundations to create dynamic communication assets activating the brand and product portfolio across touchpoints.',
+            tag: 'Product Marketing'
+          },
+          {
+            id: 3,
+            title: 'LATAM-Native Campaigns',
+            description: 'Craft targeted campaigns with messaging tailored specifically to LATAM audiences and market offerings, rather than adapting US materials.',
+            tag: 'Regional Marketing'
+          },
+          {
+            id: 4,
+            title: 'Internal Brand Culture',
+            description: 'Scale Genesis News and internal communications into an authentic brand experience for internal teams and partners.',
+            tag: 'Internal Branding'
+          }
+        ]
+      },
+      es: {
+        title: 'Visión de Futuro y Expansión',
+        subtitle: 'Estrategia continua para consolidar el posicionamiento y la escala regional',
+        topics: [
+          {
+            id: 1,
+            title: 'Consolidación como Referente Global',
+            description: 'Posicionar a Genesis LATAM como el estándar de excelencia para toda la marca global.',
+            tag: 'Global Benchmark'
+          },
+          {
+            id: 2,
+            title: 'Activación Multicanal de Productos',
+            description: 'Aprovechar la sólida base de marca para desarrollar materiales promocionales que activen productos en nuevos canales.',
+            tag: 'Product Marketing'
+          },
+          {
+            id: 3,
+            title: 'Campañas Nativas para América Latina',
+            description: 'Desarrollo de campañas con voz y propuesta de valor enfocadas directamente en el público regional.',
+            tag: 'Regional Marketing'
+          },
+          {
+            id: 4,
+            title: 'Cultura y Comunicación Interna',
+            description: 'Expandir Genesis News y los canales internos para fortalecer la identidad y pertenencia del equipo.',
+            tag: 'Internal Branding'
+          }
+        ]
+      }
+    }
+  },
+{
+    id: 'renault',
+    slug: 'renault',
+    client: 'Renault',
+    category: 'Automotive IoT & Connected Services',
+    year: '2025',
+    role: 'UX/UI Designer (Connected Car Services - CCS)',
+    metricsHighlight: {
+      pt: 'Benchmark Global',
+      en: 'Global Benchmark',
+      es: 'Benchmark Global'
+    },
+    metricLabel: {
+      pt: 'Serviços Conectados (CCS) estabelecidos como referência de experiência veicular',
+      en: 'CCS established as a reference point for connected car experiences',
+      es: 'CCS establecido como referente de experiencia en vehículos conectados'
+    },
+    coverImage: renaultCover,
+    pullQuote: {
+      pt: 'Um recurso de segurança que tranquiliza em um mercado pode alarmar em outro. O objetivo nunca foi consistência cega — foi discernimento global.',
+      en: 'A safety feature that reassures in one market can alarm in another. Global consistency was never the goal — global judgment was.',
+      es: 'Una función de seguridad que tranquiliza en un mercado puede alarmar en otro. El objetivo nunca fue la consistencia ciega, sino el discernimiento global.'
+    },
+    tags: ['Connected Vehicles', 'Automotive IoT', 'Safety Telemetry', 'Conversational UX', 'Multicultural Alignment', 'MyRenault App'],
+    title: {
+      pt: 'Renault Connected Car Services: Integrando telemetria e segurança no app MyRenault',
+      en: 'Renault Connected Car Services: Integrating telemetry and safety into MyRenault',
+      es: 'Renault Connected Car Services: Integrando telemetría y seguridad en MyRenault'
+    },
+    subtitle: {
+      pt: 'Integração de 3 serviços conectados críticos (Rastreamento de Veículo Roubado/SVT, ACN e Alertas Anormais) com experiência contextualizada entre mercados globais.',
+      en: 'Integrating 3 new connected features (Stolen Vehicle Tracking, ACN, and Abnormal alerts) into MyRenault with context-sensitive global UX.',
+      es: 'Integración de 3 servicios conectados críticos (Rastreo de Vehículo Robado/SVT, ACN y Alertas Anormales) en la app MyRenault.'
+    },
+    impactSummary: {
+      pt: 'Atuando no time de Connected Car Services (CCS) da Renault ao lado de designers, desenvolvedores internacionais, PM e scrum masters (Jun - Ago 2025), liderei a estratégia de UX e fluxos conversacionais de suporte para 3 recursos essenciais no MyRenault: Stolen Vehicle Tracking (SVT), ACN e Alertas Anormais. Estabelecemos um framework de design sensível ao contexto sociocultural e posicionamos o design como influenciador de decisões estratégicas de negócios.',
+      en: 'Part of Renault\'s Connected Car Services (CCS) team alongside international UX designers, developers, PM, and scrum masters (Jun - Aug 2025), leading UX strategy and support flows for 3 critical connected vehicle features in MyRenault: Stolen Vehicle Tracking (SVT), ACN, and Abnormal alerts with a context-sensitive safety framework.',
+      es: 'En el equipo de Connected Car Services (CCS) de Renault junto a diseñadores internacionales, desarrolladores, PM y scrum masters (Jun - Ago 2025), lideré la estrategia de UX y flujos de soporte para 3 funciones clave en MyRenault: Rastreo de Vehículo Robado (SVT), ACN y Alertas Anormales.'
+    },
+    challenge: {
+      pt: {
+        title: 'O Desafio',
+        description: `Os stakeholders da Renault estavam distribuídos por múltiplos países, cada um com uma leitura particular sobre o que os Serviços Conectados (CCS) deveriam representar. Sem um alinhamento comum, havia o risco de criar uma experiência dita "global" desenhada em torno da região que falasse mais alto — e não em torno do comportamento real dos usuários locais.
+
+A dimensão da segurança tornava o desafio ainda mais nítido: o SVT rastreia veículos roubados — uma funcionalidade que precisa transmitir amparo e tranquilidade imediata, e não alarme ou pânico. Essa linha muda conforme a realidade socioeconômica de cada região e a forma como as pessoas reagem sob estresse.`,
+        keyPoints: [
+          'Grupos regionais de stakeholders tomando decisões isoladas sem conciliação de metas de negócios com necessidades do usuário.',
+          'SVT e recursos de segurança necessitando de design sensível ao contexto, evitando templates genéricos.',
+          'Risco do design virar mera camada de execução para decisões tomadas sem embasamento de comportamento.'
+        ]
+      },
+      en: {
+        title: 'The Challenge',
+        description: `Renault's stakeholders were spread across multiple countries, each with a different read on what CCS needed to be. Without a shared alignment point, that risked becoming a "global" experience designed around whichever region spoke loudest — not around actual user behavior anywhere.
+
+Safety made this sharper. Stolen Vehicle Tracking (SVT) tracks a stolen vehicle — a feature that needs to read as reassurance, not alarm, and that line moves depending on a region's socio-economic context and how people there actually behave under stress.`,
+        keyPoints: [
+          'Regional stakeholder groups making decisions independently with no common reconciliation framework.',
+          'SVT and safety features requiring context-sensitive design rather than a single template applied everywhere.',
+          'Risk of design becoming an execution layer for decisions made elsewhere without user-behavior input.'
+        ]
+      },
+      es: {
+        title: 'El Desafío',
+        description: `Los stakeholders de Renault estaban distribuidos en varios países con visiones distintas sobre CCS. Sin alineación, se corría el riesgo de diseñar para la región con mayor voz en lugar de entender el comportamiento real del usuario.
+
+La seguridad requería extremo cuidado: el rastreo de vehículos robados (SVT) debe transmitir tranquilidad y no pánico, un límite que varía según la realidad socioeconómica de cada país.`,
+        keyPoints: [
+          'Grupos regionales tomando decisiones independientes sin marco de conciliación común.',
+          'Funciones de seguridad (SVT) requiriendo diseño sensible al contexto socioeconómico.',
+          'Riesgo de que el diseño fuera relegado a una simple fase de ejecución posterior.'
+        ]
+      }
+    },
+    solution: {
+      pt: {
+        title: 'A Solução',
+        description: `Facilitamos workshops e dinâmicas estruturadas para conectar stakeholders de múltiplos países, alinhando objetivos de negócio com comportamento do usuário antes do fechamento de decisões.
+
+Desenvolvemos a estratégia sensível ao contexto para o SVT, tratando um recurso global de segurança como algo que precisa conquistar confiança local primeiro. Entregamos fluxos conversacionais e de suporte para o ecossistema CCS (SVT, ACN e Alertas Anormais), estabelecendo o artefato concreto a partir do qual o time pôde construir as telas diretamente.`,
+        highlights: [
+          {
+            title: 'Interface Central & Alinhamento Multicultural',
+            desc: 'Workshops colaborativos conectando stakeholders internacionais para harmonizar objetivos de negócio e necessidades de usuário.'
+          },
+          {
+            title: 'Estratégia Sensível ao Contexto para Segurança',
+            desc: 'Mapeamento de comportamentos e reações sob estresse para o rastreamento veicular em diferentes realidades socioeconômicas.'
+          },
+          {
+            title: 'Fluxos Conversacionais de Suporte CCS',
+            desc: 'Estruturação dos fluxos de atendimento e suporte para SVT, ACN e Alertas Anormais no app MyRenault.'
+          },
+          {
+            title: 'Design como Parceiro Estratégico de Negócios',
+            desc: 'Posicionamento do time de design no centro das discussões que moldam o posicionamento de marca e parcerias globais.'
+          }
+        ]
+      },
+      en: {
+        title: 'The Solution',
+        description: `Facilitated workshops connecting stakeholders across countries, aligning business goals with user needs before decisions locked in.
+
+Crafted a context-sensitive strategy for SVT, treating a global safety feature as something that had to be locally trustworthy first. Delivered conversational support flows for the CCS ecosystem (SVT, ACN, and Abnormal alerts) as the concrete foundation for the engineering team to build from.`,
+        highlights: [
+          {
+            title: 'Central Interface Across Multicultural Teams',
+            desc: 'Workshops connecting stakeholders across countries to align business goals with user needs.'
+          },
+          {
+            title: 'Context-Sensitive Strategy for Safety Features',
+            desc: 'Structured SVT behavior around regional socio-economic realities and user reactions under stress.'
+          },
+          {
+            title: 'Conversational Support Flows for CCS',
+            desc: 'Defined the support flows for SVT, ACN, and Abnormal alerts within the MyRenault application.'
+          },
+          {
+            title: 'Design as a Strategic Partner',
+            desc: 'Positioned design as an influential voice in high-level business decisions and global partnerships.'
+          }
+        ]
+      },
+      es: {
+        title: 'La Solución',
+        description: `Talleres colaborativos entre stakeholders internacionales para alinear visión de negocio y necesidades de usuario. Desarrollamos la estrategia contextual para SVT y especificamos los flujos de soporte para MyRenault.`,
+        highlights: [
+          {
+            title: 'Alineación Central Multicultural',
+            desc: 'Talleres conectando stakeholders de diferentes países para unificar objetivos.'
+          },
+          {
+            title: 'Estrategia de Seguridad Sensible al Contexto',
+            desc: 'Diseño adaptado a reacciones bajo estrés en diversas realidades socioeconómicas.'
+          },
+          {
+            title: 'Flujos Conversacionales de Soporte CCS',
+            desc: 'Especificación de soporte para SVT, ACN y Alertas Anormales en MyRenault.'
+          },
+          {
+            title: 'Diseño como Socio Estratégico',
+            desc: 'Posicionamiento del diseño en las decisiones de negocio clave.'
+          }
+        ]
+      }
+    },
+    results: {
+      pt: {
+        title: 'Resultados & Impacto',
+        stats: [
+          {
+            label: 'Referência Global',
+            value: 'Benchmark',
+            desc: 'CCS estabelecido como referência de experiência em carros conectados na Renault.'
+          },
+          {
+            label: 'Papel Estratégico',
+            value: 'Parceiro',
+            desc: 'Design reconhecido pela liderança da Renault por influenciar decisões de negócios.'
+          },
+          {
+            label: 'Recursos Entregues',
+            value: '3 Serviços',
+            desc: 'SVT, ACN e Alertas Anormais estruturados com fluxos de suporte completos.'
+          }
+        ],
+        summary: 'O projeto de Connected Car Services (CCS) foi reconhecido como benchmark global dentro da Renault. O design consolidou-se como parceiro estratégico da liderança, entregando os fluxos conversacionais de suporte para SVT, ACN e Abnormal e estruturando a base de segurança sensível ao contexto para implementação.'
+      },
+      en: {
+        title: 'Results & Impact',
+        stats: [
+          {
+            label: 'Global Reference',
+            value: 'Benchmark',
+            desc: 'CCS established as a reference point for connected car experiences.'
+          },
+          {
+            label: 'Strategic Role',
+            value: 'Partner',
+            desc: 'Design recognized by Renault leadership for influencing business decisions.'
+          },
+          {
+            label: 'Aligned Features',
+            value: '3 Services',
+            desc: 'SVT, ACN, and Abnormal aligned globally with full support flows.'
+          }
+        ],
+        summary: 'CCS was recognized as a global benchmark within Renault. Design was established as a strategic business partner, delivering conversational support flows for SVT, ACN, and Abnormal alerts with a robust context-sensitive safety framework.'
+      },
+      es: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            label: 'Referente Global',
+            value: 'Benchmark',
+            desc: 'CCS establecido como referente de experiencia en vehículos conectados en Renault.'
+          },
+          {
+            label: 'Rol Estratégico',
+            value: 'Socio',
+            desc: 'Diseño reconocido por la dirección por influir en decisiones de negocio.'
+          },
+          {
+            label: 'Servicios Entregados',
+            value: '3 Funciones',
+            desc: 'SVT, ACN y Alertas Anormales estructurados con flujos de soporte completos.'
+          }
+        ],
+        summary: 'El proyecto de CCS fue reconocido como benchmark global en Renault. El diseño se consolidó como socio estratégico, entregando los flujos de soporte conversacional para SVT, ACN y alertas anormales.'
+      }
+    },
+    futureVision: {
+      pt: {
+        title: 'Visão de Futuro & Aprendizados',
+        subtitle: 'Diretrizes estratégicas para serviços de mobilidade conectada e IoT veicular:',
+        topics: [
+          {
+            id: 1,
+            title: 'Design na Mesa de Decisões Estratégicas',
+            description: 'Garantir que o design participe ativamente das decisões que definem parcerias de negócios e posicionamento global de marca — e não apenas na fase final de entrega de telas.',
+            tag: 'Design Strategy'
+          },
+          {
+            id: 2,
+            title: 'Segurança Sensível ao Contexto',
+            description: 'Em serviços veiculares críticos de telemetria, a confiança do usuário depende da adaptação às nuances culturais e realidades socioeconômicas locais.',
+            tag: 'Automotive IoT'
+          },
+          {
+            id: 3,
+            title: 'Alinhamento Multicultural Contínuo',
+            description: 'Estruturar rituais de alinhamento entre países antes de travar especificações técnicas evita retrabalho e inconsistências culturais.',
+            tag: 'Cross-cultural Design'
+          }
+        ]
+      },
+      en: {
+        title: 'Future Vision & Key Learnings',
+        subtitle: 'Strategic directions for connected-car experience and automotive IoT:',
+        topics: [
+          {
+            id: 1,
+            title: 'Design at the Global Strategic Table',
+            description: 'Ensuring design holds a seat in the strategic decisions that shape a brand\'s global positioning and partnerships — not just in shipping interfaces.',
+            tag: 'Design Strategy'
+          },
+          {
+            id: 2,
+            title: 'Context-Sensitive IoT Safety',
+            description: 'In critical automotive safety features, user trust depends on regional nuances and socio-economic adaptation.',
+            tag: 'Automotive IoT'
+          },
+          {
+            id: 3,
+            title: 'Continuous Cross-Border Alignment',
+            description: 'Structuring alignment rituals across global hubs prior to engineering lock-in prevents cultural disconnects.',
+            tag: 'Cross-cultural Design'
+          }
+        ]
+      },
+      es: {
+        title: 'Visión de Futuro y Aprendizajes',
+        subtitle: 'Principios estratégicos para la movilidad conectada e IoT automotriz:',
+        topics: [
+          {
+            id: 1,
+            title: 'Diseño en la Mesa Estratégica Global',
+            description: 'Asegurar que el diseño participe en las decisiones que definen el posicionamiento global de la marca.',
+            tag: 'Design Strategy'
+          },
+          {
+            id: 2,
+            title: 'Seguridad IoT Sensible al Contexto',
+            description: 'En telemetría vehicular crítica, la confianza del usuario requiere adaptación a realidades socioeconómicas locales.',
+            tag: 'Automotive IoT'
+          },
+          {
+            id: 3,
+            title: 'Alineación Multicultural Continua',
+            description: 'Estructurar talleres internacionales antes del cierre técnico evita discrepancias culturales.',
+            tag: 'Cross-cultural Design'
+          }
+        ]
+      }
+    }
+  },
+{
     id: 'abinbev',
     slug: 'abinbev',
     client: 'AB InBev',
@@ -479,7 +1417,7 @@ Ese único fallo se cascateaba: la dirección debía auditar hojas de cálculo u
       }
     }
   },
-  {
+{
     id: 'nissan',
     slug: 'nissan',
     client: 'Nissan do Brasil',
@@ -740,7 +1678,299 @@ Sin red de seguridad para 4 desarrolladores: con un solo diseñador y sin PM ded
       }
     }
   },
-  {
+{
+    id: 'logcp',
+    slug: 'logcp',
+    client: 'Log Commercial Properties',
+    category: 'Executive Dashboard & Data Viz',
+    year: '2025',
+    role: 'UI Designer (com UX Researcher, Design Lead & PM)',
+    metricsHighlight: {
+      pt: '+80% Substituição',
+      en: '+80% Replaced',
+      es: '+80% Reemplazados'
+    },
+    metricLabel: {
+      pt: 'Relatórios estáticos substituídos por um único dashboard executivo',
+      en: 'Static reports replaced by a single integrated dashboard',
+      es: 'Informes estáticos reemplazados por un panel ejecutivo integrado'
+    },
+    coverImage: logcpCover,
+    pullQuote: {
+      pt: 'O gap não era a falta de dados. Era não ter um único lugar para enxergá-los.',
+      en: 'The gap wasn’t the data. It was not having one place to see it.',
+      es: 'La brecha no eran los datos. Era no tener un solo lugar para verlos.'
+    },
+    tags: ['Executive Dashboard', 'Data Visualization', 'UI Kit', 'Interactive Prototyping', 'SharePoint/SAP/CRM', 'Financial Analytics'],
+    title: {
+      pt: 'LogCP Clear Sight: Unificando dados de 3 sistemas em um dashboard executivo',
+      en: 'LogCP Clear Sight: Unifying financial data from 3 systems into an executive dashboard',
+      es: 'LogCP Clear Sight: Unificando datos de 3 sistemas en un panel ejecutivo'
+    },
+    subtitle: {
+      pt: 'Consolidação de dados dispersos do SharePoint, SAP e CRM em um dashboard executivo para o Diretor Financeiro & RI e liderança estratégica.',
+      en: 'Consolidating fragmented data from SharePoint, SAP, and CRM into an executive dashboard for the Finance & IR Director and leadership.',
+      es: 'Consolidación de datos dispersos de SharePoint, SAP y CRM en un panel ejecutivo para la Dirección Financiera y RI.'
+    },
+    impactSummary: {
+      pt: 'Atuando como UI Designer ao lado de UX Researcher, Design Lead e PM de fevereiro a maio de 2025, transformei dados financeiros dispersos em um dashboard executivo de 4 telas ("Clear Sight"). O projeto substituiu mais de 80% dos relatórios estáticos manuais e entregou um UI Kit padronizado para implementação direta pelo time do cliente.',
+      en: 'As a UI Designer alongside a UX Researcher, Design Lead, and PM from February to May 2025, turned scattered financial data into a 4-screen executive dashboard ("Clear Sight"), replacing +80% of manual static reports and delivering a dedicated UI kit for client-side implementation.',
+      es: 'Como Diseñador UI junto a UX Researcher, Design Lead y PM (Feb - May 2025), transformé datos financieros dispersos en un panel ejecutivo de 4 pantallas ("Clear Sight"), reemplazando más del 80% de los informes estáticos y entregando un UI Kit dedicado.'
+    },
+    challenge: {
+      pt: {
+        title: 'O Desafio',
+        description: `Os dados financeiros da LogCP existiam, mas estavam espalhados entre SharePoint, SAP e CRM. Executivos e diretores dependiam de um conjunto de relatórios estáticos montados manualmente que precisavam ser refeitos do zero a cada conferência de KPI.
+
+A pesquisa com stakeholders identificou quais números realmente importavam para a tomada de decisão estratégica — como disponibilidade financeira e reciclagem de ativos — e confirmou que ninguém possuía um ponto centralizado para visualizá-los em conjunto.
+
+Para o Diretor Financeiro & RI que toma decisões de alto impacto, o custo real era ter decisões estratégicas aguardando alguém consolidar 3 sistemas desconectados primeiro.`,
+        keyPoints: [
+          'Relatórios viviam em formatos estáticos montados manualmente a cada checagem de KPI.',
+          'Dados dispersos em 3 sistemas desconectados (SharePoint, SAP e CRM) sem fonte única de verdade.',
+          'Tempo de planejamento estratégico da liderança consumido reunindo dados em vez de decidir.'
+        ]
+      },
+      en: {
+        title: 'The Challenge',
+        description: `Financial data existed at LogCP, but was scattered across SharePoint, SAP, and CRM. Executives depended on a handful of static reports that had to be manually rebuilt every time a KPI needed checking.
+
+Stakeholder research surfaced which numbers actually mattered for strategic decisions — financial availability and asset recycling among them — and confirmed nobody had a single place to see them together.
+
+For a Finance & IR Director making high-level calls, the real cost was decisions waiting on someone piecing 3 systems together first.`,
+        keyPoints: [
+          'Reports lived in static, manually assembled formats requiring continuous reconstruction.',
+          'Data lived across 3 disconnected systems (SharePoint, SAP, CRM) with no single source of truth.',
+          'Leadership strategic planning time went to gathering information, not deciding on it.'
+        ]
+      },
+      es: {
+        title: 'El Desafío',
+        description: `Los datos financieros existían, pero estaban dispersos entre SharePoint, SAP y CRM. Los ejecutivos dependían de informes estáticos que debían reconstruirse manualmente cada vez que se revisaba un KPI.
+
+La investigación con stakeholders identificó qué números importaban realmente —disponibilidad financiera y reciclaje de activos— y confirmó la ausencia de un punto centralizado.
+
+Para el Director Financiero y de RI, el costo real eran decisiones estratégicas esperando a que alguien uniera 3 sistemas desconectados.`,
+        keyPoints: [
+          'Informes en formatos estáticos reconstruidos manualmente para cada revisión de KPI.',
+          'Datos en 3 sistemas desconectados (SharePoint, SAP, CRM) sin una fuente única.',
+          'Tiempo de la directiva consumido en consolidar información en lugar de decidir.'
+        ]
+      }
+    },
+    solution: {
+      pt: {
+        title: 'A Solução',
+        description: `Trabalhamos em estreita colaboração com o UX Researcher para mapear quais métricas orientavam as decisões estratégicas antes de desenhar a primeira tela, garantindo que o dashboard fosse construído em torno do que a liderança precisava ver, e não do que os sistemas de origem facilitavam exibir.
+
+Projetamos as 4 telas principais do dashboard com foco em agilidade visual e clareza, utilizando componentes reutilizáveis, animações e micro-interações fluidas. Validamos fluxos por meio de protótipos interativos com os stakeholders e estruturamos um UI Kit dedicado para assegurar consistência antes do handoff completo de especificações para o time interno do cliente.`,
+        highlights: [
+          {
+            title: 'Pesquisa com Stakeholders & Mapeamento de KPIs',
+            desc: 'Identificação prévia das métricas decisivas (disponibilidade financeira e reciclagem de ativos) antes do desenho visual.'
+          },
+          {
+            title: '4 Telas Principais Focadas em Agilidade',
+            desc: 'Design modular com componentes reutilizáveis e visualizações sob medida para cada indicador estratégico.'
+          },
+          {
+            title: 'Prototipagem Interativa & Validação Rápida',
+            desc: 'Fluxos testados diretamente com diretores e executivos para ajustes ágeis antes do design final.'
+          },
+          {
+            title: 'UI Kit Completo & Handoff Sem Fricção',
+            desc: 'Padronização visual de gráficos e cartões de dados para implementação autônoma pelo time do cliente.'
+          }
+        ]
+      },
+      en: {
+        title: 'The Solution',
+        description: `Worked with the UX Researcher to identify which metrics actually drove strategic decisions before designing a single screen, ensuring the dashboard was built around leadership needs rather than legacy system convenience.
+
+Designed the dashboard's 4 main screens using reusable components and subtle animation for speed and clarity. Built interactive prototypes to validate flows with stakeholders early, created a comprehensive UI kit to standardize metrics presentation, and delivered full specifications for autonomous implementation by the client's team.`,
+        highlights: [
+          {
+            title: 'Stakeholder Research, Then KPIs',
+            desc: 'Identified critical decision drivers (financial availability, asset recycling) before screen design.'
+          },
+          {
+            title: '4 Screens Built for Velocity & Clarity',
+            desc: 'Modular screens with tailored data visualizations for each strategic financial metric.'
+          },
+          {
+            title: 'Interactive Prototyping & Early Validation',
+            desc: 'Tested end-to-end flows with C-level stakeholders, catching adjustments cheaply.'
+          },
+          {
+            title: 'Dedicated UI Kit & Autonomous Handoff',
+            desc: 'Standardized charts, typography, and cards for seamless implementation by the client\'s team.'
+          }
+        ]
+      },
+      es: {
+        title: 'La Solución',
+        description: `Investigación previa con stakeholders para definir qué métricas guiaban las decisiones antes de diseñar pantallas. Diseñamos 4 pantallas principales modulares, un UI Kit completo y prototipos interactivos validados directamente con la dirección.`,
+        highlights: [
+          {
+            title: 'Investigación con Stakeholders y KPIs',
+            desc: 'Identificación de métricas clave antes de iniciar el diseño visual.'
+          },
+          {
+            title: '4 Pantallas Estratégicas para Alta Velocidad',
+            desc: 'Diseño modular adaptado a las métricas ejecutivas más críticas.'
+          },
+          {
+            title: 'Prototipado Interactivo y Validación Temprana',
+            desc: 'Pruebas directas con la directiva para validar flujos con rapidez.'
+          },
+          {
+            title: 'UI Kit Dedicado y Handoff Autónomo',
+            desc: 'Estandarización de gráficos y métricas para implementación directa del cliente.'
+          }
+        ]
+      }
+    },
+    results: {
+      pt: {
+        title: 'Resultados & Impacto',
+        stats: [
+          {
+            label: 'Substituição de Relatórios',
+            value: '+80%',
+            desc: 'Mais de 80% dos relatórios estáticos manuais substituídos pelo dashboard Clear Sight.'
+          },
+          {
+            label: 'Telas Estratégicas',
+            value: '4 Telas',
+            desc: 'Visualizações completas mapeadas para KPIs críticos e disponibilidade financeira.'
+          },
+          {
+            label: 'Fontes Integradas',
+            value: '3 Sistemas',
+            desc: 'Consolidação de dados do SharePoint, SAP e CRM em uma visão unificada.'
+          }
+        ],
+        summary: 'Mais de 80% dos relatórios estáticos foram substituídos pelo dashboard Clear Sight. O Diretor Financeiro & RI e o time de liderança conquistaram acesso em tempo real, reduzindo drasticamente o tempo necessário para reunir dados antes de iniciar reuniões estratégicas.'
+      },
+      en: {
+        title: 'Results & Impact',
+        stats: [
+          {
+            label: 'Static Reports Replaced',
+            value: '+80%',
+            desc: 'Over 80% of manual static reports replaced by the single Clear Sight dashboard.'
+          },
+          {
+            label: 'Core Screens Shipped',
+            value: '4 Screens',
+            desc: 'Tailored visualizations mapped to strategic KPIs and financial availability.'
+          },
+          {
+            label: 'Systems Consolidated',
+            value: '3 Sources',
+            desc: 'Consolidated SharePoint, SAP, and CRM into one unified source of truth.'
+          }
+        ],
+        summary: 'Over 80% of static reports were replaced by the single Clear Sight dashboard. The Finance & IR Director and leadership team gained real-time access, cutting time spent assembling data before strategic decisions could start.'
+      },
+      es: {
+        title: 'Resultados e Impacto',
+        stats: [
+          {
+            label: 'Informes Reemplazados',
+            value: '+80%',
+            desc: 'Más del 80% de informes estáticos reemplazados por el panel Clear Sight.'
+          },
+          {
+            label: 'Pantallas Entregadas',
+            value: '4 Pantallas',
+            desc: 'Vistas ejecutivas adaptadas a KPIs críticos y disponibilidad financiera.'
+          },
+          {
+            label: 'Sistemas Unificados',
+            value: '3 Fuentes',
+            desc: 'Consolidación de SharePoint, SAP y CRM en una sola visión central.'
+          }
+        ],
+        summary: 'Más del 80% de los informes estáticos fueron reemplazados por el panel Clear Sight. La Dirección Financiera y de RI obtuvo acceso en tiempo real a los KPIs estratégicos.'
+      }
+    },
+    futureVision: {
+      pt: {
+        title: 'Visão de Futuro & Aprendizados',
+        subtitle: 'Princípios consolidados para produtos de visualização executiva e design corporativo:',
+        topics: [
+          {
+            id: 1,
+            title: 'Design Orientado a Decisões Estratégicas',
+            description: 'Dashboards executivos devem ser estruturados a partir das decisões que a liderança precisa tomar, e não da facilidade de extração dos bancos de dados legados.',
+            tag: 'Data Strategy'
+          },
+          {
+            id: 2,
+            title: 'UI Kit em Engajamentos Ágeis',
+            description: 'Mesmo em projetos pontuais de curta duração, entregar um UI Kit padronizado garante que a consistência visual se mantenha viva após o encerramento do projeto.',
+            tag: 'DesignOps'
+          },
+          {
+            id: 3,
+            title: 'Prototipagem como Redutor de Risco',
+            description: 'Validar protótipos interativos diretamente com a diretoria financeira reduz riscos e elimina retrabalho antes de qualquer esforço de desenvolvimento.',
+            tag: 'Prototyping'
+          }
+        ]
+      },
+      en: {
+        title: 'Future Vision & Key Learnings',
+        subtitle: 'Core principles established for executive data visualization and product delivery:',
+        topics: [
+          {
+            id: 1,
+            title: 'Decision-Driven Dashboard Architecture',
+            description: 'Executive dashboards must be architected around leadership decisions rather than legacy database export constraints.',
+            tag: 'Data Strategy'
+          },
+          {
+            id: 2,
+            title: 'UI Kits on Fast-Track Engagements',
+            description: 'Even in short-term punctual engagements, shipping a UI kit ensures visual consistency survives beyond initial delivery.',
+            tag: 'DesignOps'
+          },
+          {
+            id: 3,
+            title: 'Prototyping as a Risk-Reduction Tool',
+            description: 'Testing interactive prototypes directly with financial executives eliminates ambiguity prior to engineering implementation.',
+            tag: 'Prototyping'
+          }
+        ]
+      },
+      es: {
+        title: 'Visión de Futuro y Aprendizajes',
+        subtitle: 'Principios consolidados para paneles ejecutivos y visualización de datos corporativos:',
+        topics: [
+          {
+            id: 1,
+            title: 'Diseño Orientado a Decisiones',
+            description: 'Los paneles ejecutivos deben crearse en función de las decisiones de la dirección y no de las limitaciones de las bases de datos.',
+            tag: 'Data Strategy'
+          },
+          {
+            id: 2,
+            title: 'UI Kit en Proyectos Puntuais',
+            description: 'Incluso en plazos cortos, entregar un UI Kit estructurado garantiza consistencia a largo plazo para el cliente.',
+            tag: 'DesignOps'
+          },
+          {
+            id: 3,
+            title: 'Prototipado para Reducción de Riesgos',
+            description: 'Validar prototipos interactivos con la dirección financiera elimina reprocesos antes del desarrollo.',
+            tag: 'Prototyping'
+          }
+        ]
+      }
+    }
+  },
+{
     id: 'julius-baer',
     slug: 'julius-baer',
     client: 'Julius Bär Brazil',
@@ -1032,3 +2262,20 @@ Esa solicitud capturó todo el desafío: el trabajo no era solo diseñar, sino e
     }
   }
 ];
+
+export const NDA_CASE_SLUGS = ['hilton', 'renault', 'abinbev', 'nissan'];
+
+export const PUBLIC_CASES: CaseStudy[] = [
+  CASE_STUDIES.find((c) => c.slug === 'julius-baer')!,
+  CASE_STUDIES.find((c) => c.slug === 'logcp')!,
+  CASE_STUDIES.find((c) => c.slug === 'genesis-latam')!,
+  CASE_STUDIES.find((c) => c.slug === 'genesis-us')!
+].filter(Boolean);
+
+export const NDA_CASES: CaseStudy[] = [
+  CASE_STUDIES.find((c) => c.slug === 'hilton')!,
+  CASE_STUDIES.find((c) => c.slug === 'renault')!,
+  CASE_STUDIES.find((c) => c.slug === 'abinbev')!,
+  CASE_STUDIES.find((c) => c.slug === 'nissan')!
+].filter(Boolean);
+

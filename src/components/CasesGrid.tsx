@@ -1,5 +1,5 @@
 import React from 'react';
-import { CASE_STUDIES } from '../data/cases';
+import { PUBLIC_CASES } from '../data/cases';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { motion } from 'motion/react';
@@ -34,7 +34,7 @@ export const CasesGrid: React.FC<CasesGridProps> = ({ currentLang, onSelectCase 
 
         {/* 2x2 Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {CASE_STUDIES.map((caseItem, idx) => (
+          {PUBLIC_CASES.map((caseItem, idx) => (
             <motion.div
               key={caseItem.id}
               initial={{ opacity: 0, y: 30 }}

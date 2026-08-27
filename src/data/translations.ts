@@ -29,6 +29,8 @@ export const TRANSLATIONS: Record<Language, {
     subtitle: string;
     filterAll: string;
     clickPrompt: string;
+    modalApplicationTitle: string;
+    closeModal: string;
   };
   casesSection: {
     badge: string;
@@ -43,6 +45,33 @@ export const TRANSLATIONS: Record<Language, {
     title: string;
     subtitle: string;
     inspectDetail: string;
+  };
+  ndaSection: {
+    badge: string;
+    text: string;
+    cta: string;
+    protectedLabel: string;
+    confidentialPartners: string;
+    view: string;
+  };
+  ndaPage: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    disclaimer: string;
+    passwordPlaceholder: string;
+    unlockButton: string;
+    requestAccess: string;
+    requestSubject: string;
+    requestBody: string;
+    copyEmail: string;
+    copied: string;
+    errorWrongPassword: string;
+    unlockedSuccess: string;
+    passwordHint: string;
+    backToHome: string;
+    projectsHeading: string;
+    placeholderNote: string;
   };
   footerSection: {
     title: string;
@@ -67,6 +96,10 @@ export const TRANSLATIONS: Record<Language, {
     prevCase: string;
     nextCase: string;
     backToCases: string;
+    backToPublicCases: string;
+    backToNDACases: string;
+    ndaBadge: string;
+    publicBadge: string;
   };
 }> = {
   pt: {
@@ -82,12 +115,12 @@ export const TRANSLATIONS: Record<Language, {
     hero: {
       role: 'Full Stack Design Engineer',
       title: 'Full Stack Design Engineer',
-      subtitle: 'Há 10 anos projetando experiências digitais de alto impacto para marcas globais como Hilton, AB InBev, Nissan e Julius Baer. Especialista em Design Systems, DesignOps e pontes fluidas entre design e engenharia.',
+      subtitle: 'Há 10 anos projetando experiências digitais de alto impacto para marcas globais como Hilton, Renault, AB InBev e Julius Baer. Especialista em Design Systems, DesignOps e pontes fluidas entre design e engenharia.',
       highlight1Value: '10 Anos',
       highlight1Label: 'Experiência em Design & Dev',
       highlight2Value: '96% Agilidade',
       highlight2Label: 'Otimização com Design System',
-      highlight3Value: '4 Grandes',
+      highlight3Value: '8 Grandes',
       highlight3Label: 'Cases de Impacto Global',
       viewCases: 'Explorar Cases de Sucesso',
       getInTouch: 'Entrar em Contato'
@@ -97,7 +130,9 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Stack & Ferramentas Essenciais',
       subtitle: 'Conjunto de habilidades técnicas e estratégicas consolidadas na prática de liderança de produtos complexos.',
       filterAll: 'Todas as Habilidades',
-      clickPrompt: 'Clique para saber mais'
+      clickPrompt: 'Clique para saber mais',
+      modalApplicationTitle: 'Aplicação Prática em Cases',
+      closeModal: 'Fechar modal'
     },
     casesSection: {
       badge: 'Projetos de Alto Impacto',
@@ -112,6 +147,33 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Playground Visual & UI Studio',
       subtitle: 'Uma amostra da atenção aos detalhes visuais, micro-interações, tokens de design e exploração estética.',
       inspectDetail: 'Inspecionar Detalhes'
+    },
+    ndaSection: {
+      badge: 'Projetos Confidenciais',
+      text: 'Tem interesse nesses projetos específicos? Envie-me uma mensagem e eu lhe envio a senha para acesso.',
+      cta: 'Clique para acessar',
+      protectedLabel: 'Acesso protegido por senha',
+      confidentialPartners: 'Parceiros Confidenciais',
+      view: 'Ver Projetos'
+    },
+    ndaPage: {
+      badge: 'Acordo de Confidencialidade (NDA)',
+      title: 'Projetos Protegidos por NDA',
+      subtitle: 'Devido a acordos de confidencialidade e cláusulas de propriedade intelectual, alguns dos meus projetos estratégicos para grandes organizações requerem senha de acesso.',
+      disclaimer: 'O acesso completo aos entregáveis e métricas restritas é concedido individualmente mediante solicitação.',
+      passwordPlaceholder: 'Digite a senha de acesso...',
+      unlockButton: 'Desbloquear Projetos',
+      requestAccess: 'Solicitar senha por e-mail',
+      requestSubject: 'Solicitação de Acesso aos Projetos NDA - Leo Trevizani',
+      requestBody: 'Olá Leo, gostaria de solicitar a senha de acesso para visualizar seus projetos confidenciais sob NDA.',
+      copyEmail: 'Copiar e-mail',
+      copied: 'Copiado!',
+      errorWrongPassword: 'Senha incorreta. Entre em contato para receber sua chave de acesso.',
+      unlockedSuccess: 'Acesso concedido! Visualizando projetos confidenciais.',
+      passwordHint: 'Dica para teste rápido: use a chave "design2026" ou solicite diretamente por e-mail.',
+      backToHome: 'Voltar para a Home',
+      projectsHeading: 'Projetos Confidenciais Sob Sigilo',
+      placeholderNote: 'Área reservada para projetos sob NDA com placeholders estruturados para substituição com o conteúdo final.'
     },
     footerSection: {
       title: 'Vamos fazer design crítico juntos?',
@@ -135,7 +197,11 @@ export const TRANSLATIONS: Record<Language, {
       futureVisionTitle: 'Visão de Futuro',
       prevCase: 'Case Anterior',
       nextCase: 'Próximo Case',
-      backToCases: 'Voltar para Todos os Cases'
+      backToCases: 'Voltar para Todos os Cases',
+      backToPublicCases: 'Voltar para Cases de Sucesso',
+      backToNDACases: 'Voltar para Projetos NDA',
+      ndaBadge: 'Case sob Confidencialidade (NDA)',
+      publicBadge: 'Case Público Selecionado'
     }
   },
   en: {
@@ -151,12 +217,12 @@ export const TRANSLATIONS: Record<Language, {
     hero: {
       role: 'Full Stack Design Engineer',
       title: 'Full Stack Design Engineer',
-      subtitle: '10 years shaping high-impact digital experiences for global brands like Hilton, AB InBev, Nissan, and Julius Baer. Specialist in Design Systems, DesignOps, and seamless design-to-engineering execution.',
+      subtitle: '10 years shaping high-impact digital experiences for global brands like Hilton, Renault, AB InBev, and Julius Baer. Specialist in Design Systems, DesignOps, and seamless design-to-engineering execution.',
       highlight1Value: '10 Years',
       highlight1Label: 'Design & Engineering Exp.',
       highlight2Value: '96% Faster',
       highlight2Label: 'Delivery with Design Systems',
-      highlight3Value: '4 Global',
+      highlight3Value: '8 Global',
       highlight3Label: 'High-Impact Cases',
       viewCases: 'Explore Success Cases',
       getInTouch: 'Get in Touch'
@@ -166,7 +232,9 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Essential Stack & Tools',
       subtitle: 'Technical and strategic skill sets honed through leading complex digital product teams.',
       filterAll: 'All Skills',
-      clickPrompt: 'Click to learn more'
+      clickPrompt: 'Click to learn more',
+      modalApplicationTitle: 'Practical Application in Cases',
+      closeModal: 'Close modal'
     },
     casesSection: {
       badge: 'High-Impact Work',
@@ -181,6 +249,33 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Visual Playground & UI Studio',
       subtitle: 'A showcase of visual precision, micro-interactions, design tokens, and aesthetic experimentation.',
       inspectDetail: 'Inspect Details'
+    },
+    ndaSection: {
+      badge: 'Confidential Work',
+      text: 'Interested in those specific projects? Send me a message and I\'ll send you the password to access.',
+      cta: 'Click to access',
+      protectedLabel: 'Password protected access',
+      confidentialPartners: 'Confidential Partners',
+      view: 'View Projects'
+    },
+    ndaPage: {
+      badge: 'Non-Disclosure Agreement (NDA)',
+      title: 'NDA Protected Projects',
+      subtitle: 'Due to strict confidentiality agreements and proprietary intellectual property, selected strategic initiatives and enterprise platforms require password authentication.',
+      disclaimer: 'Access is granted individually to recruiters, prospective clients, and engineering leaders upon request.',
+      passwordPlaceholder: 'Enter access password...',
+      unlockButton: 'Unlock Projects',
+      requestAccess: 'Request password via email',
+      requestSubject: 'Access Request for NDA Projects - Leo Trevizani',
+      requestBody: 'Hi Leo, I would like to request the access password to view your confidential NDA projects.',
+      copyEmail: 'Copy email',
+      copied: 'Copied!',
+      errorWrongPassword: 'Incorrect password. Please reach out to receive your access key.',
+      unlockedSuccess: 'Access granted! Displaying confidential projects.',
+      passwordHint: 'Quick demo hint: use the key "design2026" or request directly via email.',
+      backToHome: 'Back to Home',
+      projectsHeading: 'Selected Confidential Case Studies',
+      placeholderNote: 'NDA protected project container. Content placeholders ready to be substituted with final assets.'
     },
     footerSection: {
       title: 'Let\'s do critical design together!',
@@ -204,7 +299,11 @@ export const TRANSLATIONS: Record<Language, {
       futureVisionTitle: 'Future Vision',
       prevCase: 'Previous Case',
       nextCase: 'Next Case',
-      backToCases: 'Back to All Cases'
+      backToCases: 'Back to All Cases',
+      backToPublicCases: 'Back to Case Studies',
+      backToNDACases: 'Back to NDA Projects',
+      ndaBadge: 'Confidential Case Study (NDA)',
+      publicBadge: 'Selected Public Case Study'
     }
   },
   es: {
@@ -220,12 +319,12 @@ export const TRANSLATIONS: Record<Language, {
     hero: {
       role: 'Full Stack Design Engineer',
       title: 'Full Stack Design Engineer',
-      subtitle: 'Hace 10 años creando experiencias digitales de alto impacto para marcas globales como Hilton, AB InBev, Nissan y Julius Baer. Especialista en Sistemas de Diseño y DesignOps.',
+      subtitle: 'Hace 10 años creando experiencias digitales de alto impacto para marcas globales como Hilton, Renault, AB InBev y Julius Baer. Especialista en Sistemas de Diseño y DesignOps.',
       highlight1Value: '10 Años',
       highlight1Label: 'Experiencia en Diseño y Dev',
       highlight2Value: '96% Agilidad',
       highlight2Label: 'Optimización con Design Systems',
-      highlight3Value: '4 Casos',
+      highlight3Value: '8 Casos',
       highlight3Label: 'Proyectos de Impacto Global',
       viewCases: 'Explorar Casos de Éxito',
       getInTouch: 'Ponerse en Contacto'
@@ -233,12 +332,14 @@ export const TRANSLATIONS: Record<Language, {
     stackSection: {
       badge: 'Competencias Clave',
       title: 'Stack y Herramientas Esenciales',
-      subtitle: 'Conjunto de habilidades técnicas y estratégicas consolidadas en el liderazgo de productos complejos.',
+      subtitle: 'Conjunto de habilidades técnicas e estratégicas consolidadas en el liderazgo de productos complejos.',
       filterAll: 'Todas las Habilidades',
-      clickPrompt: 'Haga clic para saber más'
+      clickPrompt: 'Haga clic para saber más',
+      modalApplicationTitle: 'Aplicación Práctica en Casos',
+      closeModal: 'Cerrar modal'
     },
     casesSection: {
-      badge: 'Proyectos de Alto Impacto',
+      badge: 'Projetos de Alto Impacto',
       title: 'Casos de Éxito Destacados',
       subtitle: 'Métricas reales y transformaciones de negocios lideradas a través del diseño centrado en el usuario.',
       viewFullCase: 'Ver Caso Completo',
@@ -250,6 +351,33 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Playground Visual y Estúdio UI',
       subtitle: 'Una muestra del cuidado por los detalles visuales, microinteracciones y exploración estética.',
       inspectDetail: 'Inspeccionar Detalles'
+    },
+    ndaSection: {
+      badge: 'Proyectos Confidenciales',
+      text: '¿Tiene interés en esos proyectos específicos? Envíeme un mensaje y le enviaré la contraseña para acceder.',
+      cta: 'Haga clic para acceder',
+      protectedLabel: 'Acceso protegido por contraseña',
+      confidentialPartners: 'Socios Confidenciales',
+      view: 'Ver Proyectos'
+    },
+    ndaPage: {
+      badge: 'Acuerdo de Confidencialidad (NDA)',
+      title: 'Proyectos Protegidos por NDA',
+      subtitle: 'Debido a estrictos acuerdos de confidencialidad y propiedad intelectual, varias iniciativas estratégicas corporativas requieren contraseña para su visualización.',
+      disclaimer: 'El acceso completo a entregables y métricas reservadas se otorga individualmente previa solicitud.',
+      passwordPlaceholder: 'Ingrese la contraseña de acceso...',
+      unlockButton: 'Desbloquear Proyectos',
+      requestAccess: 'Solicitar clave por correo',
+      requestSubject: 'Solicitud de Acceso a Proyectos NDA - Leo Trevizani',
+      requestBody: 'Hola Leo, me gustaría solicitar la contraseña de acceso para ver tus proyectos confidenciales bajo NDA.',
+      copyEmail: 'Copiar correo',
+      copied: '¡Copiado!',
+      errorWrongPassword: 'Contraseña incorrecta. Contáctame para recibir tu clave de acceso.',
+      unlockedSuccess: '¡Acceso concedido! Visualizando proyectos confidenciales.',
+      passwordHint: 'Pista de prueba: use la clave "design2026" o solicítela directamente por correo.',
+      backToHome: 'Volver al Inicio',
+      projectsHeading: 'Proyectos Confidenciales Seleccionados',
+      placeholderNote: 'Contenedor de proyectos protegidos por NDA con placeholders estructurados para sustituir con el contenido final.'
     },
     footerSection: {
       title: '¿Hacemos diseño crítico juntos?',
@@ -273,7 +401,11 @@ export const TRANSLATIONS: Record<Language, {
       futureVisionTitle: 'Visión de Futuro',
       prevCase: 'Caso Anterior',
       nextCase: 'Siguiente Caso',
-      backToCases: 'Volver a Todos los Casos'
+      backToCases: 'Volver a Todos los Casos',
+      backToPublicCases: 'Volver a Casos de Éxito',
+      backToNDACases: 'Volver a Proyectos NDA',
+      ndaBadge: 'Caso bajo Confidencialidad (NDA)',
+      publicBadge: 'Caso Público Seleccionado'
     }
   }
 };

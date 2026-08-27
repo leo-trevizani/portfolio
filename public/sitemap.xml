@@ -12,7 +12,31 @@
   <!-- Case Study: Hilton Design System -->
   <url>
     <loc>https://leo-trevizani.github.io/portfolio/#case/hilton</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Study: Genesis US Web Rebuild -->
+  <url>
+    <loc>https://leo-trevizani.github.io/portfolio/#case/genesis-us</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Study: Genesis Consulting LATAM -->
+  <url>
+    <loc>https://leo-trevizani.github.io/portfolio/#case/genesis-latam</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Study: Renault Connected Car Services -->
+  <url>
+    <loc>https://leo-trevizani.github.io/portfolio/#case/renault</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +44,7 @@
   <!-- Case Study: AB InBev Budget App -->
   <url>
     <loc>https://leo-trevizani.github.io/portfolio/#case/abinbev</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,7 +52,15 @@
   <!-- Case Study: Nissan E-commerce -->
   <url>
     <loc>https://leo-trevizani.github.io/portfolio/#case/nissan</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Study: LogCP Clear Sight -->
+  <url>
+    <loc>https://leo-trevizani.github.io/portfolio/#case/logcp</loc>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -36,8 +68,16 @@
   <!-- Case Study: Julius Bär Brazil -->
   <url>
     <loc>https://leo-trevizani.github.io/portfolio/#case/julius-baer</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Confidential NDA Projects -->
+  <url>
+    <loc>https://leo-trevizani.github.io/portfolio/#nda</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

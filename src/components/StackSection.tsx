@@ -65,12 +65,12 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                     {getIcon(skill.iconName)}
                   </div>
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-text-muted)]">
-                    {skill.level}
+                    {skill.level[currentLang]}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-medium text-[var(--color-text-heading)] mb-3 group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
-                  {skill.name}
+                  {skill.name[currentLang]}
                 </h3>
 
                 <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
@@ -97,6 +97,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setSelectedSkill(null)}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/90 backdrop-blur-md"
           >
             <motion.div 
@@ -104,25 +105,27 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ type: "spring", stiffness: 100, damping: 20 }}
-              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-8 sm:p-12 max-w-2xl w-full relative"
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-8 sm:p-12 max-w-2xl w-full relative shadow-2xl rounded-none"
             >
               <button
                 onClick={() => setSelectedSkill(null)}
+                aria-label={t.closeModal}
                 className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="flex items-center gap-6 mb-8">
-                <div className="w-16 h-16 flex items-center justify-center bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
+                <div className="w-16 h-16 flex items-center justify-center bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0">
                   {getIcon(selectedSkill.iconName)}
                 </div>
                 <div>
                   <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--color-text-muted)] mb-1 block">
-                    {selectedSkill.level}
+                    {selectedSkill.level[currentLang]}
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
-                    {selectedSkill.name}
+                    {selectedSkill.name[currentLang]}
                   </h3>
                 </div>
               </div>
@@ -131,18 +134,16 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                 {selectedSkill.description[currentLang]}
               </p>
 
-              <div className="border-t border-[var(--border-subtle)] pt-8 mb-8 space-y-4">
+              <div className="border-t border-[var(--border-subtle)] pt-8 space-y-4">
                 <div className="text-[11px] font-bold text-[var(--color-text-heading)] uppercase tracking-[0.15em]">
-                  Aplicação Prática em Cases
+                  {t.modalApplicationTitle}
                 </div>
-                <div className="flex items-start gap-3 text-sm text-[var(--color-text-muted)]">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0" />
-                  <span>Utilizado na governança de projetos para Hilton, AB InBev, Nissan e Julius Baer.</span>
-                </div>
-                <div className="flex items-start gap-3 text-sm text-[var(--color-text-muted)]">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0" />
-                  <span>Padrão de entrega alinhado às diretrizes internacionais de DesignOps.</span>
-                </div>
+                {selectedSkill.practicalApplications[currentLang]?.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                    <CheckCircle2 className="w-5 h-5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
