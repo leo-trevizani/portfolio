@@ -17,14 +17,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025 - Presente',
     role: 'Product Designer (Property & Prism Design System via Globant)',
     metricsHighlight: {
-      pt: '5d ➔ 4h',
-      en: '5d ➔ 4h',
-      es: '5d ➔ 4h'
+      pt: '-90%',
+      en: '-90%',
+      es: '-90%'
     },
     metricLabel: {
-      pt: 'Redução no tempo de entrega de paletas de cores',
-      en: 'Reduction in color palette delivery time',
-      es: 'Reducción en el tiempo de entrega de paletas de colores'
+      pt: 'Redução no tempo de entrega de paletas de cores (de 5d para 4h)',
+      en: 'Reduction in color palette delivery time (from 5d to 4h)',
+      es: 'Reducción en el tiempo de entrega de paletas de colores (de 5d a 4h)'
     },
     coverImage: hiltonCover,
     pullQuote: {
@@ -131,30 +131,30 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
       pt: {
         title: 'Resultados e Impacto no Negócio',
         stats: [
-          { value: '5d ➔ 4h', label: 'Entrega de Paletas', desc: 'Redução drástica no tempo de criação e validação de tokens acessíveis por hotel.' },
-          { value: '1 clique', label: 'Exportação para CMS', desc: 'Substituição da tarefa manual de 30 min por automação via plugin no Figma.' },
-          { value: '22', label: 'Componentes no Prism', desc: 'Construídos com 3 variantes de viewport e suporte a 2 tipos de templates.' },
-          { value: '8.000', label: 'Hotéis Suportados', desc: 'Ecossistema cobrindo 33 marcas, 103 países e 22 idiomas na plataforma One Hero Web.' }
+          { value: '-90%', label: 'Tempo de entrega de paletas (de 5d para 4h)', desc: 'Redução drástica no tempo de criação e validação de tokens acessíveis por hotel.' },
+          { value: '1', label: 'Clique para exportação ao CMS via plugin', desc: 'Substituição da tarefa manual de 30 min por automação via plugin no Figma.' },
+          { value: '22', label: 'Componentes oficiais no Prism', desc: 'Construídos com 3 variantes de viewport e suporte a 2 tipos de templates.' },
+          { value: '8.000', label: 'Hotéis e propriedades suportadas', desc: 'Ecossistema cobrindo 33 marcas, 103 países e 22 idiomas na plataforma One Hero Web.' }
         ],
         summary: 'Tornando-me a referência de design para o time de Property, liderei frentes estratégicas de sistemas entre pesquisadores, PMs, especialistas em acessibilidade e engenheiros de software.'
       },
       en: {
         title: 'Business Results & Impact',
         stats: [
-          { value: '5d ➔ 4h', label: 'Palette Delivery Time', desc: 'Dramatic reduction in token creation and accessible color verification per hotel.' },
-          { value: '1 click', label: 'CMS Export Task', desc: 'Replaced a 30-minute manual task with automated Figma plugin generation.' },
-          { value: '22', label: 'Prism Components', desc: 'Built with 3 viewport variants supporting Inspired and Tailored templates.' },
-          { value: '8,000', label: 'Hotels Supported', desc: 'Global ecosystem across 33 brands, 103 countries, and 22 languages on One Hero Web.' }
+          { value: '-90%', label: 'Palette delivery time reduction (5d to 4h)', desc: 'Dramatic reduction in token creation and accessible color verification per hotel.' },
+          { value: '1', label: 'Click to export to CMS via plugin', desc: 'Replaced a 30-minute manual task with automated Figma plugin generation.' },
+          { value: '22', label: 'Official Prism components', desc: 'Built with 3 viewport variants supporting Inspired and Tailored templates.' },
+          { value: '8,000', label: 'Hotels and properties supported', desc: 'Global ecosystem across 33 brands, 103 countries, and 22 languages on One Hero Web.' }
         ],
         summary: 'Became the Property team’s design reference, entrusted with component architecture shared across multiple touchpoint teams.'
       },
       es: {
         title: 'Resultados e Impacto Comercial',
         stats: [
-          { value: '5d ➔ 4h', label: 'Entrega de Paletas', desc: 'Reducción drástica en el tiempo de creación y validación de tokens por hotel.' },
-          { value: '1 clic', label: 'Exportación a CMS', desc: 'Reemplazo de la tarea manual de 30 min por automatización vía plugin en Figma.' },
-          { value: '22', label: 'Componentes en Prism', desc: 'Construidos con 3 variantes de viewport y soporte a 2 tipos de plantillas.' },
-          { value: '8.000', label: 'Hoteles Soportados', desc: 'Ecosistema global que cubre 33 marcas, 103 países y 22 idiomas.' }
+          { value: '-90%', label: 'Tiempo de entrega de paletas (de 5d a 4h)', desc: 'Reducción drástica en el tiempo de creación y validación de tokens por hotel.' },
+          { value: '1', label: 'Clic para exportar a CMS vía plugin', desc: 'Reemplazo de la tarea manual de 30 min por automatización vía plugin en Figma.' },
+          { value: '22', label: 'Componentes oficiales en Prism', desc: 'Construidos con 3 variantes de viewport y soporte a 2 tipos de plantillas.' },
+          { value: '8.000', label: 'Hoteles y propiedades soportadas', desc: 'Ecosistema global que cubre 33 marcas, 103 países y 22 idiomas.' }
         ],
         summary: 'Me convertí en la referencia de diseño para el equipo de Property, liderando iniciativas de sistemas en equipos multidisciplinarios.'
       }
@@ -260,9 +260,9 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     year: '2025 - 2026',
     role: 'Full Stack Design Engineer (Solo Freelance)',
     metricsHighlight: {
-      pt: '+775% Sessões',
-      en: '+775% Sessions',
-      es: '+775% Sesiones'
+      pt: '+775%',
+      en: '+775%',
+      es: '+775%'
     },
     metricLabel: {
       pt: 'Aumento na média de sessões diárias pós-lançamento',
@@ -424,17 +424,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+775%',
-            label: 'Média de Sessões Diárias',
+            label: 'Média de sessões diárias',
             desc: 'Aumento expressivo no engajamento e tráfego diário após o lançamento da nova arquitetura.'
           },
           {
-            value: '98 ➔ 20',
-            label: 'Páginas Consolidadas',
+            value: '20',
+            label: 'Templates dinâmicos consolidados (de 98 páginas)',
             desc: 'Redução drástica de complexidade, operando com templates dinâmicos eficientes.'
           },
           {
-            value: '3 Gráficos',
-            label: 'Data Viz Responsiva',
+            value: '3',
+            label: 'Gráficos de data viz responsivos',
             desc: 'Visualizações de dados complexas funcionando perfeitamente em mobile e desktop.'
           }
         ],
@@ -445,17 +445,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+775%',
-            label: 'Average Daily Sessions',
+            label: 'Average daily sessions',
             desc: 'Massive surge in daily user engagement and traffic following the architectural launch.'
           },
           {
-            value: '98 ➔ 20',
-            label: 'Pages Consolidated',
+            value: '20',
+            label: 'Dynamic templates consolidated (from 98 pages)',
             desc: 'Streamlined from 98 bloated static pages into 20 maintainable dynamic templates.'
           },
           {
-            value: '3 Charts',
-            label: 'Responsive Data Viz',
+            value: '3',
+            label: 'Responsive data viz charts',
             desc: 'Complex data visualizations rendered flawlessly across mobile and desktop viewports.'
           }
         ],
@@ -466,17 +466,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+775%',
-            label: 'Promedio de Sesiones Diarias',
+            label: 'Promedio de sesiones diarias',
             desc: 'Aumento exponencial en tráfico y retención tras el lanzamiento de la nueva versión.'
           },
           {
-            value: '98 ➔ 20',
-            label: 'Páginas Consolidadas',
+            value: '20',
+            label: 'Plantillas dinámicas consolidadas (de 98 páginas)',
             desc: 'Reducción drástica de 98 páginas estáticas a 20 plantillas dinámicas estructuradas.'
           },
           {
-            value: '3 Gráficos',
-            label: 'Data Viz Responsiva',
+            value: '3',
+            label: 'Gráficos de data viz responsivos',
             desc: 'Visualizaciones de datos complejas adaptadas con total precisión a cualquier pantalla.'
           }
         ],
@@ -584,9 +584,9 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     year: '2025 - Presente',
     role: 'Full Stack Design Engineer & Brand Strategist (Solo Freelance)',
     metricsHighlight: {
-      pt: '+82% Tráfego',
-      en: '+82% Traffic',
-      es: '+82% Tráfico'
+      pt: '+82%',
+      en: '+82%',
+      es: '+82%'
     },
     metricLabel: {
       pt: 'Mais tráfego em relação ao site US e 2x tempo de sessão',
@@ -748,17 +748,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+82%',
-            label: 'Tráfego vs Site US',
+            label: 'Tráfego superior vs site US',
             desc: 'Superação consistente do volume de tráfego do site da matriz nos últimos 30 dias.'
           },
           {
-            value: '2x Mais',
-            label: 'Tempo Médio de Sessão',
+            value: '2',
+            label: 'Vezes mais tempo médio de sessão',
             desc: 'O dobro do tempo de permanência de usuários em comparação com o site americano.'
           },
           {
-            value: '13 Artigos',
-            label: 'Conteúdo Original no Blog',
+            value: '13',
+            label: 'Conteúdos originais no blog',
             desc: 'Artigos estratégicos autorais com link building e autoridade de domínio.'
           }
         ],
@@ -769,17 +769,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+82%',
-            label: 'Traffic vs US Site',
+            label: 'Higher traffic vs US site',
             desc: 'Consistently outperforming the US headquarters website traffic volume.'
           },
           {
-            value: '2x Higher',
-            label: 'Avg Session Duration',
+            value: '2',
+            label: 'Times higher avg session duration',
             desc: 'Double the user engagement and dwell time compared to the US benchmark.'
           },
           {
-            value: '13 Articles',
-            label: 'Original Blog Content',
+            value: '13',
+            label: 'Original articles on the blog',
             desc: 'Authorial strategic articles driving organic transmedia traffic and domain authority.'
           }
         ],
@@ -790,17 +790,17 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
         stats: [
           {
             value: '+82%',
-            label: 'Tráfico vs Sitio US',
+            label: 'Mayor tráfico vs sitio US',
             desc: 'Tráfico superior sostenido en comparación con el portal de la matriz en EE. UU.'
           },
           {
-            value: '2x Mayor',
-            label: 'Duración de Sesión',
+            value: '2',
+            label: 'Veces más tiempo medio de sesión',
             desc: 'El doble de tiempo de permanencia promedio respecto al sitio estadounidense.'
           },
           {
-            value: '13 Artículos',
-            label: 'Contenido Original de Blog',
+            value: '13',
+            label: 'Artículos originales en el blog',
             desc: 'Publicaciones estratégicas exclusivas que fortalecen la autoridad de dominio.'
           }
         ],
@@ -908,14 +908,14 @@ A la escala de Hilton (8.000 hoteles en 103 países y 22 idiomas), el costo se m
     year: '2025',
     role: 'UX/UI Designer (Connected Car Services - CCS)',
     metricsHighlight: {
-      pt: 'Benchmark Global',
-      en: 'Global Benchmark',
-      es: 'Benchmark Global'
+      pt: '1',
+      en: '1',
+      es: '1'
     },
     metricLabel: {
-      pt: 'Serviços Conectados (CCS) estabelecidos como referência de experiência veicular',
-      en: 'CCS established as a reference point for connected car experiences',
-      es: 'CCS establecido como referente de experiencia en vehículos conectados'
+      pt: 'Benchmark global de experiência em carros conectados (CCS)',
+      en: 'Global benchmark in connected car experience (CCS)',
+      es: 'Referente global en experiencia de vehículos conectados (CCS)'
     },
     coverImage: renaultCover,
     pullQuote: {
@@ -1051,18 +1051,18 @@ Crafted a context-sensitive strategy for SVT, treating a global safety feature a
         title: 'Resultados & Impacto',
         stats: [
           {
-            label: 'Referência Global',
-            value: 'Benchmark',
+            label: 'Benchmark global de experiência CCS',
+            value: '1',
             desc: 'CCS estabelecido como referência de experiência em carros conectados na Renault.'
           },
           {
-            label: 'Papel Estratégico',
-            value: 'Parceiro',
+            label: 'Alinhamento estratégico com liderança',
+            value: '100%',
             desc: 'Design reconhecido pela liderança da Renault por influenciar decisões de negócios.'
           },
           {
-            label: 'Recursos Entregues',
-            value: '3 Serviços',
+            label: 'Serviços conectados entregues (SVT, ACN, Alertas)',
+            value: '3',
             desc: 'SVT, ACN e Alertas Anormais estruturados com fluxos de suporte completos.'
           }
         ],
@@ -1072,18 +1072,18 @@ Crafted a context-sensitive strategy for SVT, treating a global safety feature a
         title: 'Results & Impact',
         stats: [
           {
-            label: 'Global Reference',
-            value: 'Benchmark',
+            label: 'Global benchmark in CCS experience',
+            value: '1',
             desc: 'CCS established as a reference point for connected car experiences.'
           },
           {
-            label: 'Strategic Role',
-            value: 'Partner',
+            label: 'Strategic alignment with leadership',
+            value: '100%',
             desc: 'Design recognized by Renault leadership for influencing business decisions.'
           },
           {
-            label: 'Aligned Features',
-            value: '3 Services',
+            label: 'Connected services shipped (SVT, ACN, Abnormal)',
+            value: '3',
             desc: 'SVT, ACN, and Abnormal aligned globally with full support flows.'
           }
         ],
@@ -1093,18 +1093,18 @@ Crafted a context-sensitive strategy for SVT, treating a global safety feature a
         title: 'Resultados e Impacto',
         stats: [
           {
-            label: 'Referente Global',
-            value: 'Benchmark',
+            label: 'Referente global en experiencia CCS',
+            value: '1',
             desc: 'CCS establecido como referente de experiencia en vehículos conectados en Renault.'
           },
           {
-            label: 'Rol Estratégico',
-            value: 'Socio',
+            label: 'Alineación estratégica con dirección',
+            value: '100%',
             desc: 'Diseño reconocido por la dirección por influir en decisiones de negocio.'
           },
           {
-            label: 'Servicios Entregados',
-            value: '3 Funciones',
+            label: 'Servicios conectados entregados (SVT, ACN, Alertas)',
+            value: '3',
             desc: 'SVT, ACN y Alertas Anormales estructurados con flujos de soporte completos.'
           }
         ],
@@ -1194,9 +1194,9 @@ Crafted a context-sensitive strategy for SVT, treating a global safety feature a
     year: '2025',
     role: 'UX/UI Designer & Product Specialist (PowerApps & Power BI)',
     metricsHighlight: {
-      pt: '30% de Redução',
-      en: '30% Reduction',
-      es: '30% de Reducción'
+      pt: '30%',
+      en: '30%',
+      es: '30%'
     },
     metricLabel: {
       pt: 'Redução de custos por eficiência operacional',
@@ -1296,30 +1296,30 @@ Ese único fallo se cascateaba: la dirección debía auditar hojas de cálculo u
       pt: {
         title: 'Resultados e Impacto Mensurável',
         stats: [
-          { value: '30%', label: 'Redução de Custos', desc: 'Economia obtida através da eficiência operacional do novo sistema.' },
-          { value: '1.000+', label: 'Unidades Cobertas', desc: 'Abrangência em 5 países e 3 regiões da América Latina.' },
-          { value: '3 em 1', label: 'Fluxos Unificados', desc: 'Personas de Unidade, Regional e Corporativo integradas em um só app.' },
-          { value: '0', label: 'Erros Silenciosos de Fórmula', desc: 'Erros capturados na digitação, eliminando auditorias manuais tardias.' }
+          { value: '30%', label: 'Redução de custos operacionais', desc: 'Economia obtida através da eficiência operacional do novo sistema.' },
+          { value: '1.000+', label: 'Unidades e plantas cobertas', desc: 'Abrangência em 5 países e 3 regiões da América Latina.' },
+          { value: '3', label: 'Fluxos unificados em um único app', desc: 'Personas de Unidade, Regional e Corporativo integradas em um só app.' },
+          { value: '0', label: 'Erros silenciosos de fórmula', desc: 'Erros capturados na digitação, eliminando auditorias manuais tardias.' }
         ],
         summary: 'O aplicativo não apenas digitalizou planilhas. Ele moveu o momento em que um erro é capturado de uma auditoria semanas depois para o exato segundo em que alguém digita o número errado.'
       },
       en: {
         title: 'Measurable Impact & Results',
         stats: [
-          { value: '30%', label: 'Cost Reduction', desc: 'Achieved through operational efficiency enabled by the new system.' },
-          { value: '1,000+', label: 'Units Covered', desc: 'Deployed across 5 countries and 3 regions in LATAM.' },
-          { value: '3-in-1', label: 'Unified Workflows', desc: 'Unit, Regional, and Corporate personas united in a single app.' },
-          { value: '0', label: 'Silent Formula Errors', desc: 'Errors caught at point-of-entry, eliminating weeks-later manual audits.' }
+          { value: '30%', label: 'Operational cost reduction', desc: 'Achieved through operational efficiency enabled by the new system.' },
+          { value: '1,000+', label: 'Units and facilities covered', desc: 'Deployed across 5 countries and 3 regions in LATAM.' },
+          { value: '3', label: 'Workflows unified in a single app', desc: 'Unit, Regional, and Corporate personas united in a single app.' },
+          { value: '0', label: 'Silent formula errors', desc: 'Errors caught at point-of-entry, eliminating weeks-later manual audits.' }
         ],
         summary: 'The app didn\'t just digitize a spreadsheet. It moved the moment an error gets caught from a weeks-later audit to the second someone types the wrong number.'
       },
       es: {
         title: 'Resultados e Impacto Medible',
         stats: [
-          { value: '30%', label: 'Reducción de Costos', desc: 'Economía lograda a través de la eficiencia operativa del nuevo sistema.' },
-          { value: '1.000+', label: 'Plantas Cubiertas', desc: 'Despliegue en 5 países y 3 regiones de América Latina.' },
-          { value: '3 en 1', label: 'Flujos Unificados', desc: 'Personas de Unidad, Regional y Corporativo integradas en una sola app.' },
-          { value: '0', label: 'Errores Silenciosos', desc: 'Errores capturados al digitar, eliminando auditorías manuales tardías.' }
+          { value: '30%', label: 'Reducción de costos operativos', desc: 'Economía lograda a través de la eficiencia operativa del nuevo sistema.' },
+          { value: '1.000+', label: 'Plantas y unidades cubiertas', desc: 'Despliegue en 5 países y 3 regiones de América Latina.' },
+          { value: '3', label: 'Flujos unificados en una sola app', desc: 'Personas de Unidad, Regional y Corporativo integradas en una sola app.' },
+          { value: '0', label: 'Errores silenciosos de fórmula', desc: 'Errores capturados al digitar, eliminando auditorías manuales tardías.' }
         ],
         summary: 'La app no solo digitalizó una planilla. Movió el momento en que se captura un error de una auditoría semanas después al segundo exacto en que alguien escribe un número equivocado.'
       }
@@ -1425,9 +1425,9 @@ Ese único fallo se cascateaba: la dirección debía auditar hojas de cálculo u
     year: '2025',
     role: 'UX/UI Designer (via BRQ)',
     metricsHighlight: {
-      pt: '+23% de Receita',
-      en: '+23% Revenue',
-      es: '+23% de Ingresos'
+      pt: '+23%',
+      en: '+23%',
+      es: '+23%'
     },
     metricLabel: {
       pt: 'Aumento de receita no canal digital (Mar - Jun 2025)',
@@ -1539,30 +1539,30 @@ Sin red de seguridad para 4 desarrolladores: con un solo diseñador y sin PM ded
       pt: {
         title: 'Resultados e Impacto no Negócio',
         stats: [
-          { value: '+23%', label: 'Aumento de Receita', desc: 'Crescimento de receita do canal digital entre Março e Junho de 2025.' },
-          { value: '9', label: 'Fluxos Mapeados', desc: 'Mapeamento completo de ponta a ponta das jornadas de financiamento.' },
-          { value: '25+', label: 'Telas Redesenhadas', desc: 'Com média de 3 variações de estado cada (erros, preenchimento, sucesso).' },
-          { value: '100%', label: 'Alinhamento com Devs', desc: 'Time de 4 desenvolvedores construindo sobre uma única fonte da verdade.' }
+          { value: '+23%', label: 'Aumento de receita no canal digital', desc: 'Crescimento de receita do canal digital entre Março e Junho de 2025.' },
+          { value: '9', label: 'Fluxos mapeados de ponta a ponta', desc: 'Mapeamento completo de ponta a ponta das jornadas de financiamento.' },
+          { value: '25+', label: 'Telas redesenhadas com múltiplos estados', desc: 'Com média de 3 variações de estado cada (erros, preenchimento, sucesso).' },
+          { value: '100%', label: 'Alinhamento com time de engenharia', desc: 'Time de 4 desenvolvedores construindo sobre uma única fonte da verdade.' }
         ],
         summary: 'A interface não ficou apenas mais consistente. Ela fez uma decisão de R$ 100.000 parecer segura o suficiente para ser concluída na tela.'
       },
       en: {
         title: 'Business Results & Impact',
         stats: [
-          { value: '+23%', label: 'Revenue Growth', desc: 'E-commerce revenue increase achieved between March and June 2025.' },
-          { value: '9', label: 'Mapped Flows', desc: 'End-to-end mapping across all financing user journeys.' },
-          { value: '25+', label: 'Redesigned Screens', desc: 'Averaging 3 state variations each (errors, field completion, success).' },
-          { value: '100%', label: 'Developer Alignment', desc: 'A 4-developer team building against one unambiguous source of truth.' }
+          { value: '+23%', label: 'Revenue growth in digital channel', desc: 'E-commerce revenue increase achieved between March and June 2025.' },
+          { value: '9', label: 'End-to-end mapped user flows', desc: 'End-to-end mapping across all financing user journeys.' },
+          { value: '25+', label: 'Redesigned screens across multiple states', desc: 'Averaging 3 state variations each (errors, field completion, success).' },
+          { value: '100%', label: 'Developer alignment on single source', desc: 'A 4-developer team building against one unambiguous source of truth.' }
         ],
         summary: 'The interface didn’t just look more consistent. It made a R$100,000 decision feel safe enough to complete on a screen.'
       },
       es: {
         title: 'Resultados e Impacto Comercial',
         stats: [
-          { value: '+23%', label: 'Aumento de Ingresos', desc: 'Crecimiento registrado en el canal digital entre marzo y junio de 2025.' },
-          { value: '9', label: 'Flujos Mapeados', desc: 'Mapeo integral de extremo a extremo de las jornadas de financiamiento.' },
-          { value: '25+', label: 'Pantallas Rediseñadas', desc: 'Con un promedio de 3 variaciones de estado cada una.' },
-          { value: '100%', label: 'Alineación de Desarrollo', desc: 'Equipo de 4 desarrolladores guiados por una fuente única de verdad.' }
+          { value: '+23%', label: 'Aumento de ingresos en canal digital', desc: 'Crecimiento registrado en el canal digital entre marzo y junio de 2025.' },
+          { value: '9', label: 'Flujos mapeados de extremo a extremo', desc: 'Mapeo integral de extremo a extremo de las jornadas de financiamiento.' },
+          { value: '25+', label: 'Pantallas rediseñadas con múltiples estados', desc: 'Con un promedio de 3 variaciones de estado cada una.' },
+          { value: '100%', label: 'Alineación con equipo de desarrollo', desc: 'Equipo de 4 desarrolladores guiados por una fuente única de verdad.' }
         ],
         summary: 'La interfaz no solo se vio más consistente. Hizo que una decisión de R$ 100.000 se sintiera lo suficientemente segura para completarse en pantalla.'
       }
@@ -1686,9 +1686,9 @@ Sin red de seguridad para 4 desarrolladores: con un solo diseñador y sin PM ded
     year: '2025',
     role: 'UI Designer (com UX Researcher, Design Lead & PM)',
     metricsHighlight: {
-      pt: '+80% Substituição',
-      en: '+80% Replaced',
-      es: '+80% Reemplazados'
+      pt: '+80%',
+      en: '+80%',
+      es: '+80%'
     },
     metricLabel: {
       pt: 'Relatórios estáticos substituídos por um único dashboard executivo',
@@ -1835,18 +1835,18 @@ Designed the dashboard's 4 main screens using reusable components and subtle ani
         title: 'Resultados & Impacto',
         stats: [
           {
-            label: 'Substituição de Relatórios',
             value: '+80%',
+            label: 'Relatórios estáticos manuais substituídos',
             desc: 'Mais de 80% dos relatórios estáticos manuais substituídos pelo dashboard Clear Sight.'
           },
           {
-            label: 'Telas Estratégicas',
-            value: '4 Telas',
+            value: '4',
+            label: 'Telas estratégicas entregues',
             desc: 'Visualizações completas mapeadas para KPIs críticos e disponibilidade financeira.'
           },
           {
-            label: 'Fontes Integradas',
-            value: '3 Sistemas',
+            value: '3',
+            label: 'Sistemas e fontes integradas (SharePoint, SAP, CRM)',
             desc: 'Consolidação de dados do SharePoint, SAP e CRM em uma visão unificada.'
           }
         ],
@@ -1856,18 +1856,18 @@ Designed the dashboard's 4 main screens using reusable components and subtle ani
         title: 'Results & Impact',
         stats: [
           {
-            label: 'Static Reports Replaced',
             value: '+80%',
+            label: 'Manual static reports replaced',
             desc: 'Over 80% of manual static reports replaced by the single Clear Sight dashboard.'
           },
           {
-            label: 'Core Screens Shipped',
-            value: '4 Screens',
+            value: '4',
+            label: 'Core strategic screens delivered',
             desc: 'Tailored visualizations mapped to strategic KPIs and financial availability.'
           },
           {
-            label: 'Systems Consolidated',
-            value: '3 Sources',
+            value: '3',
+            label: 'Integrated systems unified (SharePoint, SAP, CRM)',
             desc: 'Consolidated SharePoint, SAP, and CRM into one unified source of truth.'
           }
         ],
@@ -1877,18 +1877,18 @@ Designed the dashboard's 4 main screens using reusable components and subtle ani
         title: 'Resultados e Impacto',
         stats: [
           {
-            label: 'Informes Reemplazados',
             value: '+80%',
+            label: 'Informes estáticos manuales reemplazados',
             desc: 'Más del 80% de informes estáticos reemplazados por el panel Clear Sight.'
           },
           {
-            label: 'Pantallas Entregadas',
-            value: '4 Pantallas',
+            value: '4',
+            label: 'Pantallas estratégicas entregadas',
             desc: 'Vistas ejecutivas adaptadas a KPIs críticos y disponibilidad financiera.'
           },
           {
-            label: 'Sistemas Unificados',
-            value: '3 Fuentes',
+            value: '3',
+            label: 'Sistemas unificados (SharePoint, SAP, CRM)',
             desc: 'Consolidación de SharePoint, SAP y CRM en una sola visión central.'
           }
         ],
@@ -1978,9 +1978,9 @@ Designed the dashboard's 4 main screens using reusable components and subtle ani
     year: '2024 - 2025',
     role: 'UX & UI Designer (via BRQ)',
     metricsHighlight: {
-      pt: '66% de Redução',
-      en: '66% Reduction',
-      es: '66% de Reducción'
+      pt: '-66%',
+      en: '-66%',
+      es: '-66%'
     },
     metricLabel: {
       pt: 'Redução no tempo de entrega de novas telas (Nov 2024 ➔ Fev 2025)',
@@ -2158,30 +2158,30 @@ Esa solicitud capturó todo el desafío: el trabajo no era solo diseñar, sino e
       pt: {
         title: 'Resultados e Impacto Estratégico',
         stats: [
-          { value: '66%', label: 'Redução no Tempo de Entrega', desc: 'Redução no tempo de entrega para novas telas entre Novembro de 2024 e Fevereiro de 2025.' },
-          { value: '3', label: 'Fluxos End-to-End', desc: 'Fluxos inteiros sob responsabilidade direta, além de contribuições em diversos outros na plataforma.' },
-          { value: '15', label: 'Pessoas Impactadas', desc: 'Time multidisciplinar (2 designers, 9 engenheiros, 5 PMs e o Diretor de Tecnologia como principal beneficiado).' },
-          { value: '100%', label: 'Mudança Cultural', desc: 'Design puxado para as conversas de produto e engenharia antes do congelamento de decisões.' }
+          { value: '-66%', label: 'Tempo de entrega para novas telas', desc: 'Redução no tempo de entrega para novas telas entre Novembro de 2024 e Fevereiro de 2025.' },
+          { value: '3', label: 'Fluxos de ponta a ponta liderados', desc: 'Fluxos inteiros sob responsabilidade direta, além de contribuições em diversos outros na plataforma.' },
+          { value: '15', label: 'Profissionais impactados no time', desc: 'Time multidisciplinar (2 designers, 9 engenheiros, 5 PMs e o Diretor de Tecnologia como principal beneficiado).' },
+          { value: '100%', label: 'Mudança cultural e estratégica de design', desc: 'Design puxado para as conversas de produto e engenharia antes do congelamento de decisões.' }
         ],
         summary: 'O design deixou de ser tratado como um acabamento estético. Produto e engenharia passaram a incluir o design nas conversas mais cedo — antes que as decisões já tivessem sido seladas, o que foi a verdadeira pré-condição para que a redução de 66% no tempo de entrega se tornasse possível.'
       },
       en: {
         title: 'Results & Strategic Impact',
         stats: [
-          { value: '66%', label: 'Delivery Time Reduction', desc: 'Reduction in delivery time for new screens between Nov 2024 and Feb 2025.' },
-          { value: '3', label: 'End-to-End Flows Owned', desc: 'Owned 3 flows end-to-end, plus contributions to several more across the platform.' },
-          { value: '15', label: 'Team Members Impacted', desc: 'Cross-functional team (2 designers, 9 engineers, 5 PMs, 1 Director of Tech cited as main beneficiary).' },
-          { value: '100%', label: 'Strategic Shift', desc: 'Design pulled into product and engineering conversations before decisions locked.' }
+          { value: '-66%', label: 'Delivery time for new screens', desc: 'Reduction in delivery time for new screens between Nov 2024 and Feb 2025.' },
+          { value: '3', label: 'End-to-end flows directly led', desc: 'Owned 3 flows end-to-end, plus contributions to several more across the platform.' },
+          { value: '15', label: 'Team members directly impacted', desc: 'Cross-functional team (2 designers, 9 engineers, 5 PMs, 1 Director of Tech cited as main beneficiary).' },
+          { value: '100%', label: 'Cultural and strategic design adoption', desc: 'Design pulled into product and engineering conversations before decisions locked.' }
         ],
         summary: 'Design stopped being treated as a finishing touch. Product and engineering started pulling design into conversations earlier — before decisions were already locked, which is the actual precondition for the 66% number to have been possible at all.'
       },
       es: {
         title: 'Resultados e Impacto Estratégico',
         stats: [
-          { value: '66%', label: 'Reducción del Tiempo de Entrega', desc: 'Reducción en el tiempo de entrega de nuevas pantallas entre Nov de 2024 y Feb de 2025.' },
-          { value: '3', label: 'Flujos End-to-End', desc: 'Flujos completos bajo responsabilidad directa, más aportaciones a varios otros.' },
-          { value: '15', label: 'Personas Impactadas', desc: 'Equipo multidisciplinario (2 diseñadores, 9 ingenieros, 5 PMs y el Director de Tecnología).' },
-          { value: '100%', label: 'Cambio Cultural', desc: 'Diseño integrado tempranamente en conversaciones antes de congelar decisiones.' }
+          { value: '-66%', label: 'Tiempo de entrega para nuevas pantallas', desc: 'Reducción en el tiempo de entrega de nuevas pantallas entre Nov de 2024 y Feb de 2025.' },
+          { value: '3', label: 'Flujos de extremo a extremo liderados', desc: 'Flujos completos bajo responsabilidad directa, más aportaciones a varios otros.' },
+          { value: '15', label: 'Profesionales impactados en el equipo', desc: 'Equipo multidisciplinario (2 diseñadores, 9 ingenieros, 5 PMs y el Director de Tecnología).' },
+          { value: '100%', label: 'Cambio cultural y adopción estratégica', desc: 'Diseño integrado tempranamente en conversaciones antes de congelar decisiones.' }
         ],
         summary: 'El diseño dejó de tratarse como un acabado final. Producto e ingeniería comenzaron a incluir al diseño temprano en las conversaciones, la condición previa real para lograr el 66% de mayor velocidad.'
       }

@@ -4,6 +4,7 @@ import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { ArrowLeft, ArrowRight, Lock, ShieldCheck, CheckCircle2, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
+import { StatCountUp } from './CountUp';
 
 interface CaseDetailProps {
   slug: string;
@@ -41,6 +42,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
+  };
+
+  const getStatsGridClass = (count: number) => {
+    if (count === 1) return 'grid-cols-1';
+    if (count === 2) return 'grid-cols-1 sm:grid-cols-2';
+    if (count === 3) return 'grid-cols-1 sm:grid-cols-3';
+    return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
   };
 
   const challenge = caseItem.challenge[currentLang];
@@ -132,8 +140,8 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             <span className="text-[11px] uppercase font-bold tracking-widest text-white/80 block mb-1">
               {t.impactHighlight}
             </span>
-            <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              {caseItem.metricsHighlight[currentLang]}
+            <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white inline-flex items-baseline">
+              <StatCountUp value={caseItem.metricsHighlight[currentLang]} />
             </span>
           </div>
           <p className="text-sm sm:text-base font-medium text-white/90 max-w-lg leading-relaxed">
@@ -262,12 +270,12 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              {/* Sleek stat counters without rounded cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Sleek stat counters without rounded cards - dynamically spans all columns */}
+              <div className={`grid ${getStatsGridClass(results.stats.length)} gap-8 w-full`}>
                 {results.stats.map((stat, idx) => (
                   <div key={idx} className="space-y-1">
-                    <div className="text-4xl sm:text-5xl font-medium text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-tight">
-                      {stat.value}
+                    <div className="text-4xl sm:text-5xl font-medium text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-tight inline-flex items-baseline">
+                      <StatCountUp value={stat.value} delay={idx * 0.1} />
                     </div>
                     <div className="text-sm font-semibold text-[var(--color-text-heading)] pt-1">
                       {stat.label}
