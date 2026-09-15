@@ -1,5 +1,19 @@
-import React, { useState } from 'react';
-import { Sun, Moon, Globe, ChevronDown, Sparkles, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { 
+  Sun, 
+  Moon, 
+  Globe, 
+  ChevronDown, 
+  ArrowLeft, 
+  Menu, 
+  X, 
+  User, 
+  Layers, 
+  Briefcase, 
+  FlaskConical, 
+  Mail 
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -21,31 +35,157 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate,
 }) => {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const t = TRANSLATIONS[currentLang].nav;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('sobre');
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    if (currentRoute !== 'home') {
-      onNavigate('home');
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
+  const t = TRANSLATIONS[currentLang].nav;
 
   const languages: { code: Language; label: string; flag: string }[] = [
     { code: 'pt', label: 'Português', flag: '🇧🇷' },
     { code: 'en', label: 'English', flag: '🇺🇸' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
   ];
+
+  const navItems = useMemo(() => [
+    {
+      id: 'sobre',
+      label: t.about,
+      href: '#sobre',
+      icon: <User className="w-4 h-4" />
+    },
+    {
+      id: 'stack',
+      label: t.stack,
+      href: '#stack',
+      icon: <Layers className="w-4 h-4" />
+    },
+    {
+      id: 'cases',
+      label: t.cases,
+      href: '#cases',
+      icon: <Briefcase className="w-4 h-4" />
+    },
+    {
+      id: 'playground',
+      label: t.playground,
+      href: '#playground',
+      icon: <FlaskConical className="w-4 h-4" />
+    },
+    {
+      id: 'contato',
+      label: t.contact,
+      href: '#contato',
+      icon: <Mail className="w-4 h-4" />
+    },
+  ], [t]);
+
+  // ScrollSpy: Automatically detect and highlight active section during scrolling
+  useEffect(() => {
+    if (currentRoute !== 'home') {
+      setActiveSection('');
+      return;
+    }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Bottom reached: activate contact
+      if (scrollY + windowHeight >= docHeight - 80) {
+        setActiveSection('contato');
+        return;
+      }
+
+      // If at top of the page
+      if (scrollY < 120) {
+        setActiveSection('sobre');
+        return;
+      }
+
+      // Check section offsets
+      const sectionElements = navItems
+        .map(item => ({
+          id: item.id,
+          el: document.getElementById(item.id)
+        }))
+        .filter((item): item is { id: string; el: HTMLElement } => item.el !== null);
+
+      let current = 'sobre';
+      for (const { id, el } of sectionElements) {
+        const top = el.offsetTop - 120; // 80px header height + 40px margin
+        if (scrollY >= top) {
+          current = id;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [currentRoute, navItems]);
+
+  // Handle escape key and scroll lock for mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        setLangMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
+  // Auto-close mobile drawer when window resizes to desktop breakpoint (>= 1024px)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    setActiveSection(id);
+    if (currentRoute !== 'home') {
+      onNavigate('home');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const yOffset = -80;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--color-nav-bg)] border-b border-[var(--border-subtle)] transition-colors duration-300">
@@ -55,6 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
           href="#home"
           onClick={(e) => {
             e.preventDefault();
+            setMobileMenuOpen(false);
             onNavigate('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
@@ -75,55 +216,40 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </a>
 
-        {/* Center Nav Links (Visible only on Desktop) */}
+        {/* Center Nav Links (Desktop ScrollSpy Navigation) */}
         <nav className="hidden lg:flex items-center gap-1 bg-[var(--bg-surface)] p-1.5 rounded-full border border-[var(--border-subtle)] shadow-inner">
-          <a
-            href="#sobre"
-            onClick={(e) => handleNavClick(e, '#sobre')}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[var(--color-text-main)] hover:bg-[var(--bg-card)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200"
-          >
-            {t.about}
-          </a>
-          <a
-            href="#stack"
-            onClick={(e) => handleNavClick(e, '#stack')}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[var(--color-text-main)] hover:bg-[var(--bg-card)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200"
-          >
-            {t.stack}
-          </a>
-          <a
-            href="#cases"
-            onClick={(e) => handleNavClick(e, '#cases')}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[var(--color-text-main)] hover:bg-[var(--bg-card)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200"
-          >
-            {t.cases}
-          </a>
-          <a
-            href="#playground"
-            onClick={(e) => handleNavClick(e, '#playground')}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[var(--color-text-main)] hover:bg-[var(--bg-card)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200"
-          >
-            {t.playground}
-          </a>
-          <a
-            href="#contato"
-            onClick={(e) => handleNavClick(e, '#contato')}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[var(--color-text-main)] hover:bg-[var(--bg-card)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200"
-          >
-            {t.contact}
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id && currentRoute === 'home';
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+                className={`px-4 py-1.5 rounded-full text-xs transition-all duration-200 relative ${
+                  isActive
+                    ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-bold shadow-sm'
+                    : 'text-[var(--color-text-main)] hover:bg-[var(--bg-card)]/60 hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] font-medium'
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Right Controls: Back Button, Theme Switcher & Language Selector */}
+        {/* Right Controls: Back Button, Theme Switcher, Language Selector & Mobile Hamburger */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Back to Home Button if on Case Page */}
+          {/* Back to Home Button if on Case/NDA Page */}
           {currentRoute !== 'home' && (
             <button
               onClick={() => onNavigate('home')}
               className="h-10 px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
-              <span>{t.backToHome}</span>
+              <span className="hidden sm:inline">{t.backToHome}</span>
             </button>
           )}
 
@@ -140,10 +266,12 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </button>
 
-          {/* Language Selector Dropdown */}
-          <div className="relative">
+          {/* Language Selector Dropdown (Desktop only) */}
+          <div className="relative hidden lg:block">
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
+              aria-label="Selecionar Idioma"
+              aria-expanded={langMenuOpen}
               className="h-10 px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95"
             >
               <Globe className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
@@ -170,14 +298,133 @@ export const Header: React.FC<HeaderProps> = ({
                       <span>{lang.flag}</span>
                       <span>{lang.label}</span>
                     </span>
-                    {currentLang === lang.code }
                   </button>
                 ))}
               </div>
             )}
           </div>
+
+          {/* Hamburger Menu Toggle Button (Visible on screens < lg) */}
+          <button
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
+            className="lg:hidden h-10 w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] flex items-center justify-center transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Drawer (Menu Mobile com Animação Fluida via Motion) */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="mobile-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 top-20 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              aria-hidden="true"
+            />
+
+            {/* Drawer Content */}
+            <motion.div
+              key="mobile-drawer"
+              id="mobile-navigation-drawer"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu de Navegação Mobile"
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+              className="fixed top-20 left-0 right-0 max-h-[calc(100vh-5rem)] overflow-y-auto bg-[var(--bg-canvas)]/98 backdrop-blur-xl border-b border-[var(--border-subtle)] shadow-2xl z-40 lg:hidden px-6 py-6"
+            >
+              <div className="flex flex-col gap-1 max-w-md mx-auto">
+                <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--color-text-muted)] px-3 mb-2">
+                  {currentLang === 'pt' ? 'Navegação' : currentLang === 'es' ? 'Navegación' : 'Navigation'}
+                </div>
+
+                {navItems.map((item) => {
+                  const isActive = activeSection === item.id && currentRoute === 'home';
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        scrollToSection(item.id);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-200 group ${
+                        isActive
+                          ? 'bg-[var(--bg-surface)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-semibold shadow-sm'
+                          : 'text-[var(--color-text-main)] hover:bg-[var(--bg-surface)]/60 hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] font-medium'
+                      }`}
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors shrink-0 ${
+                          isActive
+                            ? 'bg-[var(--color-forest-ink)] text-white dark:bg-[var(--color-lime-voltage)] dark:text-[var(--color-forest-ink)]'
+                            : 'bg-[var(--bg-surface)] text-[var(--color-text-muted)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)]'
+                        }`}
+                      >
+                        {item.icon}
+                      </div>
+                      <span className="text-sm tracking-tight font-medium">
+                        {item.label}
+                      </span>
+                    </button>
+                  );
+                })}
+
+                {/* Sub-actions and language selector inside drawer */}
+                <div className="mt-5 pt-5 border-t border-[var(--border-subtle)] space-y-4">
+                  {currentRoute !== 'home' && (
+                    <button
+                      onClick={() => {
+                        onNavigate('home');
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full py-3 px-4 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+                    >
+                      <ArrowLeft className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
+                      <span>{t.backToHome}</span>
+                    </button>
+                  )}
+
+                  {/* Language switch bar in drawer */}
+                  <div className="flex items-center justify-between px-2 pt-1">
+                    <span className="text-xs text-[var(--color-text-muted)] font-medium">
+                      {currentLang === 'pt' ? 'Idioma' : currentLang === 'es' ? 'Idioma' : 'Language'}
+                    </span>
+                    <div className="flex items-center gap-1.5 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => onLanguageChange(lang.code)}
+                          className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                            currentLang === lang.code
+                              ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shadow-sm'
+                              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
+                          }`}
+                        >
+                          <span className="mr-1">{lang.flag}</span>
+                          <span className="uppercase">{lang.code}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

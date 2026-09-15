@@ -150,7 +150,7 @@ export const TRANSLATIONS: Record<Language, {
     },
     ndaSection: {
       badge: 'Projetos Confidenciais',
-      text: 'Tem interesse nesses projetos específicos? Envie-me uma mensagem e eu lhe envio a senha para acesso.',
+      text: 'Tem interesse nesses projetos específicos? Me envia uma mensagem para receber a senha de acesso.',
       cta: 'Clique para acessar',
       protectedLabel: 'Acesso protegido por senha',
       confidentialPartners: 'Parceiros Confidenciais',

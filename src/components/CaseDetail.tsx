@@ -2,7 +2,7 @@ import React from 'react';
 import { CASE_STUDIES, PUBLIC_CASES, NDA_CASES, NDA_CASE_SLUGS } from '../data/cases';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
-import { ArrowLeft, ArrowRight, Lock, ShieldCheck, CheckCircle2, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
 import { StatCountUp } from './CountUp';
 
@@ -78,23 +78,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           transition={{ duration: 0.6 }}
           className="max-w-5xl"
         >
-          {/* Badge & Meta */}
+          {/* Meta Info */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider ${
-              isNDA 
-                ? 'bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400' 
-                : 'bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--color-text-muted)]'
-            }`}>
-              {isNDA ? <Lock className="w-3 h-3 text-amber-500" /> : <CheckCircle2 className="w-3 h-3 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />}
-              <span>{isNDA ? t.ndaBadge : t.publicBadge}</span>
-            </div>
-
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">{caseItem.client}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">{caseItem.client}</span>
+            <span className="text-xs text-[var(--color-text-muted)] font-medium">{caseItem.category}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-            <span className="text-xs text-[var(--color-text-muted)]">{caseItem.category}</span>
-            <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-            <span className="text-xs text-[var(--color-text-muted)]">{caseItem.year}</span>
+            <span className="text-xs text-[var(--color-text-muted)] font-medium">{caseItem.year}</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-medium text-[var(--color-text-heading)] tracking-tight leading-[1.02]">
@@ -104,17 +94,6 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           <p className="mt-8 text-xl sm:text-2xl text-[var(--color-text-muted)] leading-relaxed font-normal">
             {caseItem.subtitle[currentLang]}
           </p>
-
-          <div className="flex flex-wrap gap-2 mt-8 pt-8 border-t border-[var(--border-subtle)]">
-            {caseItem.tags.map((tag, idx) => (
-              <span
-                key={idx}
-                className="text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1 bg-[var(--bg-surface)] text-[var(--color-text-muted)] border border-[var(--border-subtle)] rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </motion.div>
       </header>
 
@@ -144,7 +123,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
               <StatCountUp value={caseItem.metricsHighlight[currentLang]} />
             </span>
           </div>
-          <p className="text-sm sm:text-base font-medium text-white/90 max-w-lg leading-relaxed">
+          <p className="text-base font-medium text-white/90 max-w-lg leading-relaxed">
             {caseItem.metricLabel[currentLang]}
           </p>
         </div>
@@ -172,7 +151,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              <p className="text-lg sm:text-xl text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">
+              <p className="text-base text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">
                 {challenge.description}
               </p>
 
@@ -183,7 +162,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
                     <span className="text-xs font-semibold tracking-widest text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] block">
                       0{idx + 1}
                     </span>
-                    <p className="text-sm text-[var(--color-text-main)] font-normal leading-relaxed">
+                    <p className="text-base text-[var(--color-text-main)] font-normal leading-relaxed">
                       {point}
                     </p>
                   </div>
@@ -230,7 +209,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              <p className="text-lg sm:text-xl text-[var(--color-text-muted)] leading-relaxed">
+              <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
                 {solution.description}
               </p>
 
@@ -241,7 +220,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
                     <h3 className="text-base font-medium text-[var(--color-text-heading)]">
                       {h.title}
                     </h3>
-                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                    <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
                       {h.desc}
                     </p>
                   </div>
@@ -332,7 +311,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
                       <h3 className="text-lg font-medium text-[var(--color-text-heading)] mb-2">
                         {topic.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed">
+                      <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
                         {topic.description}
                       </p>
                     </div>

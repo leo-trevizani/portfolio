@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SKILLS_LIST } from '../data/skills';
 import { SkillItem, Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
@@ -12,6 +12,27 @@ interface StackSectionProps {
 export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
   const [selectedSkill, setSelectedSkill] = useState<SkillItem | null>(null);
   const t = TRANSLATIONS[currentLang].stackSection;
+
+  // Keyboard accessibility (Escape key to close) and body scroll lock
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedSkill(null);
+      }
+    };
+
+    if (selectedSkill) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedSkill]);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -73,7 +94,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                   {skill.name[currentLang]}
                 </h3>
 
-                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
                   {skill.description[currentLang]}
                 </p>
               </div>
@@ -97,24 +118,35 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setSelectedSkill(null)}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/90 backdrop-blur-md"
+            role="presentation"
           >
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="skill-modal-title"
+              tabIndex={-1}
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 12 }}
+              transition={{ type: "spring", stiffness: 280, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-8 sm:p-12 max-w-2xl w-full relative shadow-2xl rounded-none"
+              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-8 sm:p-12 max-w-2xl w-full relative shadow-2xl rounded-none focus:outline-none"
             >
-              <button
-                onClick={() => setSelectedSkill(null)}
-                aria-label={t.closeModal}
-                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="absolute top-6 right-6 flex items-center gap-2">
+                <span className="hidden sm:inline-block text-[10px] font-semibold text-[var(--color-text-muted)] border border-[var(--border-subtle)] px-2 py-0.5 rounded bg-[var(--bg-surface)]">
+                  ESC
+                </span>
+                <button
+                  onClick={() => setSelectedSkill(null)}
+                  aria-label={t.closeModal}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] transition-colors focus:ring-2 focus:ring-[var(--color-forest-ink)] dark:focus:ring-[var(--color-lime-voltage)] focus:outline-none"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
               <div className="flex items-center gap-6 mb-8">
                 <div className="w-16 h-16 flex items-center justify-center bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0">
@@ -124,7 +156,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                   <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--color-text-muted)] mb-1 block">
                     {selectedSkill.level[currentLang]}
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+                  <h3 id="skill-modal-title" className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
                     {selectedSkill.name[currentLang]}
                   </h3>
                 </div>
@@ -139,7 +171,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                   {t.modalApplicationTitle}
                 </div>
                 {selectedSkill.practicalApplications[currentLang]?.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                  <div key={idx} className="flex items-start gap-3 text-base text-[var(--color-text-muted)] leading-relaxed">
                     <CheckCircle2 className="w-5 h-5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>

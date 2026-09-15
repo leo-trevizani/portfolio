@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PlaygroundItem, Language } from '../types';
 import { X, Sparkles, Layers, Tag, ExternalLink } from 'lucide-react';
 
@@ -9,6 +9,22 @@ interface PlaygroundModalProps {
 }
 
 export const PlaygroundModal: React.FC<PlaygroundModalProps> = ({ item, currentLang, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col">
@@ -52,7 +68,7 @@ export const PlaygroundModal: React.FC<PlaygroundModalProps> = ({ item, currentL
             {item.title[currentLang]}
           </h3>
 
-          <p className="text-sm sm:text-base text-[var(--color-text-muted)] leading-relaxed">
+          <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
             {item.details[currentLang]}
           </p>
 
