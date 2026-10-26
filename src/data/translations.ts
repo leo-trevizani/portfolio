@@ -170,7 +170,7 @@ export const TRANSLATIONS: Record<Language, {
       copied: 'Copiado!',
       errorWrongPassword: 'Senha incorreta. Entre em contato para receber sua chave de acesso.',
       unlockedSuccess: 'Acesso concedido! Visualizando projetos confidenciais.',
-      passwordHint: 'Dica para teste rápido: use a chave "design2026" ou solicite diretamente por e-mail.',
+      passwordHint: 'Dica para teste rápido: use a chave "dsgn-amigo-92" ou solicite diretamente por e-mail.',
       backToHome: 'Voltar para a Home',
       projectsHeading: 'Projetos Confidenciais Sob Sigilo',
       placeholderNote: 'Área reservada para projetos sob NDA com placeholders estruturados para substituição com o conteúdo final.'
@@ -252,7 +252,7 @@ export const TRANSLATIONS: Record<Language, {
     },
     ndaSection: {
       badge: 'Confidential Work',
-      text: 'Interested in those specific projects? Send me a message and I\'ll send you the password to access.',
+      text: 'Interested in these specific projects? Send me a message to receive the access password.',
       cta: 'Click to access',
       protectedLabel: 'Password protected access',
       confidentialPartners: 'Confidential Partners',
@@ -272,7 +272,7 @@ export const TRANSLATIONS: Record<Language, {
       copied: 'Copied!',
       errorWrongPassword: 'Incorrect password. Please reach out to receive your access key.',
       unlockedSuccess: 'Access granted! Displaying confidential projects.',
-      passwordHint: 'Quick demo hint: use the key "design2026" or request directly via email.',
+      passwordHint: 'Demo hint: use key "dsgn-amigo-92" or request directly via email.',
       backToHome: 'Back to Home',
       projectsHeading: 'Selected Confidential Case Studies',
       placeholderNote: 'NDA protected project container. Content placeholders ready to be substituted with final assets.'
@@ -308,12 +308,12 @@ export const TRANSLATIONS: Record<Language, {
   },
   es: {
     nav: {
-      about: 'Sobre',
+      about: 'Sobre mí',
       stack: 'Stack',
       cases: 'Casos',
       playground: 'Playground',
       contact: 'Contacto',
-      backToHome: 'Voltar al Inicio',
+      backToHome: 'Volver al Inicio',
       downloadCV: 'Descargar CV'
     },
     hero: {
@@ -334,12 +334,12 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Stack y Herramientas Esenciales',
       subtitle: 'Conjunto de habilidades técnicas e estratégicas consolidadas en el liderazgo de productos complejos.',
       filterAll: 'Todas las Habilidades',
-      clickPrompt: 'Haga clic para saber más',
+      clickPrompt: 'Haz clic para saber más',
       modalApplicationTitle: 'Aplicación Práctica en Casos',
       closeModal: 'Cerrar modal'
     },
     casesSection: {
-      badge: 'Projetos de Alto Impacto',
+      badge: 'Proyectos de Alto Impacto',
       title: 'Casos de Éxito Destacados',
       subtitle: 'Métricas reales y transformaciones de negocios lideradas a través del diseño centrado en el usuario.',
       viewFullCase: 'Ver Caso Completo',
@@ -348,14 +348,14 @@ export const TRANSLATIONS: Record<Language, {
     },
     playgroundSection: {
       badge: 'Arte y Experimentos',
-      title: 'Playground Visual y Estúdio UI',
+      title: 'Playground Visual y Estudio UI',
       subtitle: 'Una muestra del cuidado por los detalles visuales, microinteracciones y exploración estética.',
       inspectDetail: 'Inspeccionar Detalles'
     },
     ndaSection: {
       badge: 'Proyectos Confidenciales',
-      text: '¿Tiene interés en esos proyectos específicos? Envíeme un mensaje y le enviaré la contraseña para acceder.',
-      cta: 'Haga clic para acceder',
+      text: '¿Tienes interés en estos proyectos específicos? Envíame un mensaje para recibir la contraseña de acceso.',
+      cta: 'Haz clic para acceder',
       protectedLabel: 'Acceso protegido por contraseña',
       confidentialPartners: 'Socios Confidenciales',
       view: 'Ver Proyectos'
@@ -365,7 +365,7 @@ export const TRANSLATIONS: Record<Language, {
       title: 'Proyectos Protegidos por NDA',
       subtitle: 'Debido a estrictos acuerdos de confidencialidad y propiedad intelectual, varias iniciativas estratégicas corporativas requieren contraseña para su visualización.',
       disclaimer: 'El acceso completo a entregables y métricas reservadas se otorga individualmente previa solicitud.',
-      passwordPlaceholder: 'Ingrese la contraseña de acceso...',
+      passwordPlaceholder: 'Ingresa la contraseña de acceso...',
       unlockButton: 'Desbloquear Proyectos',
       requestAccess: 'Solicitar clave por correo',
       requestSubject: 'Solicitud de Acceso a Proyectos NDA - Leo Trevizani',
@@ -374,7 +374,7 @@ export const TRANSLATIONS: Record<Language, {
       copied: '¡Copiado!',
       errorWrongPassword: 'Contraseña incorrecta. Contáctame para recibir tu clave de acceso.',
       unlockedSuccess: '¡Acceso concedido! Visualizando proyectos confidenciales.',
-      passwordHint: 'Pista de prueba: use la clave "design2026" o solicítela directamente por correo.',
+      passwordHint: 'Clave de prueba: "dsgn-amigo-92" o solicítala directamente por correo.',
       backToHome: 'Volver al Inicio',
       projectsHeading: 'Proyectos Confidenciales Seleccionados',
       placeholderNote: 'Contenedor de proyectos protegidos por NDA con placeholders estructurados para sustituir con el contenido final.'

@@ -11,8 +11,22 @@ import { CaseDetail } from './components/CaseDetail';
 import { NDAPage } from './components/NDAPage';
 
 export default function App() {
-  // Language state (default PT as per prompt)
-  const [currentLang, setCurrentLang] = useState<Language>('pt');
+  // Language state (persisted in localStorage, default 'pt')
+  const [currentLang, setCurrentLang] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('portfolio_lang') as Language;
+      if (savedLang === 'pt' || savedLang === 'en' || savedLang === 'es') {
+        return savedLang;
+      }
+    }
+    return 'pt';
+  });
+
+  // Sync Language with document element & localStorage
+  useEffect(() => {
+    document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : currentLang;
+    localStorage.setItem('portfolio_lang', currentLang);
+  }, [currentLang]);
 
   // Dark Mode state (default Light Mode)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {

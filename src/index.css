@@ -118,3 +118,47 @@ h1, h2, h3, h4, .font-display {
   border-color: var(--border-color);
 }
 
+/* Card Fan Carousel (21st.dev / GSAP Fan Effect) */
+.fan-layout {
+  position: relative;
+  height: 38rem;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .fan-layout { height: 34rem; }
+}
+@media (max-width: 768px) {
+  .fan-layout { height: 28rem; }
+}
+@media (max-width: 640px) {
+  .fan-layout { height: 26rem; }
+}
+@media (max-width: 480px) {
+  .fan-layout { height: 22rem; }
+}
+
+.fan-card {
+  position: absolute;
+  width: 17rem;
+  height: 25.5rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.18);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+  cursor: pointer;
+  user-select: none;
+}
+@media (max-width: 1024px) {
+  .fan-card { width: 14rem; height: 21rem; }
+}
+@media (max-width: 768px) {
+  .fan-card { width: 11rem; height: 16.5rem; }
+}
+@media (max-width: 640px) {
+  .fan-card { width: 9rem; height: 13.5rem; }
+}
+@media (max-width: 480px) {
+  .fan-card { width: 7.5rem; height: 11.25rem; }
+}
+

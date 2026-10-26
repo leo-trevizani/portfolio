@@ -1,38 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SKILLS_LIST } from '../data/skills';
 import { SkillItem, Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
-import { Figma, Layers, Sparkles, Code, Workflow, Box, Users, Globe, GraduationCap, Info, X, CheckCircle2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { 
+  Figma, 
+  Layers, 
+  Sparkles, 
+  Code, 
+  Workflow, 
+  Box, 
+  Users, 
+  Globe, 
+  GraduationCap, 
+  CheckCircle2 
+} from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface StackSectionProps {
   currentLang: Language;
 }
 
 export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
-  const [selectedSkill, setSelectedSkill] = useState<SkillItem | null>(null);
   const t = TRANSLATIONS[currentLang].stackSection;
 
-  // Keyboard accessibility (Escape key to close) and body scroll lock
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelectedSkill(null);
-      }
-    };
-
-    if (selectedSkill) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
+  const categoryLabels: Record<string, Record<Language, string>> = {
+    design: {
+      pt: 'Design & Sistemas',
+      en: 'Design & Systems',
+      es: 'Diseño y Sistemas'
+    },
+    dev: {
+      pt: 'Front-end & Código',
+      en: 'Front-end & Code',
+      es: 'Front-end y Código'
+    },
+    management: {
+      pt: 'DesignOps & Liderança',
+      en: 'DesignOps & Leadership',
+      es: 'DesignOps y Liderazgo'
+    },
+    education: {
+      pt: 'Educação & Comunidade',
+      en: 'Education & Community',
+      es: 'Educación y Comunidad'
     }
+  };
 
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedSkill]);
+  const UI_TEXT = {
+    practicalHighlights: {
+      pt: 'Destaques e Aplicações Reais',
+      en: 'Highlights & Real-world Impact',
+      es: 'Aspectos Destacados e Impacto Real'
+    }
+  };
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -49,6 +69,9 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
     }
   };
 
+  const totalCards = SKILLS_LIST.length;
+  const totalPadded = String(totalCards).padStart(2, '0');
+
   return (
     <section id="stack" className="py-24 bg-[var(--bg-canvas)] transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +79,8 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 pb-8 border-b border-[var(--border-subtle)]">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] mb-4">
+            <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] mb-4">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-lime-voltage)]"></span>
               {t.badge}
             </div>
             <h2 className="text-4xl sm:text-5xl font-medium text-[var(--color-text-heading)] tracking-tight">
@@ -68,119 +92,100 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
           </p>
         </div>
 
-        {/* Minimal Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-subtle)] border border-[var(--border-subtle)]">
-          {SKILLS_LIST.map((skill, idx) => (
-            <motion.div
-              key={skill.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              onClick={() => setSelectedSkill(skill)}
-              className="group cursor-pointer bg-[var(--bg-canvas)] p-8 flex flex-col justify-between hover:bg-[var(--bg-surface)] transition-colors duration-300"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <div className="text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] group-hover:scale-110 transition-transform duration-500">
-                    {getIcon(skill.iconName)}
+        {/* STICKY CARD REVEAL STACK (Exact Overlap on Scroll) */}
+        <div className="relative pb-24">
+          {SKILLS_LIST.map((skill: SkillItem, idx: number) => {
+            const cardIndexPadded = String(idx + 1).padStart(2, '0');
+
+            return (
+              <div
+                key={skill.id}
+                className="sticky top-24 sm:top-28 transition-all duration-300 mb-16 sm:mb-20 last:mb-0"
+                style={{
+                  zIndex: 10 + idx,
+                }}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden transition-colors duration-300"
+                >
+                  {/* Top Status & Tab Header Strip */}
+                  <div className="px-6 py-3.5 sm:px-8 bg-[var(--bg-surface)]/90 backdrop-blur-md border-b border-[var(--border-subtle)] flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs font-bold text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-wider">
+                        {cardIndexPadded} / {totalPadded}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-text-muted)]"></span>
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                        {categoryLabels[skill.category]?.[currentLang] || skill.category}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--color-text-muted)]">
+                        {skill.level[currentLang]}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-text-muted)]">
-                    {skill.level[currentLang]}
-                  </span>
-                </div>
 
-                <h3 className="text-2xl font-medium text-[var(--color-text-heading)] mb-3 group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
-                  {skill.name[currentLang]}
-                </h3>
+                  {/* Main Card Content */}
+                  <div className="p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    {/* Left: Skill Identity & Description */}
+                    <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
+                      <div>
+                        <div className="flex items-center gap-4 mb-5">
+                          <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0">
+                            {getIcon(skill.iconName)}
+                          </div>
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+                              {skill.name[currentLang]}
+                            </h3>
+                            <p className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">
+                              {skill.level[currentLang]}
+                            </p>
+                          </div>
+                        </div>
 
-                <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-                  {skill.description[currentLang]}
-                </p>
+                        <p className="text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed font-normal">
+                          {skill.description[currentLang]}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right: Practical Application Highlights */}
+                    <div className="lg:col-span-5 bg-[var(--bg-surface)]/70 border border-[var(--border-subtle)] rounded-xl p-5 sm:p-6 space-y-3.5">
+                      <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
+                        <span className="text-[11px] font-bold text-[var(--color-text-heading)] uppercase tracking-wider flex items-center gap-2">
+                          <Sparkles className="w-3.5 h-3.5 text-[var(--color-lime-voltage)]" />
+                          {UI_TEXT.practicalHighlights[currentLang]}
+                        </span>
+                      </div>
+
+                      <div className="space-y-3 pt-1">
+                        {skill.practicalApplications[currentLang]?.map((item, bulletIdx) => (
+                          <div key={bulletIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed">
+                            <CheckCircle2 className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+                </motion.div>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-xs font-semibold tracking-wide uppercase text-[var(--color-text-heading)]">
-                  {t.clickPrompt}
-                </span>
-                <Info className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
-              </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
-
-      {/* Detail Modal */}
-      <AnimatePresence>
-        {selectedSkill && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => setSelectedSkill(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/90 backdrop-blur-md"
-            role="presentation"
-          >
-            <motion.div 
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="skill-modal-title"
-              tabIndex={-1}
-              initial={{ opacity: 0, scale: 0.95, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 12 }}
-              transition={{ type: "spring", stiffness: 280, damping: 24 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-8 sm:p-12 max-w-2xl w-full relative shadow-2xl rounded-none focus:outline-none"
-            >
-              <div className="absolute top-6 right-6 flex items-center gap-2">
-                <span className="hidden sm:inline-block text-[10px] font-semibold text-[var(--color-text-muted)] border border-[var(--border-subtle)] px-2 py-0.5 rounded bg-[var(--bg-surface)]">
-                  ESC
-                </span>
-                <button
-                  onClick={() => setSelectedSkill(null)}
-                  aria-label={t.closeModal}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] transition-colors focus:ring-2 focus:ring-[var(--color-forest-ink)] dark:focus:ring-[var(--color-lime-voltage)] focus:outline-none"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-16 h-16 flex items-center justify-center bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0">
-                  {getIcon(selectedSkill.iconName)}
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--color-text-muted)] mb-1 block">
-                    {selectedSkill.level[currentLang]}
-                  </span>
-                  <h3 id="skill-modal-title" className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
-                    {selectedSkill.name[currentLang]}
-                  </h3>
-                </div>
-              </div>
-
-              <p className="text-base text-[var(--color-text-muted)] leading-relaxed mb-10 max-w-xl">
-                {selectedSkill.description[currentLang]}
-              </p>
-
-              <div className="border-t border-[var(--border-subtle)] pt-8 space-y-4">
-                <div className="text-[11px] font-bold text-[var(--color-text-heading)] uppercase tracking-[0.15em]">
-                  {t.modalApplicationTitle}
-                </div>
-                {selectedSkill.practicalApplications[currentLang]?.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-base text-[var(--color-text-muted)] leading-relaxed">
-                    <CheckCircle2 className="w-5 h-5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
+
+

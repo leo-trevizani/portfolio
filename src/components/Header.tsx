@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { 
   Sun, 
   Moon, 
-  Globe, 
-  ChevronDown, 
   ArrowLeft, 
   Menu, 
   X, 
@@ -11,7 +9,9 @@ import {
   Layers, 
   Briefcase, 
   FlaskConical, 
-  Mail 
+  Mail,
+  ChevronDown,
+  Check
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
@@ -34,9 +34,10 @@ export const Header: React.FC<HeaderProps> = ({
   currentRoute,
   onNavigate,
 }) => {
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('sobre');
+  const langMenuRef = useRef<HTMLDivElement>(null);
 
   const t = TRANSLATIONS[currentLang].nav;
 
@@ -45,6 +46,10 @@ export const Header: React.FC<HeaderProps> = ({
     { code: 'en', label: 'English', flag: '🇺🇸' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
   ];
+
+  const currentLanguageObj = useMemo(() => {
+    return languages.find((l) => l.code === currentLang) || languages[0];
+  }, [currentLang]);
 
   const navItems = useMemo(() => [
     {
@@ -137,7 +142,6 @@ export const Header: React.FC<HeaderProps> = ({
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
-        setLangMenuOpen(false);
       }
     };
 
@@ -164,6 +168,31 @@ export const Header: React.FC<HeaderProps> = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Close language dropdown on outside click or escape key
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setLangMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLangMenuOpen(false);
+      }
+    };
+
+    if (langMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [langMenuOpen]);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
@@ -246,18 +275,86 @@ export const Header: React.FC<HeaderProps> = ({
           {currentRoute !== 'home' && (
             <button
               onClick={() => onNavigate('home')}
-              className="h-10 px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95"
+              className="h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
               <span className="hidden sm:inline">{t.backToHome}</span>
             </button>
           )}
 
+          {/* Language Selector Dropdown (Visual clássico compacto com popover) */}
+          <div className="relative shrink-0" ref={langMenuRef}>
+            <button
+              onClick={() => setLangMenuOpen((prev) => !prev)}
+              aria-label={`Idioma atual: ${currentLanguageObj.label}. Clique para alterar.`}
+              aria-expanded={langMenuOpen}
+              aria-haspopup="listbox"
+              className="h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
+            >
+              <span className="text-sm leading-none" role="img" aria-hidden="true">
+                {currentLanguageObj.flag}
+              </span>
+              <span className="uppercase tracking-wider font-bold text-[11px] sm:text-xs">
+                {currentLanguageObj.code}
+              </span>
+              <ChevronDown 
+                className={`w-3.5 h-3.5 text-[var(--color-text-muted)] transition-transform duration-200 ${
+                  langMenuOpen ? 'rotate-180 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]' : ''
+                }`} 
+              />
+            </button>
+
+            {/* Dropdown Popover */}
+            <AnimatePresence>
+              {langMenuOpen && (
+                <motion.div
+                  role="listbox"
+                  aria-label="Selecionar idioma"
+                  initial={{ opacity: 0, y: -6, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.96 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  className="absolute right-0 top-full mt-2 w-44 p-1.5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl z-50 focus:outline-none"
+                >
+                  {languages.map((lang) => {
+                    const isActive = currentLang === lang.code;
+                    return (
+                      <button
+                        key={lang.code}
+                        role="option"
+                        aria-selected={isActive}
+                        onClick={() => {
+                          onLanguageChange(lang.code);
+                          setLangMenuOpen(false);
+                        }}
+                        className={`w-full px-3 py-2 rounded-xl text-left text-xs font-medium flex items-center justify-between transition-colors cursor-pointer ${
+                          isActive
+                            ? 'bg-[var(--bg-surface)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-bold'
+                            : 'text-[var(--color-text-main)] hover:bg-[var(--bg-surface)]/70 hover:text-[var(--color-text-heading)]'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-base leading-none" role="img" aria-hidden="true">
+                            {lang.flag}
+                          </span>
+                          <span>{lang.label}</span>
+                        </div>
+                        {isActive && (
+                          <Check className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           {/* Theme Switcher Button */}
           <button
             onClick={onToggleDarkMode}
             aria-label="Toggle Theme"
-            className="h-10 w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0"
+            className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
           >
             {isDarkMode ? (
               <Sun className="w-4 h-4 text-[var(--color-lime-voltage)]" />
@@ -266,51 +363,13 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </button>
 
-          {/* Language Selector Dropdown (Desktop only) */}
-          <div className="relative hidden lg:block">
-            <button
-              onClick={() => setLangMenuOpen(!langMenuOpen)}
-              aria-label="Selecionar Idioma"
-              aria-expanded={langMenuOpen}
-              className="h-10 px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95"
-            >
-              <Globe className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
-              <span className="uppercase tracking-wider">{currentLang}</span>
-              <ChevronDown className={`w-3 h-3 transition-transform ${langMenuOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {langMenuOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--border-color)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => {
-                      onLanguageChange(lang.code);
-                      setLangMenuOpen(false);
-                    }}
-                    className={`w-full px-4 py-2 text-left text-xs font-semibold flex items-center justify-between hover:bg-[var(--bg-surface)] transition-colors ${
-                      currentLang === lang.code
-                        ? 'text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-bold bg-[var(--bg-surface)]'
-                        : 'text-[var(--color-text-main)]'
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span>{lang.flag}</span>
-                      <span>{lang.label}</span>
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
           {/* Hamburger Menu Toggle Button (Visible on screens < lg) */}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation-drawer"
-            className="lg:hidden h-10 w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] flex items-center justify-center transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0"
+            className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] flex items-center justify-center transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -406,14 +465,17 @@ export const Header: React.FC<HeaderProps> = ({
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
-                          onClick={() => onLanguageChange(lang.code)}
-                          className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          onClick={() => {
+                            onLanguageChange(lang.code);
+                            setMobileMenuOpen(false);
+                          }}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                             currentLang === lang.code
                               ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shadow-sm'
                               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
                           }`}
                         >
-                          <span className="mr-1">{lang.flag}</span>
+                          <span>{lang.flag}</span>
                           <span className="uppercase">{lang.code}</span>
                         </button>
                       ))}
