@@ -113,6 +113,8 @@ export const PlaygroundSection: React.FC<PlaygroundSectionProps> = ({ currentLan
                   src={item.image}
                   alt={item.title[currentLang]}
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Floating Tags */}
@@ -120,7 +122,7 @@ export const PlaygroundSection: React.FC<PlaygroundSectionProps> = ({ currentLan
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-black/60 backdrop-blur-md text-white/90 border border-white/10 shadow-sm"
+                      className="px-2.5 py-1 text-xs font-semibold rounded-full bg-black/60 backdrop-blur-md text-white/90 border border-white/10 shadow-sm"
                     >
                       {tag}
                     </span>

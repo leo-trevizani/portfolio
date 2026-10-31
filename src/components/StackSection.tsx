@@ -79,15 +79,15 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 pb-8 border-b border-[var(--border-subtle)]">
           <div>
-            <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] mb-4">
+            <div className="type-label inline-flex items-center gap-2 text-[var(--color-text-muted)] mb-4">
               <span className="w-2 h-2 rounded-full bg-[var(--color-lime-voltage)]"></span>
               {t.badge}
             </div>
-            <h2 className="text-4xl sm:text-5xl font-medium text-[var(--color-text-heading)] tracking-tight">
+            <h2 className="type-h2 text-[var(--color-text-heading)]">
               {t.title}
             </h2>
           </div>
-          <p className="text-base sm:text-lg text-[var(--color-text-muted)] max-w-md font-normal">
+          <p className="type-copy text-[var(--color-text-muted)] max-w-[24rem]">
             {t.subtitle}
           </p>
         </div>
@@ -115,17 +115,17 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                   {/* Top Status & Tab Header Strip */}
                   <div className="px-6 py-3.5 sm:px-8 bg-[var(--bg-surface)]/90 backdrop-blur-md border-b border-[var(--border-subtle)] flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-wider">
+                      <span className="type-num text-xs font-medium tracking-normal text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
                         {cardIndexPadded} / {totalPadded}
                       </span>
                       <span className="w-1 h-1 rounded-full bg-[var(--color-text-muted)]"></span>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                      <span className="type-label text-[var(--color-text-muted)]">
                         {categoryLabels[skill.category]?.[currentLang] || skill.category}
                       </span>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--color-text-muted)]">
+                      <span className="type-label px-2.5 py-0.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--color-text-muted)]">
                         {skill.level[currentLang]}
                       </span>
                     </div>
@@ -142,16 +142,16 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                             {getIcon(skill.iconName)}
                           </div>
                           <div>
-                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+                            <h3 className="type-h3 text-[var(--color-text-heading)]">
                               {skill.name[currentLang]}
                             </h3>
-                            <p className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">
+                            <p className="type-label text-[var(--color-text-muted)] mt-1">
                               {skill.level[currentLang]}
                             </p>
                           </div>
                         </div>
 
-                        <p className="text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed font-normal">
+                        <p className="type-body text-[var(--color-text-muted)]">
                           {skill.description[currentLang]}
                         </p>
                       </div>
@@ -160,7 +160,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
                     {/* Right: Practical Application Highlights */}
                     <div className="lg:col-span-5 bg-[var(--bg-surface)]/70 border border-[var(--border-subtle)] rounded-xl p-5 sm:p-6 space-y-3.5">
                       <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
-                        <span className="text-[11px] font-bold text-[var(--color-text-heading)] uppercase tracking-wider flex items-center gap-2">
+                        <span className="type-label text-[var(--color-text-heading)] flex items-center gap-2">
                           <Sparkles className="w-3.5 h-3.5 text-[var(--color-lime-voltage)]" />
                           {UI_TEXT.practicalHighlights[currentLang]}
                         </span>
@@ -168,8 +168,8 @@ export const StackSection: React.FC<StackSectionProps> = ({ currentLang }) => {
 
                       <div className="space-y-3 pt-1">
                         {skill.practicalApplications[currentLang]?.map((item, bulletIdx) => (
-                          <div key={bulletIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
+                          <div key={bulletIdx} className="flex items-start gap-2.5 type-copy text-[var(--color-text-muted)]">
+                            <CheckCircle2 className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-1" />
                             <span>{item}</span>
                           </div>
                         ))}

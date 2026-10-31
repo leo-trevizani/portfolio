@@ -236,10 +236,10 @@ export const Header: React.FC<HeaderProps> = ({
             className="w-10 h-10 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm shrink-0"
           />
           <div className="flex flex-col">
-            <span className="font-bold text-base tracking-tight text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors font-sans">
+            <span className="text-base font-semibold tracking-[-0.01em] text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors font-sans">
               Leo Trevizani
             </span>
-            <span className="text-xs text-[var(--color-text-muted)] font-medium -mt-1 hidden sm:inline-block">
+            <span className="text-xs text-[var(--color-text-muted)] font-medium -mt-0.5 hidden sm:inline-block">
               Full Stack Design Engineer
             </span>
           </div>
@@ -257,9 +257,9 @@ export const Header: React.FC<HeaderProps> = ({
                   e.preventDefault();
                   scrollToSection(item.id);
                 }}
-                className={`px-4 py-1.5 rounded-full text-xs transition-all duration-200 relative ${
+                className={`tap px-3.5 py-1.5 rounded-full text-sm transition-all duration-200 relative ${
                   isActive
-                    ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-bold shadow-sm'
+                    ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-semibold shadow-sm'
                     : 'text-[var(--color-text-main)] hover:bg-[var(--bg-card)]/60 hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] font-medium'
                 }`}
               >
@@ -275,7 +275,7 @@ export const Header: React.FC<HeaderProps> = ({
           {currentRoute !== 'home' && (
             <button
               onClick={() => onNavigate('home')}
-              className="h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="tap h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-sm font-semibold flex items-center gap-2 transition-all shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
               <span className="hidden sm:inline">{t.backToHome}</span>
@@ -289,12 +289,12 @@ export const Header: React.FC<HeaderProps> = ({
               aria-label={`Idioma atual: ${currentLanguageObj.label}. Clique para alterar.`}
               aria-expanded={langMenuOpen}
               aria-haspopup="listbox"
-              className="h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="tap h-9 sm:h-10 px-3 sm:px-3.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] text-xs font-semibold flex items-center gap-1.5 sm:gap-2 transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span className="text-sm leading-none" role="img" aria-hidden="true">
                 {currentLanguageObj.flag}
               </span>
-              <span className="uppercase tracking-wider font-bold text-[11px] sm:text-xs">
+              <span className="uppercase tracking-[0.04em] font-medium text-xs">
                 {currentLanguageObj.code}
               </span>
               <ChevronDown 
@@ -327,9 +327,9 @@ export const Header: React.FC<HeaderProps> = ({
                           onLanguageChange(lang.code);
                           setLangMenuOpen(false);
                         }}
-                        className={`w-full px-3 py-2 rounded-xl text-left text-xs font-medium flex items-center justify-between transition-colors cursor-pointer ${
+                        className={`w-full px-3 py-2.5 rounded-xl text-left text-sm font-medium flex items-center justify-between transition-colors cursor-pointer ${
                           isActive
-                            ? 'bg-[var(--bg-surface)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-bold'
+                            ? 'bg-[var(--bg-surface)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] font-semibold'
                             : 'text-[var(--color-text-main)] hover:bg-[var(--bg-surface)]/70 hover:text-[var(--color-text-heading)]'
                         }`}
                       >
@@ -354,7 +354,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={onToggleDarkMode}
             aria-label="Toggle Theme"
-            className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
+            className="tap h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
           >
             {isDarkMode ? (
               <Sun className="w-4 h-4 text-[var(--color-lime-voltage)]" />
@@ -369,7 +369,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation-drawer"
-            className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] flex items-center justify-center transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
+            className="tap lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] flex items-center justify-center transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-sm shrink-0 cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -406,7 +406,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="fixed top-20 left-0 right-0 max-h-[calc(100vh-5rem)] overflow-y-auto bg-[var(--bg-canvas)]/98 backdrop-blur-xl border-b border-[var(--border-subtle)] shadow-2xl z-40 lg:hidden px-6 py-6"
             >
               <div className="flex flex-col gap-1 max-w-md mx-auto">
-                <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--color-text-muted)] px-3 mb-2">
+                <div className="type-label text-[var(--color-text-muted)] px-3 mb-2">
                   {currentLang === 'pt' ? 'Navegação' : currentLang === 'es' ? 'Navegación' : 'Navigation'}
                 </div>
 
@@ -434,7 +434,7 @@ export const Header: React.FC<HeaderProps> = ({
                       >
                         {item.icon}
                       </div>
-                      <span className="text-sm tracking-tight font-medium">
+                      <span className="text-base tracking-[-0.01em] font-medium">
                         {item.label}
                       </span>
                     </button>
@@ -449,7 +449,7 @@ export const Header: React.FC<HeaderProps> = ({
                         onNavigate('home');
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full py-3 px-4 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+                      className="w-full py-3 px-4 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--color-text-main)] font-semibold text-sm flex items-center justify-center gap-2 transition-all"
                     >
                       <ArrowLeft className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
                       <span>{t.backToHome}</span>
@@ -458,7 +458,7 @@ export const Header: React.FC<HeaderProps> = ({
 
                   {/* Language switch bar in drawer */}
                   <div className="flex items-center justify-between px-2 pt-1">
-                    <span className="text-xs text-[var(--color-text-muted)] font-medium">
+                    <span className="text-sm text-[var(--color-text-muted)] font-medium">
                       {currentLang === 'pt' ? 'Idioma' : currentLang === 'es' ? 'Idioma' : 'Language'}
                     </span>
                     <div className="flex items-center gap-1.5 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
@@ -469,7 +469,7 @@ export const Header: React.FC<HeaderProps> = ({
                             onLanguageChange(lang.code);
                             setMobileMenuOpen(false);
                           }}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                             currentLang === lang.code
                               ? 'bg-[var(--bg-card)] text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shadow-sm'
                               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'

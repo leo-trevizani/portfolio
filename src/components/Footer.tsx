@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, Linkedin, ArrowUp } from 'lucide-react';
+import { Copy, Check, Linkedin, ArrowUp, Github } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -11,6 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   const [copied, setCopied] = useState(false);
   const t = TRANSLATIONS[currentLang].footerSection;
   const email = 'leonardort92@gmail.com';
+  const currentYear = new Date().getFullYear();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -25,17 +26,17 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   };
 
   return (
-    <footer id="contato" className="bg-[var(--color-vibrant-green)] text-white pt-24 pb-16 transition-colors duration-300 relative overflow-hidden">
+    <footer id="contato" className="bg-[var(--color-vibrant-green)] text-[var(--color-dark-green)] pt-24 pb-16 transition-colors duration-300 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Main CTA Section */}
         <div className="mb-24 max-w-4xl">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-8">
+          <h2 className="type-display text-[var(--color-dark-green)] mb-8">
             {t.title}
           </h2>
 
-          <p className="text-lg sm:text-xl text-white/90 max-w-xl leading-relaxed mb-12 font-medium">
+          <p className="type-lead text-[var(--color-dark-green)] max-w-xl mb-12">
             {t.subtitle}
           </p>
 
@@ -43,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={handleCopyEmail}
-              className="px-8 py-4 rounded-full bg-[var(--color-dark-green)] text-white font-medium text-sm tracking-wide transition-transform duration-300 flex items-center gap-3 hover:scale-105 active:scale-95 shadow-md hover:bg-[var(--color-pure-black)]"
+              className="px-8 py-4 rounded-full bg-[var(--color-dark-green)] text-white font-medium text-sm transition-transform duration-300 flex items-center gap-3 hover:scale-105 active:scale-95 shadow-md hover:bg-[var(--color-pure-black)]"
             >
               {copied ? (
                 <>
@@ -62,29 +63,41 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
               href="https://linkedin.com/in/leotrevizani"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/30 hover:bg-white/10 text-white text-sm font-medium transition-colors flex items-center gap-2"
+              className="px-8 py-4 rounded-full border border-[var(--color-dark-green)]/40 hover:bg-[var(--color-dark-green)]/10 text-[var(--color-dark-green)] text-sm font-medium transition-colors flex items-center gap-2"
             >
-              <Linkedin className="w-4 h-4 text-white" />
-              <span>LinkedIn</span>
+              <Linkedin className="w-4 h-4" />
+              <span>{t.linkedinLabel}</span>
+            </a>
+
+            <a
+              href="https://github.com/leo-trevizani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border border-[var(--color-dark-green)]/40 hover:bg-[var(--color-dark-green)]/10 text-[var(--color-dark-green)] text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              <Github className="w-4 h-4" />
+              <span>{t.githubLabel}</span>
             </a>
           </div>
 
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="pt-8 border-t border-white/20 flex items-center justify-between gap-4 text-xs text-white/90 font-medium">
+        <div className="pt-8 border-t border-[var(--color-dark-green)]/25 flex items-center justify-between gap-4 text-[var(--color-dark-green)]">
           <div className="flex items-center gap-3">
             <img
               src={`${import.meta.env.BASE_URL}icon-branco.svg`}
               alt="Leo Trevizani Logo"
-              className="w-7 h-7 object-contain shrink-0"
+              loading="lazy"
+              decoding="async"
+              className="w-7 h-7 object-contain shrink-0 brightness-0"
             />
-            <span>{t.rights}</span>
+            <span className="type-small">{t.rights.replace('{year}', currentYear)}</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full border border-white/30 hover:border-white hover:bg-white/10 text-white transition-colors"
+            className="tap p-3 rounded-full border border-[var(--color-dark-green)]/40 hover:border-[var(--color-dark-green)] hover:bg-[var(--color-dark-green)]/10 text-[var(--color-dark-green)] transition-colors"
             aria-label="Voltar ao topo"
           >
             <ArrowUp className="w-4 h-4" />

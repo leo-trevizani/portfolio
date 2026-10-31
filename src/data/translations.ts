@@ -60,6 +60,7 @@ export const TRANSLATIONS: Record<Language, {
     subtitle: string;
     disclaimer: string;
     passwordPlaceholder: string;
+    passwordLabel: string;
     unlockButton: string;
     requestAccess: string;
     requestSubject: string;
@@ -162,6 +163,7 @@ export const TRANSLATIONS: Record<Language, {
       subtitle: 'Devido a acordos de confidencialidade e cláusulas de propriedade intelectual, alguns dos meus projetos estratégicos para grandes organizações requerem senha de acesso.',
       disclaimer: 'O acesso completo aos entregáveis e métricas restritas é concedido individualmente mediante solicitação.',
       passwordPlaceholder: 'Digite a senha de acesso...',
+      passwordLabel: 'Senha de acesso',
       unlockButton: 'Desbloquear Projetos',
       requestAccess: 'Solicitar senha por e-mail',
       requestSubject: 'Solicitação de Acesso aos Projetos NDA - Leo Trevizani',
@@ -183,7 +185,7 @@ export const TRANSLATIONS: Record<Language, {
       emailLabel: 'leonardort92@gmail.com',
       linkedinLabel: 'Perfil LinkedIn',
       githubLabel: 'Repositório GitHub',
-      rights: '© 2026 Leo Trevizani. Todos os direitos reservados. Projetado com precisão e acessibilidade.'
+      rights: '© {year} Leo Trevizani. Todos os direitos reservados. Projetado com precisão e acessibilidade.'
     },
     caseDetail: {
       impactHighlight: 'Destaque de Impacto',
@@ -264,6 +266,7 @@ export const TRANSLATIONS: Record<Language, {
       subtitle: 'Due to strict confidentiality agreements and proprietary intellectual property, selected strategic initiatives and enterprise platforms require password authentication.',
       disclaimer: 'Access is granted individually to recruiters, prospective clients, and engineering leaders upon request.',
       passwordPlaceholder: 'Enter access password...',
+      passwordLabel: 'Access password',
       unlockButton: 'Unlock Projects',
       requestAccess: 'Request password via email',
       requestSubject: 'Access Request for NDA Projects - Leo Trevizani',
@@ -285,7 +288,7 @@ export const TRANSLATIONS: Record<Language, {
       emailLabel: 'leonardort92@gmail.com',
       linkedinLabel: 'LinkedIn Profile',
       githubLabel: 'GitHub Repo',
-      rights: '© 2026 Leo Trevizani. All rights reserved. Crafted with precision and accessibility.'
+      rights: '© {year} Leo Trevizani. All rights reserved. Crafted with precision and accessibility.'
     },
     caseDetail: {
       impactHighlight: 'Impact Highlight',
@@ -366,6 +369,7 @@ export const TRANSLATIONS: Record<Language, {
       subtitle: 'Debido a estrictos acuerdos de confidencialidad y propiedad intelectual, varias iniciativas estratégicas corporativas requieren contraseña para su visualización.',
       disclaimer: 'El acceso completo a entregables y métricas reservadas se otorga individualmente previa solicitud.',
       passwordPlaceholder: 'Ingresa la contraseña de acceso...',
+      passwordLabel: 'Contraseña de acceso',
       unlockButton: 'Desbloquear Proyectos',
       requestAccess: 'Solicitar clave por correo',
       requestSubject: 'Solicitud de Acceso a Proyectos NDA - Leo Trevizani',
@@ -387,7 +391,7 @@ export const TRANSLATIONS: Record<Language, {
       emailLabel: 'leonardort92@gmail.com',
       linkedinLabel: 'Perfil de LinkedIn',
       githubLabel: 'Repositorio GitHub',
-      rights: '© 2026 Leo Trevizani. Todos los derechos reservados. Diseñado con precisión y accesibilidad.'
+      rights: '© {year} Leo Trevizani. Todos los derechos reservados. Diseñado con precisión y accesibilidad.'
     },
     caseDetail: {
       impactHighlight: 'Destaque de Impacto',

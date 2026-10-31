@@ -85,7 +85,7 @@ export const NDAPage: React.FC<NDAPageProps> = ({
         <div className="mb-8">
           <button
             onClick={onNavigateHome}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.backToHome}</span>
@@ -97,23 +97,23 @@ export const NDAPage: React.FC<NDAPageProps> = ({
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-3xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] w-fit mb-5">
-                <Lock className="w-3.5 h-3.5 text-amber-500" />
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] w-fit mb-6">
+                <Lock className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
+                <span className="type-label text-[var(--color-text-muted)]">
                   {t.badge}
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text-heading)] mb-6">
+              <h1 className="type-h1 text-[var(--color-text-heading)] mb-6">
                 {t.title}
               </h1>
 
-              <p className="text-lg sm:text-xl text-[var(--color-text-muted)] leading-relaxed mb-4">
+              <p className="type-lead text-[var(--color-text-muted)] measure-lead mb-5">
                 {t.subtitle}
               </p>
 
-              <p className="text-sm text-[var(--color-text-muted)] flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0" />
+              <p className="type-small text-[var(--color-text-muted)] flex items-start gap-2">
+                <ShieldCheck className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shrink-0 mt-0.5" />
                 <span>{t.disclaimer}</span>
               </p>
             </div>
@@ -122,7 +122,7 @@ export const NDAPage: React.FC<NDAPageProps> = ({
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href={`mailto:leonardort92@gmail.com?subject=${encodeURIComponent(t.requestSubject)}&body=${encodeURIComponent(t.requestBody)}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-color)] text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all shadow-sm"
               >
                 <Mail className="w-4 h-4 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
                 <span>{t.requestAccess}</span>
@@ -130,12 +130,12 @@ export const NDAPage: React.FC<NDAPageProps> = ({
 
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-all shadow-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-color)] text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-all shadow-sm cursor-pointer"
                 title={t.copyEmail}
               >
                 {copiedEmail ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-500" />
+                    <Check className="w-4 h-4 text-[var(--color-vibrant-green)]" />
                     <span>{t.copied}</span>
                   </>
                 ) : (
@@ -151,20 +151,20 @@ export const NDAPage: React.FC<NDAPageProps> = ({
 
         {/* Password Authentication Gate Card */}
         <div id="nda-gate" className="mb-16">
-          <div className="bg-[var(--bg-surface)] rounded-3xl border border-[var(--border-subtle)] p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+          <div className="bg-[var(--bg-surface)] rounded-2xl border border-[var(--border-subtle)] p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] shadow-sm">
-                    {isUnlocked ? <Unlock className="w-5 h-5 text-emerald-500" /> : <KeyRound className="w-5 h-5" />}
+                    {isUnlocked ? <Unlock className="w-5 h-5 text-[var(--color-vibrant-green)]" /> : <KeyRound className="w-5 h-5" />}
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-[var(--color-text-heading)]">
+                    <h2 className="type-h4 text-[var(--color-text-heading)]">
                       {isUnlocked ? t.unlockedSuccess : (currentLang === 'pt' ? 'Desbloqueio com Senha de Acesso' : currentLang === 'es' ? 'Desbloqueo con Contraseña' : 'Password Authentication Gate')}
                     </h2>
-                    <p className="text-xs text-[var(--color-text-muted)]">
+                    <p className="type-small text-[var(--color-text-muted)] mt-1 max-w-xl">
                       {isUnlocked
                         ? (currentLang === 'pt' ? 'Acesso concedido aos cases confidenciais. Clique em qualquer projeto para abrir o case completo.' : currentLang === 'es' ? 'Acceso concedido a los casos confidenciales. Haga clic en cualquier proyecto para abrirlo.' : 'Access granted to confidential cases. Click on any project to view the full case study.')
                         : (currentLang === 'pt' ? 'Insira a chave fornecida por Leo Trevizani para desbloquear a documentação completa dos 4 cases.' : currentLang === 'es' ? 'Ingrese la clave provista por Leo Trevizani para desbloquear la documentación completa de los 4 casos.' : 'Enter the access key provided by Leo Trevizani to unlock full documentation for all 4 cases.')}
@@ -175,7 +175,14 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                 {!isUnlocked ? (
                   <form onSubmit={handleUnlock} className="mt-6 flex flex-col sm:flex-row items-stretch gap-3">
                     <div className="relative flex-1">
+                      <label
+                        htmlFor="nda-password"
+                        className="sr-only"
+                      >
+                        {t.passwordLabel}
+                      </label>
                       <input
+                        id="nda-password"
                         type="password"
                         value={passwordInput}
                         onChange={(e) => {
@@ -183,27 +190,27 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                           if (errorMessage) setErrorMessage('');
                         }}
                         placeholder={t.passwordPlaceholder}
-                        className="w-full h-12 px-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] text-sm text-[var(--color-text-heading)] placeholder:text-[var(--color-text-muted)]/70 focus:outline-none focus:border-[var(--color-forest-ink)] dark:focus:border-[var(--color-lime-voltage)] transition-colors shadow-inner"
+                        className="w-full h-12 px-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] text-sm text-[var(--color-text-heading)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-forest-ink)] dark:focus:border-[var(--color-lime-voltage)] transition-colors shadow-inner"
                       />
                     </div>
                     <button
                       type="submit"
-                      className="h-12 px-6 rounded-2xl bg-[var(--color-vibrant-green)] text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 shadow-sm cursor-pointer shrink-0"
+                      className="h-12 px-6 rounded-2xl bg-[var(--color-vibrant-green)] text-[var(--color-dark-green)] font-medium text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 shadow-sm cursor-pointer shrink-0"
                     >
                       <Unlock className="w-4 h-4" />
                       <span>{t.unlockButton}</span>
                     </button>
                   </form>
                 ) : (
-                  <div className="mt-4 flex items-center gap-3 p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-sm font-medium">
-                    <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  <div className="mt-4 flex items-center gap-3 p-3.5 rounded-2xl bg-[var(--color-vibrant-green)]/10 border border-[var(--border-color)] text-[var(--color-dark-green)] dark:text-[var(--color-text-main)] text-sm font-medium">
+                    <CheckCircle2 className="w-5 h-5 shrink-0 text-[var(--color-vibrant-green)] dark:text-[var(--color-lime-voltage)]" />
                     <span>{t.unlockedSuccess}</span>
                     <button
                       onClick={() => {
                         setIsUnlocked(false);
                         setPasswordInput('');
                       }}
-                      className="ml-auto text-xs underline font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] cursor-pointer"
+                      className="ml-auto text-sm underline font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] cursor-pointer"
                     >
                       {currentLang === 'pt' ? 'Bloquear novamente' : currentLang === 'es' ? 'Bloquear de nuevo' : 'Lock again'}
                     </button>
@@ -211,7 +218,7 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                 )}
 
                 {errorMessage && (
-                  <div className="mt-3 flex items-center gap-2 text-rose-500 text-xs font-medium animate-in fade-in">
+                  <div className="mt-3 flex items-center gap-2 text-[var(--color-text-heading)] dark:text-[var(--color-text-main)] text-sm font-medium animate-in fade-in">
                     <AlertCircle className="w-4 h-4 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
@@ -225,16 +232,18 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                     src={ndaLogosImage}
                     alt="Confidential NDA Projects Logos"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale-[0.2]"
                   />
                   <div className="absolute inset-0 bg-white/85 dark:bg-black/80 backdrop-blur-[3px] flex flex-col items-center justify-center p-6 text-center transition-colors">
                     <div className="w-12 h-12 rounded-full bg-black/5 dark:bg-white/15 backdrop-blur-md border border-black/10 dark:border-white/20 flex items-center justify-center mb-2 shadow-sm">
-                      {isUnlocked ? <Unlock className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Lock className="w-6 h-6 text-amber-600 dark:text-amber-400" />}
+                      {isUnlocked ? <Unlock className="w-6 h-6 text-[var(--color-vibrant-green)] dark:text-[var(--color-lime-voltage)]" /> : <Lock className="w-6 h-6 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />}
                     </div>
-                    <span className="text-sm font-bold tracking-wide uppercase text-neutral-900 dark:text-white">
+                    <span className="type-label text-[var(--color-text-heading)] dark:text-[var(--color-text-main)]">
                       {isUnlocked ? 'Verified Access Granted' : 'Confidential Work Safe'}
                     </span>
-                    <span className="text-xs text-neutral-700 dark:text-neutral-200 font-semibold mt-1.5 max-w-xs">
+                    <span className="type-small text-[var(--color-text-muted)] dark:text-[var(--color-text-muted)] font-semibold mt-1.5 max-w-xs">
                       Hilton • Renault • AB InBev • Nissan
                     </span>
                   </div>
@@ -249,18 +258,18 @@ export const NDAPage: React.FC<NDAPageProps> = ({
         {/* Projects Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-12 pb-4 border-b border-[var(--border-subtle)] gap-4">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)]">
+            <h2 className="type-h2 text-[var(--color-text-heading)]">
               {t.projectsHeading}
             </h2>
-            <p className="text-sm text-[var(--color-text-muted)] mt-1">
+            <p className="type-small text-[var(--color-text-muted)] mt-2 max-w-2xl">
               {isUnlocked
                 ? (currentLang === 'pt' ? 'Clique em qualquer projeto abaixo para navegar até o case study completo.' : currentLang === 'es' ? 'Haga clic en cualquier proyecto a continuación para ver el caso completo.' : 'Click on any project below to navigate to the complete case study.')
                 : (currentLang === 'pt' ? 'Projetos protegidos por confidencialidade institucional.' : currentLang === 'es' ? 'Proyectos protegidos por confidencialidad institucional.' : 'Projects protected by enterprise confidentiality agreements.')}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-text-muted)]">
+          <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--color-text-muted)]">
             <Layers className="w-3.5 h-3.5 text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]" />
-            <span>4 {currentLang === 'pt' ? 'Cases Protegidos' : currentLang === 'es' ? 'Casos Protegidos' : 'Protected Cases'}</span>
+            <span className="type-label">4 {currentLang === 'pt' ? 'Cases Protegidos' : currentLang === 'es' ? 'Casos Protegidos' : 'Protected Cases'}</span>
           </div>
         </div>
 
@@ -283,6 +292,8 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                     src={caseItem.coverImage}
                     alt={caseItem.client}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className={`w-full h-full object-cover object-center transform transition-all duration-700 ${
                       isUnlocked
                         ? 'grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105'
@@ -308,28 +319,28 @@ export const NDAPage: React.FC<NDAPageProps> = ({
                 {/* Card Content */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
+                    <span className="type-label text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
                       {caseItem.client}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-                    <span className="text-xs text-[var(--color-text-muted)] truncate max-w-[200px]">
+                    <span className="text-sm text-[var(--color-text-muted)] truncate max-w-[200px]">
                       {caseItem.metricsHighlight[currentLang]}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors leading-tight">
+                  <h3 className="type-h3 text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                     {caseItem.title[currentLang]}
                   </h3>
                 </div>
               </div>
               
               <div className="mt-8 flex items-center justify-between border-t border-[var(--border-subtle)] pt-4">
-                <span className="text-sm font-medium text-[var(--color-text-muted)] group-hover:text-[var(--color-text-heading)] transition-colors flex items-center gap-2">
+                <span className="text-sm font-semibold text-[var(--color-text-muted)] group-hover:text-[var(--color-text-heading)] transition-colors flex items-center gap-2">
                   {isUnlocked ? (
                     <span>{casesT.viewFullCase}</span>
                   ) : (
                     <>
-                      <Lock className="w-3.5 h-3.5 text-amber-500" />
+                      <Lock className="w-3.5 h-3.5 text-[var(--color-forest-ink)]" />
                       <span>{currentLang === 'pt' ? 'Desbloquear para ver case' : currentLang === 'es' ? 'Desbloquear para ver caso' : 'Unlock to view case'}</span>
                     </>
                   )}

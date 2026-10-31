@@ -1,8 +1,85 @@
 @import "tailwindcss";
 
+/* Self-hosted variable font: one family, two subsets, no third-party request
+   in the critical path. Files live next to the source so Vite fingerprints
+   and rebases them with the rest of the build. */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./assets/fonts/instrument-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./assets/fonts/instrument-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* The theme toggle writes a `.dark` class on <html>; make Tailwind's dark:
+   utilities follow that class instead of the OS preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* DESIGN.md commits the brand to one family: Instrument Sans. */
+  --font-sans: 'Instrument Sans', 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Instrument Sans', 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Sans', 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
+
+  /* DESIGN.md type scale (size / line-height / tracking) */
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.6;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.6;
+  --text-body-sm: 1rem;
+  --text-body-sm--line-height: 1.6;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.6;
+  --text-subheading: 1.5rem;
+  --text-subheading--line-height: 1.5;
+  --text-heading-sm: 2rem;
+  --text-heading-sm--line-height: 1.3;
+  --text-heading: 3rem;
+  --text-heading--line-height: 1.2;
+  --text-display: 4rem;
+  --text-display--line-height: 1.2;
+  --text-display-lg: 5rem;
+  --text-display-lg--line-height: 1.1;
+
+  /* Tailwind aliases — same scale, so utilities inherit the brand rhythm */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.6;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.5;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 1.3;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.2;
+  --text-6xl: 4rem;
+  --text-6xl--line-height: 1.1;
+  --text-7xl: 5rem;
+  --text-7xl--line-height: 1.1;
 }
 
 @layer base {
@@ -35,11 +112,30 @@
     --border-subtle: #D6EEDD;
     --color-text-main: #282D29;
     --color-text-heading: #0D0D0D;
-    --color-text-muted: #808080;
+    /* 5.5:1 on canvas, 5.0:1 on surface — clears AA for body copy */
+    --color-text-muted: #5C6B60;
     --color-nav-bg: rgba(245, 255, 248, 0.85);
 
+    /* Typography — DESIGN.md scale. Fixed sizes; fluid only where the step must adapt. */
+    --type-display: clamp(2.5rem, 1.1rem + 6.4vw, 5rem);        /* display-lg: 40 → 80 */
+    --type-h1: clamp(2.25rem, 1.2rem + 4.6vw, 4rem);            /* display: 36 → 64 */
+    --type-h2: clamp(1.875rem, 1.35rem + 2.1vw, 3rem);          /* heading: 30 → 48 */
+    --type-h3: clamp(1.375rem, 1.15rem + 1.05vw, 2rem);         /* heading-sm: 22 → 32 */
+    --type-h4: clamp(1.125rem, 1.05rem + 0.35vw, 1.5rem);       /* subheading: 18 → 24 */
+    --type-statement: clamp(1.5rem, 1.05rem + 1.7vw, 2.5rem);   /* 24 → 40 */
+    --type-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);     /* 18 → 20 */
+    --type-body: 1.125rem;                                      /* body: 18 */
+    --type-small: 0.875rem;                                     /* caption: 14 */
+    --type-label: 0.75rem;                                      /* micro: 12 */
+
+    --tracking-display: -0.02em;
+    --tracking-h1: -0.015em;
+    --tracking-h2: -0.01em;
+    --tracking-h3: -0.01em;
+    --tracking-label: 0em;
+
     /* Typography, Radii & Spacing */
-    --font-instrument-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-instrument-sans: 'Instrument Sans', 'Inter', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
     --radius-cards: 16px;
     --radius-inputs: 12px;
     --radius-buttons: 9999px;
@@ -67,23 +163,172 @@
     --color-lime-voltage: #34A853;
 
     /* Shadows */
-    --shadow-elevated: 0px 8px 24px rgba(32, 41, 35, 0.4);
+    --shadow-elevated: 0px 8px 32px rgba(32, 41, 35, 0.4);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--type-body);
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    font-kerning: normal;
+    font-optical-sizing: auto;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    background-color: var(--bg-canvas);
+    color: var(--color-text-main);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-h2);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button, input, textarea, select {
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  strong, b {
+    font-weight: 600;
   }
 }
 
-*, ::before, ::after {
-  font-family: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+/* Semantic type roles — the only place hierarchy is defined */
+@layer components {
+  .type-display {
+    font-family: var(--font-display);
+    font-size: var(--type-display);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-display);
+    text-wrap: balance;
+  }
 
-body {
-  font-family: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-canvas);
-  color: var(--color-text-main);
-}
+  .type-h1 {
+    font-family: var(--font-display);
+    font-size: var(--type-h1);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-h1);
+    text-wrap: balance;
+  }
 
-h1, h2, h3, h4, .font-display {
-  font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.01em;
+  .type-h2 {
+    font-family: var(--font-display);
+    font-size: var(--type-h2);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-h2);
+    text-wrap: balance;
+  }
+
+  .type-h3 {
+    font-family: var(--font-display);
+    font-size: var(--type-h3);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: var(--tracking-h3);
+    text-wrap: balance;
+  }
+
+  .type-h4 {
+    font-family: var(--font-display);
+    font-size: var(--type-h4);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .type-statement {
+    font-family: var(--font-sans);
+    font-size: var(--type-statement);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .type-lead {
+    font-family: var(--font-sans);
+    font-size: var(--type-lead);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+  }
+
+  .type-body {
+    font-family: var(--font-sans);
+    font-size: var(--type-body);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+    max-width: 56ch;
+  }
+
+  .type-copy {
+    font-family: var(--font-sans);
+    font-size: var(--type-body);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+    max-width: 56ch;
+  }
+
+  .type-small {
+    font-family: var(--font-sans);
+    font-size: var(--type-small);
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+
+  .type-label {
+    font-family: var(--font-sans);
+    font-size: var(--type-label);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: var(--tracking-label);
+  }
+
+  .type-quote {
+    font-family: var(--font-sans);
+    font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .type-num {
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+
+  /* Long words, URLs and CJK strings wrap instead of forcing the layout wider. */
+  .type-display, .type-h1, .type-h2, .type-h3, .type-h4,
+  .type-statement, .type-lead, .type-body, .type-copy,
+  .type-quote, .type-small, .type-label {
+    overflow-wrap: break-word;
+  }
 }
 
 /* Custom scrollbar */
@@ -94,7 +339,7 @@ h1, h2, h3, h4, .font-display {
   background: var(--bg-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D6EEDD;
+  background: var(--border-color);
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
@@ -118,47 +363,88 @@ h1, h2, h3, h4, .font-display {
   border-color: var(--border-color);
 }
 
-/* Card Fan Carousel (21st.dev / GSAP Fan Effect) */
-.fan-layout {
-  position: relative;
-  height: 38rem;
-  width: 100%;
-}
-@media (max-width: 1024px) {
-  .fan-layout { height: 34rem; }
-}
-@media (max-width: 768px) {
-  .fan-layout { height: 28rem; }
-}
-@media (max-width: 640px) {
-  .fan-layout { height: 26rem; }
-}
-@media (max-width: 480px) {
-  .fan-layout { height: 22rem; }
+/* Reading measure for long-form case studies */
+.measure {
+  max-width: 58ch;
 }
 
-.fan-card {
+.measure-lead {
+  max-width: 46ch;
+}
+
+/* ---------------------------------------------------------------------------
+   Interaction & resilience
+   --------------------------------------------------------------------------- */
+
+/* Interativo e resiliente */
+.sr-only {
   position: absolute;
-  width: 17rem;
-  height: 25.5rem;
-  border-radius: 1.25rem;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.18);
-  transform-origin: center bottom;
-  will-change: transform, opacity;
-  cursor: pointer;
-  user-select: none;
-}
-@media (max-width: 1024px) {
-  .fan-card { width: 14rem; height: 21rem; }
-}
-@media (max-width: 768px) {
-  .fan-card { width: 11rem; height: 16.5rem; }
-}
-@media (max-width: 640px) {
-  .fan-card { width: 9rem; height: 13.5rem; }
-}
-@media (max-width: 480px) {
-  .fan-card { width: 7.5rem; height: 11.25rem; }
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
+/* Keyboard focus stays visible everywhere. Never suppress it without a
+   replacement that is at least as visible. */
+:focus-visible {
+  outline: 2px solid var(--color-forest-ink);
+  outline-offset: 3px;
+}
+
+.dark :focus-visible {
+  outline-color: var(--color-lime-voltage);
+}
+
+/* Skip straight to the content instead of tabbing through the whole nav. */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -120%);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 12px 12px;
+  background: var(--color-dark-green);
+  color: var(--color-absolute-white);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 150ms ease-out;
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+/* Comfortable touch targets on coarse pointers. Desktop keeps its density. */
+@media (pointer: coarse) {
+  .tap {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Motion sensitivity: collapse animation, keep the end state. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Decorative loops stop entirely instead of flashing their first frame. */
+  .motion-loop {
+    animation: none !important;
+  }
+}

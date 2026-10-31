@@ -3,7 +3,9 @@ import { ArrowDownRight, Mail } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { motion } from 'motion/react';
+import StickerPeel from './StickerPeel';
 import profilePhoto from '../assets/images/profile_photo_1786018872374.png';
+
 
 interface HeroProps {
   currentLang: Language;
@@ -50,13 +52,13 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
           <div className="lg:col-span-8 flex flex-col items-start space-y-10">
             
             <motion.div variants={itemVariants}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-[var(--color-text-heading)] leading-[1.05]">
+              <h1 className="type-display text-[var(--color-text-heading)]">
                 {t.title}
               </h1>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <p className="text-lg sm:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-xl font-normal">
+              <p className="type-lead text-[var(--color-text-muted)] max-w-[36rem]">
                 {t.subtitle}
               </p>
             </motion.div>
@@ -64,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 onClick={onNavigateToCases}
-                className="px-8 py-4 rounded-full bg-[var(--color-vibrant-green)] text-white font-medium text-sm transition-transform duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 group shadow-sm"
+                className="px-8 py-4 rounded-full bg-[var(--color-vibrant-green)] text-[var(--color-dark-green)] text-sm font-medium transition-transform duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 group shadow-sm"
               >
                 <span>{t.viewCases}</span>
                 <ArrowDownRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -72,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
 
               <button
                 onClick={onNavigateToContact}
-                className="px-8 py-4 rounded-full bg-transparent border border-[var(--color-dark-green)] dark:border-[var(--border-color)] text-[var(--color-dark-green)] dark:text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] font-medium text-sm transition-colors duration-300 flex items-center gap-3"
+                className="px-8 py-4 rounded-full bg-transparent border border-[var(--color-dark-green)] dark:border-[var(--border-color)] text-[var(--color-dark-green)] dark:text-[var(--color-text-main)] hover:bg-[var(--bg-surface)] text-sm font-medium transition-colors duration-300 flex items-center gap-3"
               >
                 <Mail className="w-4 h-4 text-[var(--color-dark-green)] dark:text-[var(--color-vibrant-green)]" />
                 <span>{t.getInTouch}</span>
@@ -90,6 +92,9 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
               />
+              <StickerPeel imageSrc="/src/assets/images/sticker1.png" width={130} finish="gloss" draggable initialPosition={{ x: -50, y: -40 }} rotate={-12} />
+              <StickerPeel imageSrc="/src/assets/images/sticker2.png" width={110} finish="gloss" draggable initialPosition={{ x: 40, y: 30 }} rotate={8} />
+              <StickerPeel imageSrc="/src/assets/images/sticker3.png" width={100} finish="gloss" draggable initialPosition={{ x: -20, y: 50 }} rotate={-5} />
             </div>
           </motion.div>
 
@@ -103,26 +108,26 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <div>
-            <div className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--color-text-heading)] mb-1">
+            <div className="type-num text-4xl font-semibold tracking-[-0.02em] text-[var(--color-text-heading)] mb-1">
               {t.highlight1Value}
             </div>
-            <div className="text-xs text-[var(--color-text-muted)] font-medium tracking-wide uppercase">
+            <div className="type-label text-[var(--color-text-muted)]">
               {t.highlight1Label}
             </div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--color-text-heading)] mb-1">
+            <div className="type-num text-4xl font-semibold tracking-[-0.02em] text-[var(--color-text-heading)] mb-1">
               {t.highlight2Value}
             </div>
-            <div className="text-xs text-[var(--color-text-muted)] font-medium tracking-wide uppercase">
+            <div className="type-label text-[var(--color-text-muted)]">
               {t.highlight2Label}
             </div>
           </div>
           <div className="col-span-2 md:col-span-1">
-            <div className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--color-text-heading)] mb-1">
+            <div className="type-num text-4xl font-semibold tracking-[-0.02em] text-[var(--color-text-heading)] mb-1">
               {t.highlight3Value}
             </div>
-            <div className="text-xs text-[var(--color-text-muted)] font-medium tracking-wide uppercase">
+            <div className="type-label text-[var(--color-text-muted)]">
               {t.highlight3Label}
             </div>
           </div>

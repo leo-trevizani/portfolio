@@ -44,11 +44,11 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
     }
   };
 
+  // Stats never exceed two columns inside the 8-col narrative track —
+  // three or four across produced ~30-character descriptions.
   const getStatsGridClass = (count: number) => {
     if (count === 1) return 'grid-cols-1';
-    if (count === 2) return 'grid-cols-1 sm:grid-cols-2';
-    if (count === 3) return 'grid-cols-1 sm:grid-cols-3';
-    return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
+    return 'grid-cols-1 sm:grid-cols-2';
   };
 
   const challenge = caseItem.challenge[currentLang];
@@ -63,7 +63,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <button
           onClick={handleBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-forest-ink)] dark:hover:text-[var(--color-lime-voltage)] transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{isNDA ? t.backToNDACases : t.backToPublicCases}</span>
@@ -80,18 +80,18 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         >
           {/* Meta Info */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">{caseItem.client}</span>
+            <span className="type-label text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">{caseItem.client}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-            <span className="text-xs text-[var(--color-text-muted)] font-medium">{caseItem.category}</span>
+            <span className="text-sm text-[var(--color-text-muted)]">{caseItem.category}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-            <span className="text-xs text-[var(--color-text-muted)] font-medium">{caseItem.year}</span>
+            <span className="type-num text-sm text-[var(--color-text-muted)]">{caseItem.year}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-medium text-[var(--color-text-heading)] tracking-tight leading-[1.02]">
+          <h1 className="type-h1 text-[var(--color-text-heading)]">
             {caseItem.title[currentLang]}
           </h1>
 
-          <p className="mt-8 text-xl sm:text-2xl text-[var(--color-text-muted)] leading-relaxed font-normal">
+          <p className="mt-8 type-lead text-[var(--color-text-muted)] measure-lead">
             {caseItem.subtitle[currentLang]}
           </p>
         </motion.div>
@@ -109,21 +109,23 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             src={caseItem.coverImage}
             alt={caseItem.client}
             referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center"
           />
         </motion.div>
         
         {/* Metric Highlight Summary Container */}
-        <div className="mt-6 rounded-2xl p-6 sm:p-8 bg-[var(--color-vibrant-green)] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+        <div className="mt-6 rounded-2xl p-6 sm:p-8 bg-[var(--color-vibrant-green)] text-[var(--color-dark-green)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
           <div>
-            <span className="text-[11px] uppercase font-bold tracking-widest text-white/80 block mb-1">
+            <span className="type-label block mb-2">
               {t.impactHighlight}
             </span>
-            <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white inline-flex items-baseline">
+            <span className="type-num text-4xl sm:text-5xl font-semibold tracking-[-0.02em] inline-flex items-baseline">
               <StatCountUp value={caseItem.metricsHighlight[currentLang]} />
             </span>
           </div>
-          <p className="text-base font-medium text-white/90 max-w-lg leading-relaxed">
+          <p className="text-base font-medium max-w-[34rem] leading-relaxed">
             {caseItem.metricLabel[currentLang]}
           </p>
         </div>
@@ -142,27 +144,30 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
+              <span className="type-label type-num text-[var(--color-text-muted)] block mb-3">
                 01 / {t.challengeTitle}
               </span>
-              <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+              <h2 className="type-h2 text-[var(--color-text-heading)]">
                 {challenge.title}
               </h2>
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              <p className="text-base text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">
+              <p className="type-body text-[var(--color-text-muted)] whitespace-pre-line">
                 {challenge.description}
               </p>
 
-              {/* Numbered key points without nested cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-[var(--border-subtle)]">
+              {/* Numbered key points as a ruled list — readable measure, no nested cards */}
+              <div className="pt-2 border-t border-[var(--border-subtle)]">
                 {challenge.keyPoints.map((point, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <span className="text-xs font-semibold tracking-widest text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] block">
+                  <div
+                    key={idx}
+                    className="grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-4 sm:gap-6 py-5 border-b border-[var(--border-subtle)] last:border-b-0 last:pb-0"
+                  >
+                    <span className="type-label type-num text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] pt-1.5">
                       0{idx + 1}
                     </span>
-                    <p className="text-base text-[var(--color-text-main)] font-normal leading-relaxed">
+                    <p className="type-body text-[var(--color-text-main)]">
                       {point}
                     </p>
                   </div>
@@ -181,10 +186,10 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             transition={{ duration: 0.8 }}
             className="py-16 border-t border-[var(--border-subtle)] my-20 relative"
           >
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <Quote className="w-8 h-8 mx-auto text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] opacity-40" />
-              <p className="text-2xl sm:text-4xl font-medium italic text-[var(--color-text-heading)] leading-snug tracking-tight">
-                "{caseItem.pullQuote[currentLang]}"
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <Quote className="w-7 h-7 mx-auto text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] opacity-40" />
+              <p className="type-quote text-[var(--color-text-heading)]">
+                &ldquo;{caseItem.pullQuote[currentLang]}&rdquo;
               </p>
             </div>
           </motion.blockquote>
@@ -200,29 +205,37 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
+              <span className="type-label type-num text-[var(--color-text-muted)] block mb-3">
                 02 / {t.solutionTitle}
               </span>
-              <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+              <h2 className="type-h2 text-[var(--color-text-heading)]">
                 {solution.title}
               </h2>
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
+              <p className="type-body text-[var(--color-text-muted)]">
                 {solution.description}
               </p>
 
-              {/* Minimal highlights grid without outer/inner card boundaries */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-[var(--border-subtle)]">
+              {/* Numbered highlights as ruled rows — same reading measure as the challenge */}
+              <div className="pt-2 border-t border-[var(--border-subtle)]">
                 {solution.highlights.map((h, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <h3 className="text-base font-medium text-[var(--color-text-heading)]">
-                      {h.title}
-                    </h3>
-                    <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-                      {h.desc}
-                    </p>
+                  <div
+                    key={idx}
+                    className="grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-4 sm:gap-6 py-5 border-b border-[var(--border-subtle)] last:border-b-0 last:pb-0"
+                  >
+                    <span className="type-label type-num text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] pt-1.5">
+                      0{idx + 1}
+                    </span>
+                    <div className="space-y-1.5">
+                      <h3 className="type-h4 text-[var(--color-text-heading)]">
+                        {h.title}
+                      </h3>
+                      <p className="type-body text-[var(--color-text-muted)]">
+                        {h.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -240,33 +253,33 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
+              <span className="type-label type-num text-[var(--color-text-muted)] block mb-3">
                 03 / {t.resultsTitle}
               </span>
-              <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+              <h2 className="type-h2 text-[var(--color-text-heading)]">
                 {results.title}
               </h2>
             </div>
 
             <div className="lg:col-span-8 space-y-12">
-              {/* Sleek stat counters without rounded cards - dynamically spans all columns */}
-              <div className={`grid ${getStatsGridClass(results.stats.length)} gap-8 w-full`}>
+              {/* Sleek stat counters without rounded cards - max two columns for a readable measure */}
+              <div className={`grid ${getStatsGridClass(results.stats.length)} gap-x-10 gap-y-10 w-full`}>
                 {results.stats.map((stat, idx) => (
-                  <div key={idx} className="space-y-1">
-                    <div className="text-4xl sm:text-5xl font-medium text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-tight inline-flex items-baseline">
+                  <div key={idx} className="space-y-2 border-t border-[var(--border-subtle)] pt-5">
+                    <div className="type-num text-4xl sm:text-5xl font-semibold text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)] tracking-[-0.02em] inline-flex items-baseline">
                       <StatCountUp value={stat.value} delay={idx * 0.1} />
                     </div>
-                    <div className="text-sm font-semibold text-[var(--color-text-heading)] pt-1">
+                    <div className="text-base font-semibold text-[var(--color-text-heading)] leading-snug">
                       {stat.label}
                     </div>
-                    <div className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                    <div className="type-small text-[var(--color-text-muted)]">
                       {stat.desc}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <p className="text-base text-[var(--color-text-muted)] leading-relaxed pt-6 border-t border-[var(--border-subtle)]">
+              <p className="type-body text-[var(--color-text-muted)] pt-6 border-t border-[var(--border-subtle)]">
                 {results.summary}
               </p>
             </div>
@@ -283,13 +296,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] block mb-2">
+              <span className="type-label type-num text-[var(--color-text-muted)] block mb-3">
                 04 / {t.futureVisionTitle}
               </span>
-              <h2 className="text-3xl sm:text-4xl font-medium text-[var(--color-text-heading)] tracking-tight">
+              <h2 className="type-h2 text-[var(--color-text-heading)]">
                 {futureVision.title}
               </h2>
-              <p className="text-sm text-[var(--color-text-muted)] mt-2">
+              <p className="type-small text-[var(--color-text-muted)] mt-3">
                 {futureVision.subtitle}
               </p>
             </div>
@@ -300,18 +313,18 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
                 {futureVision.topics.map((topic) => (
                   <div key={topic.id} className="bg-[var(--bg-canvas)] p-6 flex flex-col justify-between space-y-4">
                     <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
+                      <div className="flex items-center justify-between gap-3 mb-3">
+                        <span className="type-label text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
                           {topic.tag}
                         </span>
-                        <span className="text-xs text-[var(--color-text-muted)] font-mono">
+                        <span className="type-num text-xs text-[var(--color-text-muted)]">
                           0{topic.id}
                         </span>
                       </div>
-                      <h3 className="text-lg font-medium text-[var(--color-text-heading)] mb-2">
+                      <h3 className="type-h4 text-[var(--color-text-heading)] mb-2">
                         {topic.title}
                       </h3>
-                      <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
+                      <p className="type-body text-[var(--color-text-muted)]">
                         {topic.description}
                       </p>
                     </div>
@@ -330,10 +343,10 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
           >
             <ArrowLeft className="w-5 h-5 text-[var(--color-text-muted)] group-hover:-translate-x-1 group-hover:text-[var(--color-text-heading)] transition-all" />
             <div>
-              <span className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest block mb-1">
+              <span className="type-label text-[var(--color-text-muted)] block mb-1.5">
                 {t.prevCase}
               </span>
-              <span className="text-xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
+              <span className="type-h4 block text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                 {prevCase.client}
               </span>
             </div>
@@ -344,10 +357,10 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({
             className="group py-6 flex items-center justify-end gap-4 text-right transition-colors"
           >
             <div>
-              <span className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest block mb-1">
+              <span className="type-label text-[var(--color-text-muted)] block mb-1.5">
                 {t.nextCase}
               </span>
-              <span className="text-xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
+              <span className="type-h4 block text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                 {nextCase.client}
               </span>
             </div>

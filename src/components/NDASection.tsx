@@ -23,7 +23,7 @@ export const NDASection: React.FC<NDASectionProps> = ({ currentLang, onNavigateT
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-3xl bg-[var(--color-dark-green)] text-white p-8 sm:p-10 lg:p-14 shadow-lg border border-[var(--color-dark-gray)]"
+          className="relative overflow-hidden rounded-2xl bg-[var(--color-dark-green)] text-white p-8 sm:p-10 lg:p-14 shadow-lg border border-[var(--color-dark-gray)]"
         >
           {/* Subtle brand ambient glow within the card */}
           <div className="absolute top-0 right-1/4 w-80 h-80 bg-[var(--color-vibrant-green)]/10 rounded-full blur-3xl pointer-events-none -z-0" />
@@ -36,13 +36,13 @@ export const NDASection: React.FC<NDASectionProps> = ({ currentLang, onNavigateT
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-dark-gray)] border border-white/10 w-fit mb-6">
                 <Lock className="w-3.5 h-3.5 text-[var(--color-vibrant-green)]" />
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-white/90">
+                <span className="type-label text-white/90">
                   {t.badge}
                 </span>
               </div>
 
               {/* Main Multilingual Prompt Text */}
-              <p className="text-2xl sm:text-3xl lg:text-[1.85rem] font-medium text-white leading-snug tracking-tight mb-8">
+              <p className="type-statement text-white mb-8">
                 {t.text}
               </p>
 
@@ -51,16 +51,16 @@ export const NDASection: React.FC<NDASectionProps> = ({ currentLang, onNavigateT
                 <button
                   id="btn-nda-access"
                   onClick={onNavigateToNDA}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--color-vibrant-green)] text-white font-medium text-sm transition-transform duration-300 hover:scale-105 active:scale-95 shadow-sm group cursor-pointer"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--color-vibrant-green)] text-[var(--color-dark-green)] font-medium text-sm transition-transform duration-300 hover:scale-105 active:scale-95 shadow-sm group cursor-pointer"
                 >
-                  <ShieldCheck className="w-4 h-4 text-white transition-transform group-hover:scale-110" />
+                  <ShieldCheck className="w-4 h-4 transition-transform group-hover:scale-110" />
                   <span>{t.cta}</span>
-                  <ArrowUpRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
 
-                <div className="flex items-center gap-2 text-xs text-white/70 font-medium">
+                <div className="flex items-center gap-2 text-white/70">
                   <span className="w-2 h-2 rounded-full bg-[var(--color-vibrant-green)]" />
-                  <span>{t.protectedLabel}</span>
+                  <span className="type-small">{t.protectedLabel}</span>
                 </div>
               </div>
             </div>
@@ -75,6 +75,8 @@ export const NDASection: React.FC<NDASectionProps> = ({ currentLang, onNavigateT
                   src={ndaLogosImage}
                   alt="Confidential NDA Projects Showcase"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center grayscale-[0.2] group-hover:grayscale-0 transform transition-all duration-700 group-hover:scale-105"
                 />
               </div>

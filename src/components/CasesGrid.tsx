@@ -20,14 +20,14 @@ export const CasesGrid: React.FC<CasesGridProps> = ({ currentLang, onSelectCase 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-[var(--border-subtle)] pb-8">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[var(--color-text-muted)] mb-4">
+            <div className="type-label text-[var(--color-text-muted)] mb-4">
               {t.badge}
             </div>
-            <h2 className="text-4xl sm:text-5xl font-medium text-[var(--color-text-heading)] tracking-tight">
+            <h2 className="type-h2 text-[var(--color-text-heading)]">
               {t.title}
             </h2>
           </div>
-          <p className="text-base sm:text-lg text-[var(--color-text-muted)] max-w-md font-normal">
+          <p className="type-copy text-[var(--color-text-muted)] max-w-[24rem]">
             {t.subtitle}
           </p>
         </div>
@@ -51,6 +51,8 @@ export const CasesGrid: React.FC<CasesGridProps> = ({ currentLang, onSelectCase 
                     src={caseItem.coverImage}
                     alt={caseItem.client}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center grayscale-[0.2] group-hover:grayscale-0 transform transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
@@ -59,23 +61,23 @@ export const CasesGrid: React.FC<CasesGridProps> = ({ currentLang, onSelectCase 
                 {/* Card Content */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
+                    <span className="type-label text-[var(--color-forest-ink)] dark:text-[var(--color-lime-voltage)]">
                       {caseItem.client}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-[var(--border-color)]" />
-                    <span className="text-xs text-[var(--color-text-muted)] truncate max-w-[200px]">
+                    <span className="text-sm text-[var(--color-text-muted)] truncate max-w-[200px]">
                       {caseItem.metricsHighlight[currentLang]}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-medium text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors leading-tight">
+                  <h3 className="type-h3 text-[var(--color-text-heading)] group-hover:text-[var(--color-forest-ink)] dark:group-hover:text-[var(--color-lime-voltage)] transition-colors">
                     {caseItem.title[currentLang]}
                   </h3>
                 </div>
               </div>
               
               <div className="mt-8 flex items-center justify-between border-t border-[var(--border-subtle)] pt-4">
-                <span className="text-sm font-medium text-[var(--color-text-muted)] group-hover:text-[var(--color-text-heading)] transition-colors">
+                <span className="text-sm font-semibold text-[var(--color-text-muted)] group-hover:text-[var(--color-text-heading)] transition-colors">
                   {t.viewFullCase}
                 </span>
                 <ArrowUpRight className="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-text-heading)] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
