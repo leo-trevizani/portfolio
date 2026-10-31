@@ -88,12 +88,12 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
 
           {/* Right Column: Clean Photographic Statement */}
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col justify-center">
-            <div className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-[3/4] rounded-2xl overflow-visible bg-[var(--bg-surface)] border border-[var(--border-color)] mt-4 lg:mt-0">
+            <div className="relative w-full aspect-square rounded-2xl overflow-visible bg-[var(--bg-surface)] border border-[var(--border-color)] mt-4 lg:mt-0">
               <img
                 src={profilePhoto}
                 alt="Leo Trevizani"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
               />
               <StickerPeel imageSrc={sticker1} width={180} finish="gloss" draggable initialPosition={{ x: -50, y: -40 }} rotate={-12} />
               <StickerPeel imageSrc={sticker2} width={180} finish="gloss" draggable initialPosition={{ x: 40, y: 30 }} rotate={8} />
