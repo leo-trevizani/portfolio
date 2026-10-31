@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
 
           {/* Right Column: Clean Photographic Statement */}
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col justify-center">
-            <div className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-color)] mt-4 lg:mt-0">
+            <div className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-[3/4] rounded-2xl overflow-visible bg-[var(--bg-surface)] border border-[var(--border-color)] mt-4 lg:mt-0">
               <img
                 src={profilePhoto}
                 alt="Leo Trevizani"
