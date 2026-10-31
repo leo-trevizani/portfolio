@@ -96,7 +96,7 @@ const StickerPeel = ({
           height: '100%',
           objectFit: 'contain',
           filter: dragging ? 'brightness(1.05)' : 'none',
-          boxShadow: finishShadow,
+          background: 'transparent',
           display: 'block',
         }}
       />
