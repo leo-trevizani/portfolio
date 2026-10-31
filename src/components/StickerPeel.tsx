@@ -30,9 +30,9 @@ const StickerPeel = ({
   useEffect(() => {
     const el = rootRef.current?.parentElement;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
     const start = initialPosition && typeof initialPosition === 'object' ? initialPosition : { x: 0, y: 0 };
-    setPos({ x: rect.width / 2 + (start.x || 0) - width / 2, y: rect.height / 2 + (start.y || 0) - (width * 0.9) / 2 });
+    // Interpret initialPosition as absolute pixel offset when given as object
+    setPos({ x: start.x || 0, y: start.y || 0 });
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {

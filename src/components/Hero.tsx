@@ -95,9 +95,9 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
               />
-              <StickerPeel imageSrc={sticker1} width={180} finish="gloss" draggable initialPosition={{ x: -50, y: -40 }} rotate={-12} />
-              <StickerPeel imageSrc={sticker2} width={180} finish="gloss" draggable initialPosition={{ x: 40, y: 30 }} rotate={8} />
-              <StickerPeel imageSrc={sticker3} width={180} finish="gloss" draggable initialPosition={{ x: -20, y: 50 }} rotate={-5} />
+              <StickerPeel imageSrc={sticker1} width={198} finish="gloss" draggable initialPosition={{ x: -115.971, y: 4.42125 }} rotate={-12} />
+              <StickerPeel imageSrc={sticker2} width={207} finish="gloss" draggable initialPosition={{ x: 257.211, y: -11.0179 }} rotate={8} />
+              <StickerPeel imageSrc={sticker3} width={225} finish="gloss" draggable initialPosition={{ x: -87.2686, y: 184.188 }} rotate={-5} />
             </div>
           </motion.div>
 
