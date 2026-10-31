@@ -3,8 +3,11 @@ import { ArrowDownRight, Mail } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { motion } from 'motion/react';
-import StickerPeel from './StickerPeel';
 import profilePhoto from '../assets/images/profile_photo_1786018872374.png';
+import StickerPeel from './StickerPeel';
+import sticker1 from '../assets/images/sticker1.png';
+import sticker2 from '../assets/images/sticker2.png';
+import sticker3 from '../assets/images/sticker3.png';
 
 
 interface HeroProps {
@@ -92,9 +95,9 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onNavigateToCases, onNa
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
               />
-              <StickerPeel imageSrc="/src/assets/images/sticker1.png" width={130} finish="gloss" draggable initialPosition={{ x: -50, y: -40 }} rotate={-12} />
-              <StickerPeel imageSrc="/src/assets/images/sticker2.png" width={110} finish="gloss" draggable initialPosition={{ x: 40, y: 30 }} rotate={8} />
-              <StickerPeel imageSrc="/src/assets/images/sticker3.png" width={100} finish="gloss" draggable initialPosition={{ x: -20, y: 50 }} rotate={-5} />
+              <StickerPeel imageSrc={sticker1} width={130} finish="gloss" draggable initialPosition={{ x: -50, y: -40 }} rotate={-12} />
+              <StickerPeel imageSrc={sticker2} width={110} finish="gloss" draggable initialPosition={{ x: 40, y: 30 }} rotate={8} />
+              <StickerPeel imageSrc={sticker3} width={100} finish="gloss" draggable initialPosition={{ x: -20, y: 50 }} rotate={-5} />
             </div>
           </motion.div>
 
