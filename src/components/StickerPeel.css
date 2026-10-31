@@ -20,6 +20,8 @@
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   will-change: transform;
+  max-width: 28vw;
+  max-height: 28vw;
 }
 
 .sticker-peel-wrapper.dragging {
